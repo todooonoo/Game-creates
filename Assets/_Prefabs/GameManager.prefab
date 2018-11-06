@@ -2624,7 +2624,7 @@ MonoBehaviour:
   returnTime: 0.2
   sphereCastRadius: 0.4
   visualiseInEditor: 1
-  closestDistance: 0
+  closestDistance: 0.2
   dontClipTag: Player
 --- !u!114 &114061931315077756
 MonoBehaviour:
