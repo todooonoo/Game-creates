@@ -17,7 +17,7 @@ public abstract class GameCamera : PivotBasedCameraRig {
     public static GameCamera Instance { get; protected set; }
 
     public Camera Camera { get; protected set; }
-    public bool Animating { get { return pixelation.enabled; } }
+    public bool Animating { get; private set; }
     public Vector3 LookDirection { get { return transform.forward; } }
 
     [Header("Transition")]
@@ -60,8 +60,9 @@ public abstract class GameCamera : PivotBasedCameraRig {
 
     private IEnumerator<float> _AnimateTransitionIn()
     {
+        Animating = true;
         // pixelation.enabled = true;
-        
+
         // Pixel in
         var t = 0.0f;
         while (t < transitionTime)
@@ -74,11 +75,13 @@ public abstract class GameCamera : PivotBasedCameraRig {
         }
         onTransitionComplete.Invoke();
         onTransitionComplete.RemoveAllListeners();
+        Animating = false;
     }
 
 
     private IEnumerator<float> _AnimateTransitionOut()
     {
+        Animating = true;
         // Pixel in
         var t = 0.0f;
         while (t < transitionTime)
@@ -89,8 +92,8 @@ public abstract class GameCamera : PivotBasedCameraRig {
             BlackScreen.Instance.SetAlpha(1.0f - ratio);
             yield return 0;
         }
-        // pixelation.enabled = false;
         onTransitionComplete.Invoke();
         onTransitionComplete.RemoveAllListeners();
+        Animating = false;
     }
 }

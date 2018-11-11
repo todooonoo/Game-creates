@@ -10,7 +10,7 @@ public class WorldManager : MonoBehaviour {
     private World[] worlds;
     private World currentWorld;
     private WorldObject[] worldObjects;
-    private InputPair transitionInput;
+    private InputPair transitionInput3D, transitionInputRight, transitionInputUp;
 
 	void Awake ()
     {
@@ -39,7 +39,9 @@ public class WorldManager : MonoBehaviour {
     private void Start()
     {
         // Load transition input
-        transitionInput = InputHandler.Instance.GetInput(InputAction.CameraTransition);
+        transitionInput3D = InputHandler.Instance.GetInput(InputAction.Transition3D);
+        transitionInputRight = InputHandler.Instance.GetInput(InputAction.TransitionRight);
+        transitionInputUp = InputHandler.Instance.GetInput(InputAction.TransitionUp);
     }
 
     private void Update()
@@ -47,9 +49,28 @@ public class WorldManager : MonoBehaviour {
         if (currentWorld.GameCamera.Animating)
             return;
 
-        if(transitionInput.GetAxisDown)
+        CheckTransition();
+    }
+
+    private void CheckTransition()
+    {
+        var transition = false;
+        if (transitionInputRight.GetAxisDown)
         {
-            currentWorldType = currentWorldType == WorldType.World3D ? WorldType.WorldRight2D : WorldType.World3D;
+            currentWorldType = currentWorldType == WorldType.WorldRight2D ? WorldType.World3D : WorldType.WorldRight2D;
+            transition = true;
+        } else if(transitionInputUp.GetAxisDown)
+        {
+            currentWorldType = currentWorldType == WorldType.WorldUp2D ? WorldType.World3D : WorldType.WorldUp2D;
+            transition = true;
+        } else if(transitionInput3D.GetAxisDown)
+        {
+            transition = currentWorldType != WorldType.World3D;
+            currentWorldType = WorldType.World3D;
+        }
+
+        if(transition)
+        {
             currentWorld.GameCamera.onTransitionComplete.AddListener(SwitchWorld);
             currentWorld.GameCamera.TransitionIn();
         }

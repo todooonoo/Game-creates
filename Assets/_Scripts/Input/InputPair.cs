@@ -7,10 +7,9 @@ public enum InputAction
     Attack = 0,
     Pick = 1,
     Jump = 2,
-    CameraTransition = 99,
+    Transition3D = 99,
     TransitionRight = 100,
     TransitionUp = 101,
-
 }
 
 [Serializable]

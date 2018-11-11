@@ -1243,11 +1243,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114498856415191964, guid: f102f5d1442c5774eafc8b0fdcd5e3e2,
-        type: 2}
-      propertyPath: keyPairs.Array.size
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 4706467685981880, guid: f102f5d1442c5774eafc8b0fdcd5e3e2, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1279,26 +1274,6 @@ Prefab:
     - target: {fileID: 4706467685981880, guid: f102f5d1442c5774eafc8b0fdcd5e3e2, type: 2}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114498856415191964, guid: f102f5d1442c5774eafc8b0fdcd5e3e2,
-        type: 2}
-      propertyPath: keyPairs.Array.data[2].action
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 114498856415191964, guid: f102f5d1442c5774eafc8b0fdcd5e3e2,
-        type: 2}
-      propertyPath: keyPairs.Array.data[2].keyCode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114498856415191964, guid: f102f5d1442c5774eafc8b0fdcd5e3e2,
-        type: 2}
-      propertyPath: keyPairs.Array.data[3].action
-      value: 101
-      objectReference: {fileID: 0}
-    - target: {fileID: 114498856415191964, guid: f102f5d1442c5774eafc8b0fdcd5e3e2,
-        type: 2}
-      propertyPath: keyPairs.Array.data[3].keyCode
-      value: 32
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f102f5d1442c5774eafc8b0fdcd5e3e2, type: 2}

@@ -2674,6 +2674,8 @@ MonoBehaviour:
   pairs:
   - worldType: 1
     prefab: {fileID: 114791321653134176, guid: 94ea442d567f79f4b911a420068dbc41, type: 2}
+  - worldType: 2
+    prefab: {fileID: 114371491017723186, guid: 7a3dafe6bbf6fb54bb67f9cb2e11c3ad, type: 2}
 --- !u!114 &114362426472870324
 MonoBehaviour:
   m_ObjectHideFlags: 1

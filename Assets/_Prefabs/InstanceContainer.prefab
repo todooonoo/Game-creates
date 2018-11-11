@@ -296,9 +296,13 @@ MonoBehaviour:
     mouseButton: 0
   keyPairs:
   - action: 99
-    keyCode: 9
+    keyCode: 48
   - action: 2
     keyCode: 32
+  - action: 100
+    keyCode: 49
+  - action: 101
+    keyCode: 50
 --- !u!114 &114539371849770878
 MonoBehaviour:
   m_ObjectHideFlags: 1
