@@ -27,13 +27,14 @@ public class PlayerMoveController : PlayerComponent
         cc.UpdateMotor();
 
         // Jump
-        if (jumpInput.GetAxisDown)
+        if (!player.Dragging && jumpInput.GetAxisDown)
             cc.Jump();
     }
 
     public override void HandleFixedUpdate(Player3D player)
     {
-        cc.AirControl();
+        if(!player.Dragging)
+            cc.AirControl();
     }
 
     private void HandleMove(Player3D player)
@@ -49,8 +50,17 @@ public class PlayerMoveController : PlayerComponent
             var lookDir = WorldManager.Instance.GameCamera.LookDirection;
             lookDir.y = 0;
             var angle = Vector2.SignedAngle(Vector2.up, moveDelta);
-            transform.LookAt(transform.position + Quaternion.Euler(0, -angle, 0) * lookDir);
-            cc.ControlSpeed(player.TargetSpeed);
+            var dir = Quaternion.Euler(0, -angle, 0) * lookDir;
+
+            var dirModifier = 1.0f;
+            if (player.Dragging)
+            {
+                dirModifier = Vector3.SignedAngle(dir, transform.forward, Vector3.up) < 90 ? 1.0f : -1.0f;
+            } else
+            {
+                transform.LookAt(transform.position + dir);
+            }
+            cc.ControlSpeed(dirModifier * player.TargetSpeed);
             Moving = true;
         }
         else
@@ -67,4 +77,5 @@ public class PlayerMoveController : PlayerComponent
         Moving = false;
         rBody.velocity = Vector3.up * rBody.velocity.y;
     }
+    
 }

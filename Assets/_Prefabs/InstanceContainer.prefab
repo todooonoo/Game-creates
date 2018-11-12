@@ -391,6 +391,8 @@ MonoBehaviour:
   mousePairs:
   - action: 0
     mouseButton: 0
+  - action: 4
+    mouseButton: 0
   keyPairs:
   - action: 99
     keyCode: 48

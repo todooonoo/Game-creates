@@ -4,20 +4,22 @@ using UnityEngine;
 
 public class Draggable : MonoBehaviour {
 
-    protected Transform originalParent;
+    [SerializeField] protected bool sourceIsParent;
+    protected Transform originalParent, source;
 
     private void Awake()
     {
-        originalParent = transform.parent;
+        source = sourceIsParent ? transform.parent : transform;
+        originalParent = source.parent;
     }
 
     public virtual void OnDrag(Transform parent)
     {
-        transform.SetParent(parent);
+        source.SetParent(parent);
     }
 
     public virtual void OnRelease(Transform parent)
     {
-        transform.SetParent(originalParent);
+        source.SetParent(originalParent);
     }
 }

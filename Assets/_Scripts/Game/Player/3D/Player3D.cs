@@ -28,6 +28,7 @@ public class Player3D : Player {
         for (int i = 0; i < components.Length; i++)
             components[i].HandleUpdate(this);
         SetAlpha();
+        base.HandleUpdate();
     }
 
     public override void HandleFixedUpdate()

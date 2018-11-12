@@ -257,7 +257,7 @@ namespace Invector.CharacterController
         public void ControlSpeed(float velocity)
         {
             if (Time.deltaTime == 0) return;
-
+            
             if (useRootMotion)
             {
                 Vector3 v = (animator.deltaPosition * (velocity > 0 ? velocity : 1f)) / Time.deltaTime;

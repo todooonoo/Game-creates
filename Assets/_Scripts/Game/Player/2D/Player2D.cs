@@ -40,6 +40,7 @@ public class Player2D : Player
         {
             Jump();
         }
+        base.HandleUpdate();
     }
 
     public override void HandleFixedUpdate()
