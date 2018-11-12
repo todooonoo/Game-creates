@@ -4,7 +4,8 @@ public enum WorldType
 {
     World3D,
     WorldRight2D,
-    WorldUp2D
+    WorldUp2D,
+    WorldFront2D,
 }
 
 public class World : MonoBehaviour {
@@ -26,6 +27,16 @@ public class World : MonoBehaviour {
             if (!gameCamera)
                 gameCamera = GetComponentInChildren<GameCamera>(true);
             return gameCamera;
+        }
+    }
+
+    public Player Player
+    {
+        get
+        {
+            if (!player)
+                player = GetComponentInChildren<Player>(true);
+            return player;
         }
     }
     
@@ -53,13 +64,15 @@ public class World : MonoBehaviour {
 
     public void CheckPlayerCollision()
     {
-        if (!player)
-            player = GetComponentInChildren<Player>();
-
-        if (player && player.CheckCollision())
+        if (Player.CheckCollision())
         {
-            player.transform.position = ClosestCheckpoint(player.transform.position);
+            Player.transform.position = ClosestCheckpoint(Player.transform.position);
         }
+    }
+
+    public void SetPlayerCollision(bool active)
+    {
+        Player.SetCollision(active);
     }
 
     public Vector3 ClosestCheckpoint(Vector3 pos)
@@ -70,12 +83,12 @@ public class World : MonoBehaviour {
         var targetPos = pos;
         if(checkpoints.Length > 0)
         {
-            targetPos = checkpoints[0].transform.position;
+            targetPos = checkpoints[0].RespawnPos;
             var sqrDist = Vector3.SqrMagnitude(targetPos - pos);
 
             for(int i = 1; i < checkpoints.Length; i++)
             {
-                var newPos = checkpoints[i].transform.position;
+                var newPos = checkpoints[i].RespawnPos;
                 if (Vector3.SqrMagnitude(newPos - pos) < sqrDist)
                     targetPos = newPos;
             }

@@ -10,6 +10,7 @@ public enum InputAction
     Transition3D = 99,
     TransitionRight = 100,
     TransitionUp = 101,
+    TransitionFront = 102,
 }
 
 [Serializable]

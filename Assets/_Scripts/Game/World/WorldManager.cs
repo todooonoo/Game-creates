@@ -10,7 +10,7 @@ public class WorldManager : MonoBehaviour {
     private World[] worlds;
     private World currentWorld;
     private WorldObject[] worldObjects;
-    private InputPair transitionInput3D, transitionInputRight, transitionInputUp;
+    private InputPair transitionInput3D, transitionInputRight, transitionInputUp, transitionInputFront;
 
 	void Awake ()
     {
@@ -42,6 +42,7 @@ public class WorldManager : MonoBehaviour {
         transitionInput3D = InputHandler.Instance.GetInput(InputAction.Transition3D);
         transitionInputRight = InputHandler.Instance.GetInput(InputAction.TransitionRight);
         transitionInputUp = InputHandler.Instance.GetInput(InputAction.TransitionUp);
+        transitionInputFront = InputHandler.Instance.GetInput(InputAction.TransitionFront);
     }
 
     private void Update()
@@ -55,18 +56,23 @@ public class WorldManager : MonoBehaviour {
     private void CheckTransition()
     {
         var transition = false;
-        if (transitionInputRight.GetAxisDown)
+        if (transitionInput3D.GetAxisDown)
         {
-            currentWorldType = currentWorldType == WorldType.WorldRight2D ? WorldType.World3D : WorldType.WorldRight2D;
-            transition = true;
+            transition = currentWorldType != WorldType.World3D;
+            currentWorldType = WorldType.World3D;
+
         } else if(transitionInputUp.GetAxisDown)
         {
             currentWorldType = currentWorldType == WorldType.WorldUp2D ? WorldType.World3D : WorldType.WorldUp2D;
             transition = true;
-        } else if(transitionInput3D.GetAxisDown)
+        } else if(transitionInputRight.GetAxisDown)
         {
-            transition = currentWorldType != WorldType.World3D;
-            currentWorldType = WorldType.World3D;
+            currentWorldType = currentWorldType == WorldType.WorldRight2D ? WorldType.World3D : WorldType.WorldRight2D;
+            transition = true;
+        } else if(transitionInputFront.GetAxisDown)
+        {
+            currentWorldType = currentWorldType == WorldType.WorldFront2D ? WorldType.World3D : WorldType.WorldFront2D;
+            transition = true;
         }
 
         if(transition)
@@ -83,12 +89,14 @@ public class WorldManager : MonoBehaviour {
         currentWorld = GetWorld(currentWorldType);
         currentWorld.gameObject.SetActive(true);
         currentWorld.TransitionIn();
+        currentWorld.SetPlayerCollision(false);
         currentWorld.GameCamera.onTransitionComplete.AddListener(CheckPlayerCollision);
         currentWorld.GameCamera.TransitionOut();
     }
 
     private void CheckPlayerCollision()
     {
+        currentWorld.SetPlayerCollision(true);
         currentWorld.CheckPlayerCollision();
     }
 

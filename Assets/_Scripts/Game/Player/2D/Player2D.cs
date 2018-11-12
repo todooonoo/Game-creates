@@ -102,4 +102,11 @@ public class Player2D : Player
     {
         return Physics2D.BoxCast(col.bounds.center, col.bounds.size, 0, Vector2.zero, 0.01f, contactLayer);
     }
+    
+    public override void SetCollision(bool active)
+    {
+        if(!rBody)
+            rBody = GetComponent<Rigidbody2D>();
+        rBody.isKinematic = !active;
+    }
 }

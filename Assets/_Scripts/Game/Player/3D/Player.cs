@@ -31,5 +31,5 @@ public abstract class Player : MonoBehaviour
 
     public abstract void HandleUpdate();
     public abstract void HandleFixedUpdate();
-
+    public abstract void SetCollision(bool active);
 }

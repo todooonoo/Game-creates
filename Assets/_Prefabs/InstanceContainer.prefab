@@ -249,7 +249,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: a8f74dbf0f81e504bbbdf3f6063e1047, type: 3}
-    m_FontSize: 24
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -260,13 +260,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Controls:
-
-    Move: WASD or Arrow keys
-
-    Jump: Space
-
-    Camera Control: Mouse'
+  m_Text: "Controls:\nMove: WASD or Arrow keys\nJump: Space\t-\tCamera Control: Mouse"
 --- !u!114 &114070777983291232
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -406,6 +400,8 @@ MonoBehaviour:
     keyCode: 49
   - action: 101
     keyCode: 50
+  - action: 102
+    keyCode: 51
 --- !u!114 &114539371849770878
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -467,7 +463,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: a8f74dbf0f81e504bbbdf3f6063e1047, type: 3}
-    m_FontSize: 24
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -478,7 +474,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Switch World:\n0: 3D\t-\t1: Right\t-\t2: Up"
+  m_Text: "Switch World:\n0: 3D\t-\t1: Right\t-\t2: Up\t-\t3: Front"
 --- !u!114 &114808926214951358
 MonoBehaviour:
   m_ObjectHideFlags: 1

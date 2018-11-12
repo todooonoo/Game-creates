@@ -64,4 +64,9 @@ public class Player3D : Player {
     {
         rBody.AddForce(transform.forward * amount);
     }
+
+    public override void SetCollision(bool active)
+    {
+        rBody.isKinematic = !active;
+    }
 }
