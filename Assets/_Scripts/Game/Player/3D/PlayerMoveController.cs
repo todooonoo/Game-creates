@@ -7,7 +7,6 @@ using Invector.CharacterController;
 public class PlayerMoveController : PlayerComponent
 {
     public bool Moving { get; private set; }
-    public float speed = 3.0f;
 
     private Rigidbody rBody;
     private InputPair jumpInput;
@@ -51,7 +50,7 @@ public class PlayerMoveController : PlayerComponent
             lookDir.y = 0;
             var angle = Vector2.SignedAngle(Vector2.up, moveDelta);
             transform.LookAt(transform.position + Quaternion.Euler(0, -angle, 0) * lookDir);
-            cc.ControlSpeed(speed);
+            cc.ControlSpeed(player.TargetSpeed);
             Moving = true;
         }
         else

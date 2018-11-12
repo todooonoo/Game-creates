@@ -11,7 +11,6 @@ public enum Movement2D
 public class Player2D : Player
 {
     [SerializeField] private Movement2D movement;
-    [SerializeField] private float speed;
     [Header("Jump")]
     [SerializeField] private float jumpForce;
     [SerializeField] private LayerMask groundLayer;
@@ -54,11 +53,11 @@ public class Player2D : Player
 
         if (movement == Movement2D.Free)
         {
-            rBody.velocity = moveDelta * speed;
+            rBody.velocity = moveDelta * TargetSpeed;
         }
         else if (movement == Movement2D.Horizontal)
         {
-            rBody.velocity = new Vector2(moveDelta.x * speed, rBody.velocity.y);
+            rBody.velocity = new Vector2(moveDelta.x * TargetSpeed, rBody.velocity.y);
         }
     }
 

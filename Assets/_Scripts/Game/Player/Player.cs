@@ -10,12 +10,19 @@ public enum PlayerState
 public abstract class Player : MonoBehaviour
 {
     public PlayerState playerState;
+    [SerializeField] protected float speed = 3.0f;
+
     protected Renderer[] renderers;
     protected float targetAlpha = 1.0f, currentAlpha = 1.0f;
+
+    // Dash
+    protected InputPair dashInput;
+    protected float dashAmount;
 
     protected virtual void Start()
     {
         renderers = GetComponentsInChildren<Renderer>();
+        dashInput = InputHandler.Instance.GetInput(InputAction.Dash);
     }
 
     public void SetVisible(bool visible)
@@ -27,6 +34,11 @@ public abstract class Player : MonoBehaviour
     {
         // Do nothing in base 3D
         return false;
+    }
+
+    public float TargetSpeed
+    {
+        get { return dashInput.GetAxis ? speed * 2 : speed; }
     }
 
     public abstract void HandleUpdate();

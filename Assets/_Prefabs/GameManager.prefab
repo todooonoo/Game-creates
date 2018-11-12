@@ -2622,7 +2622,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clipMoveTime: 0.02
   returnTime: 0.2
-  sphereCastRadius: 0.4
+  sphereCastRadius: 0.3
   visualiseInEditor: 1
   closestDistance: 0.2
   dontClipTag: Player
@@ -2659,7 +2659,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c76368e1d6c520a40864b11015e8ca53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
 --- !u!114 &114343479653925320
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2759,6 +2758,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerState: 0
+  speed: 4
   fadeTime: 0.3
 --- !u!114 &114569535914202766
 MonoBehaviour:
