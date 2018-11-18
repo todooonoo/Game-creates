@@ -8657,6 +8657,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerState: 0
   speed: 4
+  directions:
+  - {x: -1, y: 0, z: 0}
+  - {x: 1, y: 0, z: 0}
+  - {x: 0, y: 0, z: 1}
+  - {x: -0, y: -0, z: -1}
   fadeTime: 0.3
 --- !u!114 &114986705881828568
 MonoBehaviour:
@@ -8671,7 +8676,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groundLayer:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 4097
   groundMinDistance: 0.2
   groundMaxDistance: 0.5
   locomotionType: 0
