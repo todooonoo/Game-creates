@@ -22,6 +22,10 @@ public abstract class Player : MonoBehaviour
     // Dragging
     protected List<Draggable> draggables = new List<Draggable>();
     protected InputPair dragInput;
+    protected Vector3 dragDirection;
+
+    [SerializeField]
+    protected Vector3[] directions = new Vector3[] { Vector3.left, Vector3.right, Vector3.forward, -Vector3.forward };
     public bool Dragging { get; protected set; }
 
     protected virtual void Start()
@@ -64,17 +68,39 @@ public abstract class Player : MonoBehaviour
     {
         if(draggables.Count > 0)
         {
-            if(dragInput.GetAxisDown)
+            var lastDraggable = draggables[draggables.Count - 1];
+            if (dragInput.GetAxisDown)
             {
-                draggables[draggables.Count - 1].OnDrag(transform);
+                // TODO: Player look in right direction,
+                SetDragDirection(lastDraggable);
+                lastDraggable.OnDrag(transform);
                 Dragging = true;
-            } else if(dragInput.GetAxisUp)
+            }
+            else if(dragInput.GetAxisUp)
             {
-                draggables[draggables.Count - 1].OnRelease(transform);
+                lastDraggable.OnRelease(transform);
                 Dragging = false;
             }
         }
     }
+
+    public virtual void SetDragDirection(Draggable lastDraggable)
+    {
+        var delta = transform.position - lastDraggable.transform.position;
+        var angle = float.MaxValue;
+        for (int i = 0; i < directions.Length; i++)
+        {
+            var tempAngle = Mathf.Abs(Vector3.SignedAngle(delta, directions[i], Vector3.up));
+
+            if(tempAngle < angle)
+            {
+                angle = tempAngle;
+                dragDirection = directions[i];
+            }
+        }
+        transform.LookAt(transform.position - dragDirection);
+    }
+
     public abstract void HandleFixedUpdate();
     public abstract void SetCollision(bool active);
 }

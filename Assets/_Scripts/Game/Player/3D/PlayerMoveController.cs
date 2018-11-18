@@ -55,7 +55,7 @@ public class PlayerMoveController : PlayerComponent
             var dirModifier = 1.0f;
             if (player.Dragging)
             {
-                dirModifier = Vector3.SignedAngle(dir, transform.forward, Vector3.up) < 90 ? 1.0f : -1.0f;
+                dirModifier = Mathf.Abs(Vector3.SignedAngle(dir, transform.forward, Vector3.up)) < 90 ? 1.0f : -1.0f;
             } else
             {
                 transform.LookAt(transform.position + dir);
