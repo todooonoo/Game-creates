@@ -17,7 +17,7 @@ public class WorldManager : MonoBehaviour {
         Instance = this;
 
         // Load worlds
-        worlds = GetComponentsInChildren<World>(true);
+        worlds = FindObjectsOfType<World>();
         for (int i = 0; i < worlds.Length; i++)
         {
             if (worlds[i].worldType == currentWorldType)
