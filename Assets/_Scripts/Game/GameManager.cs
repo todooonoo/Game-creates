@@ -23,7 +23,8 @@ public class GameManager : MonoBehaviour {
 
     private void OnDisable()
     {
-        Instance = null;
+        if(Instance == this)
+            Instance = null;
     }
 
     private void Update()

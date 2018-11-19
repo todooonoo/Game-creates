@@ -240,6 +240,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114365314496274686, guid: fbfee1e6407f5434db2f7bb6814cae1b,
+        type: 2}
+      propertyPath: sunShaftIntensity
+      value: 0.6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fbfee1e6407f5434db2f7bb6814cae1b, type: 2}
   m_IsPrefabAsset: 0
