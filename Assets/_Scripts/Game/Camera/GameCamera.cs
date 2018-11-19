@@ -5,6 +5,7 @@ using UnityEngine.Events;
 using UnityStandardAssets.Cameras;
 using UnityStandardAssets.CrossPlatformInput;
 using Assets.Pixelation.Scripts;
+using UnityEngine.PostProcessing;
 using MEC;
 
 public enum CameraMode

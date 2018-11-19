@@ -17,9 +17,15 @@ public class GameManager : MonoBehaviour {
     
     private void OnEnable()
     {
-        Instance = this;
+        if(!Instance)
+            Instance = this;
     }
-    
+
+    private void OnDisable()
+    {
+        Instance = null;
+    }
+
     private void Update()
     {
         if (gameCamera.Animating)

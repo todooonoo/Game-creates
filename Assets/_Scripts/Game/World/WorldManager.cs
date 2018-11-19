@@ -15,6 +15,10 @@ public class WorldManager : MonoBehaviour {
 	void Awake ()
     {
         Instance = this;
+    }
+
+    private void Start()
+    {
 
         // Load worlds
         worlds = FindObjectsOfType<World>();
@@ -24,8 +28,8 @@ public class WorldManager : MonoBehaviour {
             {
                 currentWorld = worlds[i];
             }
-            worlds[i].InitWorld();
             worlds[i].gameObject.SetActive(worlds[i].worldType == currentWorldType);
+            worlds[i].InitWorld();
         }
 
         // Init world objects
@@ -34,10 +38,6 @@ public class WorldManager : MonoBehaviour {
         {
             worldObjects[i].InitClone();
         }
-    }
-
-    private void Start()
-    {
         // Load transition input
         transitionInput3D = InputHandler.Instance.GetInput(InputAction.Transition3D);
         transitionInputRight = InputHandler.Instance.GetInput(InputAction.TransitionRight);
