@@ -22,10 +22,9 @@ public abstract class GameCamera : PivotBasedCameraRig {
     public Vector3 LookDirection { get { return transform.forward; } }
 
     [Header("Transition")]
-    [SerializeField] protected float transitionTime = 1.0f;
     [SerializeField] protected float transitionBlackRatio = 0.75f;
     protected Pixelation pixelation;
-
+    protected float transitionTime = 0.1f;
 
     [HideInInspector] public UnityEvent onTransitionComplete;
     protected static int pixelCount2D = 256, pixelCountMax = 512;
