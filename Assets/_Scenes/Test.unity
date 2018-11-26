@@ -463,48 +463,6 @@ MonoBehaviour:
     prefab: {fileID: 114270372444466176, guid: 629151a59797c0c48a799daaabfe2b5c, type: 2}
   - worldType: 3
     prefab: {fileID: 114308897313182808, guid: 1221167b1db5c054b8b25d252a5aa353, type: 2}
---- !u!1001 &133430782
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 400068, guid: 623b37db78572fe4b992e27fb7f18912, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400068, guid: 623b37db78572fe4b992e27fb7f18912, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400068, guid: 623b37db78572fe4b992e27fb7f18912, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400068, guid: 623b37db78572fe4b992e27fb7f18912, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400068, guid: 623b37db78572fe4b992e27fb7f18912, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400068, guid: 623b37db78572fe4b992e27fb7f18912, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400068, guid: 623b37db78572fe4b992e27fb7f18912, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400068, guid: 623b37db78572fe4b992e27fb7f18912, type: 3}
-      propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 623b37db78572fe4b992e27fb7f18912, type: 3}
-  m_IsPrefabAsset: 0
 --- !u!1 &152669621
 GameObject:
   m_ObjectHideFlags: 0
