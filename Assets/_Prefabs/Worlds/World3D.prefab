@@ -2903,7 +2903,7 @@ MonoBehaviour:
   stepOffsetEnd: 0.25
   stepOffsetStart: 0.05
   stepSmooth: 1
-  slopeLimit: 45
+  slopeLimit: 65
   extraGravity: -10
   isGrounded: 0
   isStrafing: 0
