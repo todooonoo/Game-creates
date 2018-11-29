@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using Invector.CharacterController;
+using UnityStandardAssets.Characters.ThirdPerson;
 
 public class PlayerMoveController : PlayerComponent
 {
@@ -12,6 +13,7 @@ public class PlayerMoveController : PlayerComponent
     private InputPair jumpInput;
     private vThirdPersonController cc;
     private Vector2 moveDelta = Vector2.up;
+    private ThirdPersonCharacter controller;
 
     private void Start()
     {
@@ -19,22 +21,27 @@ public class PlayerMoveController : PlayerComponent
         cc = GetComponent<vThirdPersonController>();
         cc.Init();
         jumpInput = InputHandler.Instance.GetInput(InputAction.Jump);
+        controller = GetComponent<ThirdPersonCharacter>();
     }
     
     public override void HandleUpdate(Player3D player)
     {
         HandleMove(player);
-        cc.UpdateMotor();
+        // cc.UpdateMotor();
 
         // Jump
+        /*
         if (!player.Dragging && jumpInput.GetAxisDown)
-            cc.Jump();
+            controller.Jump();
+            */
     }
 
     public override void HandleFixedUpdate(Player3D player)
     {
+        /*
         if(!player.Dragging)
             cc.AirControl();
+            */
     }
 
     private void HandleMove(Player3D player)
@@ -46,7 +53,7 @@ public class PlayerMoveController : PlayerComponent
         
         if (moveDelta.x != 0 || moveDelta.y != 0)
         {
-            cc.input = moveDelta;
+            // cc.input = moveDelta;
             var lookDir = WorldManager.Instance.GameCamera.LookDirection;
             lookDir.y = 0;
             var angle = Vector2.SignedAngle(Vector2.up, moveDelta);
@@ -60,16 +67,18 @@ public class PlayerMoveController : PlayerComponent
             {
                 transform.LookAt(transform.position + dir);
             }
-            cc.ControlSpeed(dirModifier * player.TargetSpeed);
+            // cc.ControlSpeed(dirModifier * player.TargetSpeed);
+            controller.Move(dir, false, !player.Dragging && jumpInput.GetAxisDown);
             Moving = true;
         }
         else
         {
-            cc.input.x = cc.input.y = 0;
             Moving = false;
-            cc.ControlSpeed(0);
+            // cc.input.x = cc.input.y = 0;
+            // cc.ControlSpeed(0);
+            controller.Move(Vector3.zero, false, !player.Dragging && jumpInput.GetAxisDown);
         }
-        player.AnimationController.SetMove(Moving);
+        // player.AnimationController.SetMove(Moving);
     }
 
     public void Stop()

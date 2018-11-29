@@ -5,12 +5,17 @@ using UnityEngine;
 public class Tutorial : MonoBehaviour {
 
     [SerializeField] protected GameObject tutorialObject;
-    [SerializeField] protected Tutorial removeTutorial;
+    [SerializeField] protected Tutorial nextTutorial;
 
-	public virtual void BeginTutorial()
+    public virtual void BeginTutorial()
     {
-        if (removeTutorial)
-            Destroy(removeTutorial.gameObject);
         TutorialManager.Instance.BeginTutorial(tutorialObject);
+    }
+
+    protected virtual void EndTutorial()
+    {
+        if (nextTutorial)
+            nextTutorial.BeginTutorial();
+        Destroy(gameObject);
     }
 }

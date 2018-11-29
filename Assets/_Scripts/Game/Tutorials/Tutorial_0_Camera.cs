@@ -112,5 +112,6 @@ public class Tutorial_0_Camera : Tutorial {
             yield return 0;
         }
         GameManager.Instance.state = GameState.Idle;
+        EndTutorial();
     }
 }
