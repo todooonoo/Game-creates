@@ -10,7 +10,8 @@ public class PPSetter : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        GameManager.Instance.transform.position = transform.position;
+        if(moveManagerHere)
+            GameManager.Instance.transform.position = transform.position;
         GameManager.Instance.Camera.GetComponent<PostProcessingBehaviour>().profile = profile;
 	}
 }

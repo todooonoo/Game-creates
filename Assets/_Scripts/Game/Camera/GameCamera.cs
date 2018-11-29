@@ -19,7 +19,7 @@ public abstract class GameCamera : PivotBasedCameraRig {
 
     public Camera Camera { get; protected set; }
     public bool Animating { get; private set; }
-    public Vector3 LookDirection { get { return transform.forward; } }
+    public Vector3 LookDirection { get { return Camera.transform.forward; } }
 
     [Header("Transition")]
     [SerializeField] protected float transitionBlackRatio = 0.75f;
@@ -95,5 +95,25 @@ public abstract class GameCamera : PivotBasedCameraRig {
         onTransitionComplete.Invoke();
         onTransitionComplete.RemoveAllListeners();
         Animating = false;
+    }
+
+    public virtual void SetLook(Quaternion lookRot, Vector3 pivotEulers)
+    {
+        // Nothing in base
+    }
+
+    public virtual Quaternion GetLookRot()
+    {
+        return transform.rotation;
+    }
+
+    public virtual Quaternion GetPivotRot()
+    {
+        return transform.rotation;
+    }
+
+    public virtual void ApplyRotation()
+    {
+        // Nothing in base
     }
 }

@@ -2,19 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum GameState
+{
+    Idle,
+    Event,
+}
 
 public class GameManager : MonoBehaviour {
 
     public static GameManager Instance { get; private set; }
 
-    [SerializeField]
-    private Player player;
+    public Player player;
 
     // Camera
-    [SerializeField]
-    private GameCamera gameCamera;
+    public GameCamera gameCamera;
     public Camera Camera { get { return gameCamera.Camera; } }
-    
+
+    public GameState state = GameState.Idle;
+
     private void OnEnable()
     {
         if(!Instance)
@@ -29,7 +34,7 @@ public class GameManager : MonoBehaviour {
 
     private void Update()
     {
-        if (gameCamera.Animating)
+        if (gameCamera.Animating || state != GameState.Idle)
             return;
 
         player.HandleUpdate();
@@ -38,7 +43,7 @@ public class GameManager : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        if (gameCamera.Animating)
+        if (gameCamera.Animating || state != GameState.Idle)
             return;
 
         player.HandleFixedUpdate();

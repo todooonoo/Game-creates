@@ -35,12 +35,13 @@ public class GameCamera3D : GameCamera {
     protected override void Awake()
     {
         base.Awake();
+
         // Lock or unlock the cursor.
         Cursor.lockState = m_LockCursor ? CursorLockMode.Locked : CursorLockMode.None;
         Cursor.visible = !m_LockCursor;
-        m_PivotEulers = m_Pivot.rotation.eulerAngles;
-
-        m_PivotTargetRot = m_Pivot.transform.localRotation;
+        m_PivotEulers = m_Pivot.localRotation.eulerAngles;
+        m_PivotTargetRot = m_Pivot.localRotation;
+        m_LookAngle = -m_PivotEulers.y;
         m_TransformTargetRot = transform.localRotation;
         Mode = CameraMode.ThreeDimensional;
         player = m_Target.GetComponent<Player>();
@@ -87,10 +88,7 @@ public class GameCamera3D : GameCamera {
 
         // Adjust the look angle by an amount proportional to the turn speed and horizontal input.
         m_LookAngle += x * m_TurnSpeed;
-
-        // Rotate the rig (the root object) around Y axis only:
-        m_TransformTargetRot = Quaternion.Euler(0f, m_LookAngle, 0f);
-
+        
         if (m_VerticalAutoReturn)
         {
             // For tilt input, we need to behave differently depending on whether we're using mouse or touch input:
@@ -106,6 +104,14 @@ public class GameCamera3D : GameCamera {
             m_TiltAngle = Mathf.Clamp(m_TiltAngle, -m_TiltMin, m_TiltMax);
         }
 
+        ApplyRotation();
+    }
+
+    public override void ApplyRotation()
+    {
+        // Rotate the rig (the root object) around Y axis only:
+        m_TransformTargetRot = Quaternion.Euler(0f, m_LookAngle, 0f);
+
         // Tilt input around X is applied to the pivot (the child of this object)
         m_PivotTargetRot = Quaternion.Euler(m_TiltAngle, m_PivotEulers.y, m_PivotEulers.z);
 
@@ -119,5 +125,22 @@ public class GameCamera3D : GameCamera {
             m_Pivot.localRotation = m_PivotTargetRot;
             transform.localRotation = m_TransformTargetRot;
         }
+    }
+
+    public override void SetLook(Quaternion lookRot, Vector3 pivotEulers)
+    {
+        var euler = lookRot.eulerAngles;
+        m_LookAngle = euler.y;
+        m_PivotEulers = pivotEulers;
+    }
+
+    public override Quaternion GetPivotRot()
+    {
+        return Quaternion.Euler(m_PivotEulers);
+    }
+
+    public override Quaternion GetLookRot()
+    {
+        return Quaternion.Euler(m_TiltAngle, m_LookAngle, m_PivotEulers.z);
     }
 }
