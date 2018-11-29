@@ -68,7 +68,7 @@ public class PlayerMoveController : PlayerComponent
                 transform.LookAt(transform.position + dir);
             }
             // cc.ControlSpeed(dirModifier * player.TargetSpeed);
-            controller.Move(dir, false, !player.Dragging && jumpInput.GetAxisDown);
+            controller.Move(dir, false, !player.Dragging && jumpInput.GetAxisDown, player.Dragging);
             Moving = true;
         }
         else

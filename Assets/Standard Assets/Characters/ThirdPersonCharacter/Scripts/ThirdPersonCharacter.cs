@@ -43,7 +43,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		}
 
 
-		public void Move(Vector3 move, bool crouch, bool jump)
+        public void Move(Vector3 move, bool crouch, bool jump, bool ignoreTurn = false)
 		{
 
 			// convert the world relative moveInput vector into a local-relative
@@ -53,7 +53,9 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			move = transform.InverseTransformDirection(move);
 			CheckGroundStatus();
 			move = Vector3.ProjectOnPlane(move, m_GroundNormal);
-			m_TurnAmount = Mathf.Atan2(move.x, move.z);
+
+            if(!ignoreTurn)
+			    m_TurnAmount = Mathf.Atan2(move.x, move.z);
 			m_ForwardAmount = move.z;
 
 			ApplyExtraTurnRotation();
