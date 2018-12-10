@@ -11,22 +11,19 @@ public class PlayerMoveController : PlayerComponent
 
     private Rigidbody rBody;
     private InputPair jumpInput;
-    private vThirdPersonController cc;
     private Vector2 moveDelta = Vector2.up;
-    private ThirdPersonCharacter controller;
+    private MoveBehaviour moveBehaviour;
 
     private void Start()
     {
         rBody = GetComponent<Rigidbody>();
-        cc = GetComponent<vThirdPersonController>();
-        cc.Init();
         jumpInput = InputHandler.Instance.GetInput(InputAction.Jump);
-        controller = GetComponent<ThirdPersonCharacter>();
+        moveBehaviour = GetComponent<MoveBehaviour>();
     }
     
     public override void HandleUpdate(Player3D player)
     {
-        HandleMove(player);
+        moveBehaviour.HandleUpdate();
         // cc.UpdateMotor();
 
         // Jump
@@ -42,6 +39,7 @@ public class PlayerMoveController : PlayerComponent
         if(!player.Dragging)
             cc.AirControl();
             */
+        HandleMove(player);
     }
 
     private void HandleMove(Player3D player)
@@ -53,32 +51,32 @@ public class PlayerMoveController : PlayerComponent
         
         if (moveDelta.x != 0 || moveDelta.y != 0)
         {
-            // cc.input = moveDelta;
             var lookDir = WorldManager.Instance.GameCamera.LookDirection;
             lookDir.y = 0;
             var angle = Vector2.SignedAngle(Vector2.up, moveDelta);
             var dir = Quaternion.Euler(0, -angle, 0) * lookDir;
 
-            var dirModifier = 1.0f;
             if (player.Dragging)
             {
-                dirModifier = Mathf.Abs(Vector3.SignedAngle(dir, transform.forward, Vector3.up)) < 90 ? 1.0f : -1.0f;
+                var dirModifier = Mathf.Abs(Vector3.SignedAngle(dir, transform.forward, Vector3.up)) < 90 ? 1.0f : -1.0f;
+                transform.LookAt(transform.position - player.dragDirection);
+
+                if (dirModifier > 0)
+                    moveBehaviour.Move(moveDelta.x, moveDelta.y);
+                else
+                    moveBehaviour.Move(0, 0);
             } else
             {
                 transform.LookAt(transform.position + dir);
+                moveBehaviour.Move(moveDelta.x, moveDelta.y);
             }
-            // cc.ControlSpeed(dirModifier * player.TargetSpeed);
-            controller.Move(dir, false, !player.Dragging && jumpInput.GetAxisDown, player.Dragging);
             Moving = true;
         }
         else
         {
             Moving = false;
-            // cc.input.x = cc.input.y = 0;
-            // cc.ControlSpeed(0);
-            controller.Move(Vector3.zero, false, !player.Dragging && jumpInput.GetAxisDown);
+            moveBehaviour.Move(0, 0);
         }
-        // player.AnimationController.SetMove(Moving);
     }
 
     public void Stop()

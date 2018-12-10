@@ -4,18 +4,23 @@ using UnityEngine;
 
 public class DebugSpeedup : MonoBehaviour
 {
-	 [SerializeField]
-	 private float speed = 3.0f;
+    [SerializeField]
+    private float speed = 3.0f;
 
-	 void Update()
-	 {
-		  if (Input.GetKeyDown(KeyCode.Space))
-		  {
-				Time.timeScale = speed;
-		  }
-		  else if (Input.GetKeyUp(KeyCode.Space))
-		  {
-				Time.timeScale = 1.0f;
-		  }
-	 }
+    [SerializeField]
+    private KeyCode keyCode = KeyCode.Tab;
+
+#if UNITY_EDITOR
+    void Update()
+    {
+        if (Input.GetKeyDown(keyCode))
+        {
+            Time.timeScale = speed;
+        }
+        else if (Input.GetKeyUp(keyCode))
+        {
+            Time.timeScale = 1.0f;
+        }
+    }
+#endif
 }

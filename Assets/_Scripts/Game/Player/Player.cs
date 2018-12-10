@@ -22,7 +22,7 @@ public abstract class Player : MonoBehaviour
     // Dragging
     protected List<Draggable> draggables = new List<Draggable>();
     protected InputPair dragInput;
-    protected Vector3 dragDirection;
+    [HideInInspector] public Vector3 dragDirection;
 
     [SerializeField]
     protected Vector3[] directions = new Vector3[] { Vector3.left, Vector3.right, Vector3.forward, -Vector3.forward };
