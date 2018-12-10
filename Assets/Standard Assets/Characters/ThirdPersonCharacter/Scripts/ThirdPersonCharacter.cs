@@ -14,6 +14,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		[SerializeField] float m_RunCycleLegOffset = 0.2f; //specific to the character in sample assets, will need to be modified to work with others
 		[SerializeField] float m_MoveSpeedMultiplier = 1f;
         [SerializeField] float m_JumpMoveMultiplier = 5f;
+        [SerializeField] float maxJumpVelocity = 4.0f;
         [SerializeField] float m_AnimSpeedMultiplier = 1f;
 		[SerializeField] float m_GroundCheckDistance = 0.1f;
 
@@ -210,12 +211,14 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                 else
                 {
                     Vector3 v = jumpForce * m_JumpMoveMultiplier * Time.deltaTime;
-
-                    // we preserve the existing y part of the current velocity.
-                    v.y = m_Rigidbody.velocity.y;
-
                     Vector3 oldV = m_Rigidbody.velocity;
-                    m_Rigidbody.velocity = new Vector3(oldV.x + v.x, v.y, oldV.z + v.z);
+                    Vector3 newV = new Vector3(oldV.x + v.x, 0, oldV.z + v.z);
+                    if(newV.sqrMagnitude >= maxJumpVelocity * maxJumpVelocity)
+                    {
+                        newV = newV.normalized * maxJumpVelocity;
+                    }
+
+                    m_Rigidbody.velocity = new Vector3(newV.x, oldV.y, newV.z);
                 }
             }
 		}

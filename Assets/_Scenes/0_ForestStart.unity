@@ -1219,6 +1219,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114126742787913346, guid: fbfee1e6407f5434db2f7bb6814cae1b,
+        type: 2}
+      propertyPath: maxJumpVelocity
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fbfee1e6407f5434db2f7bb6814cae1b, type: 2}
   m_IsPrefabAsset: 0
