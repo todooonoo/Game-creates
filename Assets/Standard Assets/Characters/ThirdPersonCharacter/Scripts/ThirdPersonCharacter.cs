@@ -13,6 +13,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		[Range(1f, 4f)][SerializeField] float m_GravityMultiplier = 2f;
 		[SerializeField] float m_RunCycleLegOffset = 0.2f; //specific to the character in sample assets, will need to be modified to work with others
 		[SerializeField] float m_MoveSpeedMultiplier = 1f;
+        [SerializeField] float m_JumpMoveMultiplier = 5f;
         [SerializeField] float m_AnimSpeedMultiplier = 1f;
 		[SerializeField] float m_GroundCheckDistance = 0.1f;
 
@@ -29,6 +30,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		CapsuleCollider m_Capsule;
 		bool m_Crouching;
 
+        // Custom
+        Vector3 jumpForce;
 
 		void Start()
 		{
@@ -50,6 +53,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			// turn amount and forward amount required to head in the desired
 			// direction.
 			if (move.magnitude > 1f) move.Normalize();
+            Vector3 dir = move;
+
 			move = transform.InverseTransformDirection(move);
 			CheckGroundStatus();
 			move = Vector3.ProjectOnPlane(move, m_GroundNormal);
@@ -57,6 +62,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             if(!ignoreTurn)
 			    m_TurnAmount = Mathf.Atan2(move.x, move.z);
 			m_ForwardAmount = move.z;
+            
 
 			ApplyExtraTurnRotation();
 
@@ -72,9 +78,10 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 			ScaleCapsuleForCrouching(crouch);
 			PreventStandingInLowHeadroom();
+            jumpForce = m_IsGrounded ? Vector3.zero : dir; 
 
-			// send input and other state parameters to the animator
-			UpdateAnimator(move);
+            // send input and other state parameters to the animator
+            UpdateAnimator(move);
 		}
 
 
@@ -188,16 +195,29 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 		public void OnAnimatorMove()
 		{
-			// we implement this function to override the default root motion.
-			// this allows us to modify the positional speed before it's applied.
-			if (m_IsGrounded && Time.deltaTime > 0)
-			{
-				Vector3 v = (m_Animator.deltaPosition * m_MoveSpeedMultiplier) / Time.deltaTime;
+            // we implement this function to override the default root motion.
+            // this allows us to modify the positional speed before it's applied.
+            if (Time.deltaTime > 0)
+            {
+                if (m_IsGrounded)
+                {
+                    Vector3 v = (m_Animator.deltaPosition * m_MoveSpeedMultiplier) / Time.deltaTime;
 
-				// we preserve the existing y part of the current velocity.
-				v.y = m_Rigidbody.velocity.y;
-				m_Rigidbody.velocity = v;
-			}
+                    // we preserve the existing y part of the current velocity.
+                    v.y = m_Rigidbody.velocity.y;
+                    m_Rigidbody.velocity = v;
+                }
+                else
+                {
+                    Vector3 v = jumpForce * m_JumpMoveMultiplier * Time.deltaTime;
+
+                    // we preserve the existing y part of the current velocity.
+                    v.y = m_Rigidbody.velocity.y;
+
+                    Vector3 oldV = m_Rigidbody.velocity;
+                    m_Rigidbody.velocity = new Vector3(oldV.x + v.x, v.y, oldV.z + v.z);
+                }
+            }
 		}
 
 
