@@ -64,6 +64,7 @@ public class LevelTrigger : MonoBehaviour
         if(player && !col.isTrigger)
         {
             id = targetId;
+            TutorialManager.Instance.HideTutorial();
             LoadingScreen.Instance.LoadScene(targetScene);
         }
     }

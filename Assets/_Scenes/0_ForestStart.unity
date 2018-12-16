@@ -873,6 +873,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb04c09140efa164b9ee96d8d86730d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tutorialName: Tutorial_Camera
   tutorialObject: {fileID: 1097211700185682, guid: bf9d37ec9f767e540a77d5cb653a5321,
     type: 2}
   nextTutorial: {fileID: 1992448458}
@@ -924,11 +925,6 @@ Prefab:
     - target: {fileID: 1681777912709772, guid: f102f5d1442c5774eafc8b0fdcd5e3e2, type: 2}
       propertyPath: m_Name
       value: InstanceContainer (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 114321909114599700, guid: f102f5d1442c5774eafc8b0fdcd5e3e2,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f102f5d1442c5774eafc8b0fdcd5e3e2, type: 2}
@@ -2673,7 +2669,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4689530805202348, guid: 085f741163727d5409d1d6694c7f3b16, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -2
+      value: -2.5
       objectReference: {fileID: 0}
     - target: {fileID: 4689530805202348, guid: 085f741163727d5409d1d6694c7f3b16, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2821,6 +2817,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e887e2aebc7d8a4b9bd38882f5119c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tutorialName: Tutorial_Jump
   tutorialObject: {fileID: 1982625717381096, guid: c02d5190bf0e00a498fead1211f743a4,
     type: 2}
   nextTutorial: {fileID: 0}
@@ -3417,6 +3414,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e887e2aebc7d8a4b9bd38882f5119c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tutorialName: Tutorial_Push
   tutorialObject: {fileID: 1982625717381096, guid: 1d4590ecb35e2c6438029a64f1e0c688,
     type: 2}
   nextTutorial: {fileID: 0}
@@ -4666,6 +4664,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 894f3a785245bf147af5c9e60bd38b2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tutorialName: Tutorial_Move
   tutorialObject: {fileID: 1982350045382600, guid: 6f5302ce13da0464db342db7588fa7ee,
     type: 2}
   nextTutorial: {fileID: 0}

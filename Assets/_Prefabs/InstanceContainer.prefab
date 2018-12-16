@@ -130,7 +130,6 @@ GameObject:
   - component: {fileID: 114321909114599700}
   - component: {fileID: 114915379983023886}
   - component: {fileID: 114498856415191964}
-  - component: {fileID: 114070777983291232}
   m_Layer: 0
   m_Name: InstanceContainer
   m_TagString: Untagged
@@ -194,19 +193,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   background: {fileID: 114845170062063382}
   animationTime: 0.3
---- !u!114 &114070777983291232
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1681777912709772}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14257e56c0ab78546a793b07515cade1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemPrefabs:
-  - {fileID: 0}
 --- !u!114 &114283788984345852
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -468,27 +454,9 @@ MonoBehaviour:
   format: 0
   savePath: 0
   GameSave:
-    playerSave:
-      inventory:
-        items: []
-        weapon: 0
-        armor: 0
-        accessory: 0
-        boots: 0
-        hat: 0
-      skills: []
+    clearedEvents: []
   defaultSave:
-    playerSave:
-      inventory:
-        items:
-        - itemType: 1000
-          count: 1
-        weapon: 0
-        armor: -1
-        accessory: -1
-        boots: -1
-        hat: -1
-      skills: []
+    clearedEvents: []
   useDefaultSave: 1
 --- !u!114 &114984563517743160
 MonoBehaviour:

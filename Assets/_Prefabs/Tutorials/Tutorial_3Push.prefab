@@ -55,7 +55,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224374907477187048}
   m_Layer: 0
-  m_Name: Tutorial3Push
+  m_Name: Tutorial_3Push
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -107,11 +107,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Move next to a glowing box,
-
-    Hold left mouse button,
-
-    And move to push the box'
+  m_Text: Push
 --- !u!114 &114860910373235430
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -100,6 +100,7 @@ public class MainMenu : MonoBehaviour {
     {
         if (Input.anyKeyDown)
         {
+            SaveManager.Instance.RestartSave();
             LoadingScreen.Instance.LoadScene(startSceneName);
             enabled = false;
         }

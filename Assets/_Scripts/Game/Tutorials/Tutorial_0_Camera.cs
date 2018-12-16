@@ -27,6 +27,9 @@ public class Tutorial_0_Camera : Tutorial {
     public override void BeginTutorial()
     {
         base.BeginTutorial();
+        
+        if (!tutorialActive)
+            return;
 
         // Init settings
         GameManager.Instance.state = GameState.Event;
@@ -56,9 +59,12 @@ public class Tutorial_0_Camera : Tutorial {
 
     private void SetVignette(float smoothness)
     {
-        var settings = pp.profile.vignette.settings;
-        settings.smoothness = smoothness;
-        pp.profile.vignette.settings = settings;
+        if (pp)
+        {
+            var settings = pp.profile.vignette.settings;
+            settings.smoothness = smoothness;
+            pp.profile.vignette.settings = settings;
+        }
     }
 	
 	void Update ()

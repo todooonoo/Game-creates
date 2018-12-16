@@ -53,7 +53,7 @@ public class SaveManager : Singleton<SaveManager> {
                 break;
         }
         encoder = SaveGame.Encoder;
-        // Load();
+        Load();
     }
 
     public void Save()
@@ -76,6 +76,17 @@ public class SaveManager : Singleton<SaveManager> {
     public void RestartSave()
     {
         GameSave = defaultSave;
+    }
+
+    public static void AddEventClear(string eventName)
+    {
+        if (eventName == null || eventName.Length <= 0)
+            return;
+
+        if (!Instance.GameSave.clearedEvents.Contains(eventName))
+        {
+            Instance.GameSave.clearedEvents.Add(eventName);
+        }
     }
 
     public static bool EventCleared(string eventName)
