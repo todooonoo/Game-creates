@@ -206,7 +206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemPrefabs:
-  - {fileID: 114139762694819760, guid: 80738a95709ff56408d2e21a9833a278, type: 2}
+  - {fileID: 0}
 --- !u!114 &114283788984345852
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -227,12 +227,13 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1681777912709772}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 84843feae3cadfc48b63510ac154d9e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  keyCode: 9
 --- !u!114 &114354150233457546
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -371,26 +372,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81b117c98c968614d8a351d0fcdcc8dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioRanges:
-  - audioType: 0
-    minID: 0
-    maxID: 199
-    volume: 0.5
-    pairs: []
-    prefab: {fileID: 82587762649342562, guid: 8dd42c08d7571a7449170b5112e2c4d1, type: 2}
-  - audioType: 1
-    minID: 200
-    maxID: 499
-    volume: 0.5
-    pairs: []
-    prefab: {fileID: 82705014677199830, guid: 712fcf6a2a2792348a963fc73a11b4e3, type: 2}
-  - audioType: 2
-    minID: 500
-    maxID: 999
-    volume: 0.5
-    pairs: []
-    prefab: {fileID: 82169678953342658, guid: f76323a9013705e4cb328527b57c2e6b, type: 2}
-  bgmFadeTime: 2
+  bgmChangeTime: 3
+  bgmPrefabs: []
 --- !u!114 &114833042823202572
 MonoBehaviour:
   m_ObjectHideFlags: 1

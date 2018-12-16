@@ -40,7 +40,7 @@ public class AudioManager : Singleton<AudioManager>
             yield return null;
 
         // Check same bgm
-        if (currentSource.name == bgmObject.name)
+        if (currentSource && bgmObject && currentSource.name == bgmObject.name)
         {
             Debug.Log("BGM: Same name, ignoring...");
             yield break;
@@ -51,7 +51,7 @@ public class AudioManager : Singleton<AudioManager>
             yield return StopCurrentBGM();
 
         if (currentSource)
-            Destroy(currentSource);
+            Destroy(currentSource.gameObject);
 
         currentSource = bgmObject;
         currentSource.transform.SetParent(transform);

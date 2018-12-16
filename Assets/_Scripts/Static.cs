@@ -28,6 +28,12 @@ public static class Static
         graphics.color = color;
     }
 
+    public static void SetAlpha(this Shadow shadow, float alpha)
+    {
+        Color color = shadow.effectColor;
+        color.a = alpha;
+        shadow.effectColor = color;
+    }
 
     public static bool IsPrefab(this GameObject a_Object)
     {
