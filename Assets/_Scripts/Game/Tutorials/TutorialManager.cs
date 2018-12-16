@@ -29,7 +29,8 @@ public class TutorialManager : Singleton<TutorialManager> {
 
     public void HideTutorial()
     {
-        Timing.RunCoroutine(_HideTutorial());
+        if(background.gameObject.activeSelf)
+            Timing.RunCoroutine(_HideTutorial());
     }
 
     private void SetNewTutorial(GameObject tutorialObject)
@@ -64,6 +65,7 @@ public class TutorialManager : Singleton<TutorialManager> {
             yield return 0;
         }
     }
+
     private IEnumerator<float> _HideTutorial()
     {
         var t = 0.0f;

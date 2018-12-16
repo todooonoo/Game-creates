@@ -20,7 +20,7 @@ public abstract class Player : MonoBehaviour
     protected float dashAmount;
 
     // Dragging
-    protected List<Draggable> draggables = new List<Draggable>();
+    protected Draggable lastDraggable;
     protected InputPair dragInput;
     [HideInInspector] public Vector3 dragDirection;
 
@@ -55,23 +55,25 @@ public abstract class Player : MonoBehaviour
     {
         if(!Dragging)
         {
-            draggables.Add(draggable);
+            lastDraggable = draggable;
         }
     }
 
     public void ClearLastDraggable(Draggable draggable)
     {
-        draggables.Remove(draggable);
+        if (!Dragging)
+        {
+            if (lastDraggable == draggable)
+                lastDraggable = null;
+        }
     }
 
     public virtual void HandleUpdate()
     {
-        if(draggables.Count > 0)
+        if(lastDraggable)
         {
-            var lastDraggable = draggables[draggables.Count - 1];
             if (dragInput.GetAxisDown)
             {
-                // TODO: Player look in right direction,
                 SetDragDirection(lastDraggable);
                 lastDraggable.OnDrag(transform);
                 Dragging = true;
@@ -81,7 +83,7 @@ public abstract class Player : MonoBehaviour
                 lastDraggable.OnRelease(transform);
                 Dragging = false;
             }
-        }
+        } 
     }
 
     public virtual void SetDragDirection(Draggable lastDraggable)
