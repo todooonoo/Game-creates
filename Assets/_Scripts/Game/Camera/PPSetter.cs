@@ -3,15 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.PostProcessing;
 
+[ExecuteInEditMode]
 public class PPSetter : MonoBehaviour {
 
     [SerializeField] private PostProcessingProfile profile;
-    [SerializeField] private bool moveManagerHere = true;
+    
+    private void Update()
+    {
+        if (profile)
+        {
+            PostProcessingBehaviour behavior = FindObjectOfType<PostProcessingBehaviour>();
 
-    // Use this for initialization
-    void Start () {
-        if(moveManagerHere)
-            GameManager.Instance.transform.position = transform.position;
-        GameManager.Instance.Camera.GetComponent<PostProcessingBehaviour>().profile = profile;
-	}
+            if (behavior)
+            {
+                behavior.profile = profile;
+
+                if (!Application.isEditor)
+                    enabled = false;
+            }
+        }
+    }
 }

@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour {
     public Camera Camera { get { return gameCamera.Camera; } }
 
     public GameState state = GameState.Idle;
+    public bool IsIdle { get { return state == GameState.Idle; } }
 
     private void OnEnable()
     {
@@ -34,7 +35,7 @@ public class GameManager : MonoBehaviour {
 
     private void Update()
     {
-        if (gameCamera.Animating || state != GameState.Idle)
+        if (gameCamera.Animating || !IsIdle)
             return;
 
         player.HandleUpdate();
@@ -43,7 +44,7 @@ public class GameManager : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        if (gameCamera.Animating || state != GameState.Idle)
+        if (gameCamera.Animating || !IsIdle)
             return;
 
         player.HandleFixedUpdate();
