@@ -192,7 +192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   background: {fileID: 114845170062063382}
-  animationTime: 0.3
+  animationTime: 0.5
 --- !u!114 &114283788984345852
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -358,7 +358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81b117c98c968614d8a351d0fcdcc8dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bgmChangeTime: 3
+  bgmChangeTime: 0.5
   bgmPrefabs: []
 --- !u!114 &114833042823202572
 MonoBehaviour:

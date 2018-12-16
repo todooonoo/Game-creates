@@ -29,13 +29,15 @@ public class AudioManager : Singleton<AudioManager>
         }
     }
 
-    public void StopBGM()
+    public void StopBGM(bool instant = false)
     {
-        StartCoroutine(StopCurrentBGM());
+        StartCoroutine(StopCurrentBGM(instant));
     }
 
     private IEnumerator SetBGMEnum(AudioSource bgmObject, bool instant = false)
     {
+        bgmObject.transform.SetParent(transform);
+
         while (settingBGM)
             yield return null;
 
@@ -47,14 +49,9 @@ public class AudioManager : Singleton<AudioManager>
         }
 
         settingBGM = true;
-        if (!instant)
-            yield return StopCurrentBGM();
-
-        if (currentSource)
-            Destroy(currentSource.gameObject);
-
+        yield return StopCurrentBGM(instant);
+        
         currentSource = bgmObject;
-        currentSource.transform.SetParent(transform);
         currentSource.Play();
 
         if (!instant)
@@ -62,16 +59,19 @@ public class AudioManager : Singleton<AudioManager>
         settingBGM = false;
     }
 
-    private IEnumerator StopCurrentBGM()
+    private IEnumerator StopCurrentBGM(bool instant)
     {
         if (currentSource)
         {
-            while (currentSource.volume > 0.0f)
+            if (!instant)
             {
-                currentSource.volume -= Time.fixedDeltaTime / bgmChangeTime;
-                yield return new WaitForFixedUpdate();
+                while (currentSource.volume > 0.0f)
+                {
+                    currentSource.volume -= Time.fixedDeltaTime / bgmChangeTime;
+                    yield return new WaitForFixedUpdate();
+                }
+                currentSource.volume = 0.0f;
             }
-            currentSource.volume = 0.0f;
             Destroy(currentSource);
         }
     }
