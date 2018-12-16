@@ -53,12 +53,11 @@ public class SaveManager : Singleton<SaveManager> {
                 break;
         }
         encoder = SaveGame.Encoder;
-        Load();
+        // Load();
     }
 
     public void Save()
     {
-        // Complete save
         SaveGame.Save(saveId, GameSave, encode, encodePassword, serializer, encoder, encoding, savePath);
     }
 
@@ -66,19 +65,21 @@ public class SaveManager : Singleton<SaveManager> {
     {
         if (SaveGame.Exists(saveId) && !useDefaultSave)
         {
-            Debug.Log("Loading an existing save file");
             GameSave = SaveGame.Load(saveId, defaultSave, encode, encodePassword, serializer, encoder, encoding, savePath);
         }
         else
         {
-            GameSave = defaultSave;
+            RestartSave();
         }
     }
     
-
-    // Shortcuts
-    public Skill GetSkill(SkillType skillType)
+    public void RestartSave()
     {
-        return GameSave.playerSave.GetSkill(skillType);
+        GameSave = defaultSave;
+    }
+
+    public static bool EventCleared(string eventName)
+    {
+        return Instance.GameSave.clearedEvents.Contains(eventName);
     }
 }

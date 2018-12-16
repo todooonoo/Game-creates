@@ -5,10 +5,10 @@ using UnityEngine;
 [Serializable]
 public class GameSave
 {
-    public PlayerSave playerSave;
+    public List<string> clearedEvents;
 
     public GameSave()
     {
-        playerSave = new PlayerSave();
+        clearedEvents = new List<string>();
     }
 }

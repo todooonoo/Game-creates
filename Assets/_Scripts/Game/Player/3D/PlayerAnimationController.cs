@@ -24,9 +24,4 @@ public class PlayerAnimationController : MonoBehaviour {
     {
         animator.SetTrigger(attackTriggerStr);
     }
-
-    public void SetWeaponType(WeaponType weaponType)
-    {
-        animator.SetInteger(weaponIntStr, (int)weaponType);
-    }
 }
