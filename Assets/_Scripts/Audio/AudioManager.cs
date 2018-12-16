@@ -5,145 +5,87 @@ using System.Collections;
 public class AudioManager : Singleton<AudioManager>
 {
     [SerializeField]
-    private AudioRange[] audioRanges;
+    private float bgmChangeTime = 3.0f;
 
     [SerializeField]
-    private float bgmFadeTime = 2.0f;
+    private AudioSource[] bgmPrefabs;
+    private AudioSource currentSource;
+    private bool settingBGM;
 
-    // Stop bgmRange vari
-    private int bgmRangeIndex;
-    private AudioSource bgmSource;
-
-    protected override void Awake()
+    public void SetBGM(AudioSource bgmPrefab, bool instant = false)
     {
-        base.Awake();
+        StartCoroutine(SetBGMEnum(bgmPrefab, instant));
+    }
 
-        if (Instance != this)
-            return;
-
-        // Load BGM source
-        for (int i = 0; i < audioRanges.Length; i++)
+    public void SetBGM(string name, bool instant = false)
+    {
+        for (int i = 0; i < bgmPrefabs.Length; i++)
         {
-            if (audioRanges[i].audioType == AudioType.BGM)
+            if (bgmPrefabs[i].name == name)
             {
-                bgmRangeIndex = i;
-                bgmSource = audioRanges[i].prefab.Spawn(transform);
+                SetBGM(bgmPrefabs[i], instant);
                 break;
             }
         }
     }
 
-    public void LoadSound(AudioPair audioPair)
+    public void StopBGM()
     {
-        // Loop over audio ranges
-        for(int i = 0; i < audioRanges.Length; i++)
-        {
-            var range = audioRanges[i];
-            
-            // Range found
-            if(range.ContainsID(audioPair.GetID))
-            {
-                // Check if clip already loaded
-                var count = range.pairs.Count;
-                var clipLoaded = false;
-
-                for(int j = 0; j < count; j++)
-                {
-                    if(range.pairs[j] == audioPair)
-                    {
-                        clipLoaded = true;
-                        break;
-                    }
-                }
-
-                // Add clip to list
-                if(!clipLoaded)
-                    range.pairs.Add(audioPair);
-                break;
-            }
-        }
+        StartCoroutine(StopCurrentBGM());
     }
 
-    public void Play(AudioID id, AudioSource source = null)
+    private IEnumerator SetBGMEnum(AudioSource bgmObject, bool instant = false)
     {
-        // Loop over audio ranges
-        for (int i = 0; i < audioRanges.Length; i++)
-        {
-            var range = audioRanges[i];
-
-            // Range found
-            if (range.ContainsID(id))
-            {
-                var count = range.pairs.Count;
-                for (int j = 0; j < count; j++)
-                {
-                    var pair = range.pairs[j];
-                    if (pair.audioID == id)
-                    {
-                        // Play clip
-                        PlayClip(range, pair.clip, source);
-                        return;
-                    }
-                }
-                return;
-            }
-        }
-    }
-
-    private void PlayClip(AudioRange range, AudioClip clip, AudioSource source)
-    {
-        // If audio source defined play it there
-        if(source)
-        {
-            source.clip = clip;
-            source.Play();
-            return;
-        }
-
-        if (range.audioType == AudioType.BGM)
-        {
-            StartCoroutine(PlayBGM(clip));
-        }
-        else
-        {
-            StartCoroutine(PlaySFXEnum(range.prefab));
-        }
-    }
-
-    private IEnumerator PlaySFXEnum(AudioSource sfxPrefab)
-    {
-        var sfxInstance = sfxPrefab.Spawn();
-        sfxInstance.Play();
-
-        while (sfxInstance && sfxInstance.isPlaying)
+        while (settingBGM)
             yield return null;
 
-        if (sfxInstance)
-            sfxInstance.Recycle();
+        // Check same bgm
+        if (currentSource.name == bgmObject.name)
+        {
+            Debug.Log("BGM: Same name, ignoring...");
+            yield break;
+        }
+
+        settingBGM = true;
+        if (!instant)
+            yield return StopCurrentBGM();
+
+        if (currentSource)
+            Destroy(currentSource);
+
+        currentSource = bgmObject;
+        currentSource.transform.SetParent(transform);
+        currentSource.Play();
+
+        if (!instant)
+            yield return FadeInCurrentBGM();
+        settingBGM = false;
     }
 
-    private IEnumerator PlayBGM(AudioClip clip)
+    private IEnumerator StopCurrentBGM()
     {
-        if(bgmSource.clip)
+        if (currentSource)
         {
-            yield return ChangeVolume(bgmSource, 0.0f, bgmFadeTime);
-            bgmSource.Stop();
+            while (currentSource.volume > 0.0f)
+            {
+                currentSource.volume -= Time.fixedDeltaTime / bgmChangeTime;
+                yield return new WaitForFixedUpdate();
+            }
+            currentSource.volume = 0.0f;
+            Destroy(currentSource);
         }
-        bgmSource.clip = clip;
-        bgmSource.Play();
-        yield return ChangeVolume(bgmSource, audioRanges[bgmRangeIndex].volume, bgmFadeTime);
     }
 
-    private IEnumerator ChangeVolume(AudioSource source, float targetVolume, float time)
+    private IEnumerator FadeInCurrentBGM()
     {
-        var t = 0.0f;
-        var startVolume = source.volume;
+        var targetVolume = currentSource.volume;
+        currentSource.volume = 0.0f;
 
-        while(t < time)
+        while (currentSource.volume < targetVolume)
         {
-            t += Time.deltaTime;
-            source.volume = Mathf.Lerp(startVolume, targetVolume, t / time);
-            yield return null;
+            currentSource.volume = Mathf.Min(targetVolume, currentSource.volume + Time.fixedDeltaTime / bgmChangeTime);
+            yield return new WaitForFixedUpdate();
         }
+        currentSource.volume = targetVolume;
     }
 }
