@@ -2694,6 +2694,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1340458777}
   - component: {fileID: 1340458779}
+  - component: {fileID: 1340458778}
   m_Layer: 0
   m_Name: SkyboxCamera
   m_TagString: Untagged
@@ -2715,6 +2716,18 @@ Transform:
   m_Father: {fileID: 1723189979}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 120, z: 0}
+--- !u!114 &1340458778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1340458776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90942e79ab3b3da4085f7f998dd2841d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationPerSecond: {x: 0, y: 2, z: 0}
 --- !u!20 &1340458779
 Camera:
   m_ObjectHideFlags: 0

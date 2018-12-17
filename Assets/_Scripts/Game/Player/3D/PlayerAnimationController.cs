@@ -6,8 +6,7 @@ public class PlayerAnimationController : MonoBehaviour {
 
     [SerializeField]
     private Animator animator;
-    private static readonly string moveBoolStr = "Moving",
-        attackTriggerStr = "Attack", weaponIntStr = "WeaponType";
+    private static readonly string moveBoolStr = "Moving";
 
 	// Use this for initialization
 	void Start ()
@@ -18,10 +17,5 @@ public class PlayerAnimationController : MonoBehaviour {
     public void SetMove(bool moving)
     {
         animator.SetBool(moveBoolStr, moving);
-    }
-
-    public void TriggerAttack()
-    {
-        animator.SetTrigger(attackTriggerStr);
     }
 }

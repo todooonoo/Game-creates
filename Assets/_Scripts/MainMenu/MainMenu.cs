@@ -31,7 +31,7 @@ public class MainMenu : MonoBehaviour {
         {
             hideObjects[i].SetActive(false);
         }
-        BlackScreen.Instance.SetAlpha(1.0f);
+        // BlackScreen.Instance.SetAlpha(1.0f);
         Timing.RunCoroutine(_Init());
 	}
 
@@ -42,7 +42,7 @@ public class MainMenu : MonoBehaviour {
         while(t < startDelay)
         {
             t += Time.deltaTime;
-            BlackScreen.Instance.SetAlpha(1.0f - t / startDelay);
+            // BlackScreen.Instance.SetAlpha(1.0f - t / startDelay);
             yield return 0;
         }
 
