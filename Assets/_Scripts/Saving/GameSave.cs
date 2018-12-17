@@ -6,6 +6,7 @@ using UnityEngine;
 public class GameSave
 {
     public List<string> clearedEvents;
+    public bool powerUnlocked;
 
     public GameSave()
     {
