@@ -51,7 +51,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 20, y: 5, z: 1}
+  m_Size: {x: 20, y: 5, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114102246545803794
 MonoBehaviour:
@@ -66,4 +66,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetScene: 1_ForestMid
   targetId: 0
-  spawnPosLocal: {x: 0, y: 0, z: -2}
+  spawnPosLocal: {x: 0, y: 0, z: -4}

@@ -50,7 +50,7 @@ LensFlare:
   m_Flare: {fileID: 12100000, guid: 8541d94808d5849d8bfa480259334205, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_Brightness: 0.3
-  m_FadeSpeed: 3
+  m_FadeSpeed: 2.5
   m_IgnoreLayers:
     serializedVersion: 2
     m_Bits: 7175

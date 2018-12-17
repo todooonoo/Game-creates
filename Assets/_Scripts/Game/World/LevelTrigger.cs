@@ -57,8 +57,11 @@ public class LevelTrigger : MonoBehaviour
         Gizmos.DrawSphere(transform.position + spawnPosLocal, 1f);
     }
 
-    private void OnTriggerEnter(Collider col)
+    private void OnTriggerStay(Collider col)
     {
+        if (LoadingScreen.Instance.IsLoading)
+            return;
+
         var player = col.GetComponentInParent<Player>();
 
         if(player && !col.isTrigger)

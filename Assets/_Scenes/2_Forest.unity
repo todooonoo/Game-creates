@@ -251,7 +251,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 186979094}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!199 &373561125
 ParticleSystemRenderer:
@@ -4926,7 +4926,7 @@ Transform:
   m_LocalScale: {x: 20, y: 10, z: 200}
   m_Children: []
   m_Father: {fileID: 186979094}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &397848127
 BoxCollider:
@@ -5094,7 +5094,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 186979094}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &641903940
 GameObject:
@@ -5324,7 +5324,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4852221380890848, guid: 22cb91fd9622f184386c62d4167470eb, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 123422780417043984, guid: 22cb91fd9622f184386c62d4167470eb,
         type: 2}
@@ -5368,7 +5368,7 @@ Transform:
   m_LocalScale: {x: 20, y: 10, z: 200}
   m_Children: []
   m_Father: {fileID: 186979094}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1453082780
 BoxCollider:
@@ -5461,7 +5461,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4689530805202348, guid: 085f741163727d5409d1d6694c7f3b16, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 65354157624462384, guid: 085f741163727d5409d1d6694c7f3b16,
         type: 2}
@@ -5477,6 +5477,15 @@ Prefab:
         type: 2}
       propertyPath: targetScene
       value: MainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 114102246545803794, guid: 085f741163727d5409d1d6694c7f3b16,
+        type: 2}
+      propertyPath: spawnPosLocal.z
+      value: -4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1400475033481994, guid: 085f741163727d5409d1d6694c7f3b16, type: 2}
+      propertyPath: m_Name
+      value: LevelTriggerBase
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 085f741163727d5409d1d6694c7f3b16, type: 2}
@@ -5781,7 +5790,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 186979094}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!154 &1867633372
 TerrainCollider:
@@ -5854,7 +5863,6 @@ Transform:
   - {fileID: 1072742513}
   - {fileID: 641903941}
   - {fileID: 1159766223}
-  - {fileID: 2066289670}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5863,7 +5871,7 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1947469104}
+    m_TransformParent: {fileID: 186979094}
     m_Modifications:
     - target: {fileID: 4689530805202348, guid: 085f741163727d5409d1d6694c7f3b16, type: 2}
       propertyPath: m_LocalPosition.x
@@ -5879,15 +5887,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4689530805202348, guid: 085f741163727d5409d1d6694c7f3b16, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4689530805202348, guid: 085f741163727d5409d1d6694c7f3b16, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4689530805202348, guid: 085f741163727d5409d1d6694c7f3b16, type: 2}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4689530805202348, guid: 085f741163727d5409d1d6694c7f3b16, type: 2}
       propertyPath: m_LocalRotation.w
@@ -5895,23 +5903,22 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4689530805202348, guid: 085f741163727d5409d1d6694c7f3b16, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114102246545803794, guid: 085f741163727d5409d1d6694c7f3b16,
         type: 2}
       propertyPath: spawnPosLocal.z
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 114102246545803794, guid: 085f741163727d5409d1d6694c7f3b16,
         type: 2}
       propertyPath: targetId
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1400475033481994, guid: 085f741163727d5409d1d6694c7f3b16, type: 2}
+      propertyPath: m_Name
+      value: LevelTrigger_ForestMid
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 085f741163727d5409d1d6694c7f3b16, type: 2}
   m_IsPrefabAsset: 0
---- !u!4 &2066289670 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4689530805202348, guid: 085f741163727d5409d1d6694c7f3b16,
-    type: 2}
-  m_PrefabInternal: {fileID: 2066289669}
