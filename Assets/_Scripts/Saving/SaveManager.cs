@@ -38,6 +38,9 @@ public class SaveManager : Singleton<SaveManager> {
     public GameSave defaultSave = new GameSave();
     public bool useDefaultSave;
 
+    [Header("Language")]
+    public Language language;
+
     protected override void Init ()
     {
         switch (format)

@@ -460,6 +460,7 @@ MonoBehaviour:
     clearedEvents: []
     powerUnlocked: 0
   useDefaultSave: 1
+  language: 1
 --- !u!114 &114984563517743160
 MonoBehaviour:
   m_ObjectHideFlags: 1
