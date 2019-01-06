@@ -265,6 +265,8 @@ MonoBehaviour:
     keyCode: 51
   - action: 3
     keyCode: 304
+  - action: 10
+    keyCode: 9
 --- !u!114 &114539371849770878
 MonoBehaviour:
   m_ObjectHideFlags: 1

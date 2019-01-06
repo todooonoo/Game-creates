@@ -2,6 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum PlayerAnimationState
+{
+    Idle,
+    Move,
+    PushStart,
+    Push,
+    PushEnd,
+    Jump
+}
+
 public class PlayerAnimationController : MonoBehaviour {
 
     [SerializeField]

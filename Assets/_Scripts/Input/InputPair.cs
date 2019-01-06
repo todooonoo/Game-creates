@@ -9,6 +9,7 @@ public enum InputAction
     Jump = 2,
     Dash = 3,
     Drag = 4,
+    TransitionMain = 10,
     Transition3D = 99,
     TransitionRight = 100,
     TransitionUp = 101,

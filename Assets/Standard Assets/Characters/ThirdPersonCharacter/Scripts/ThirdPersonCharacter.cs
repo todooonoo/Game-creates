@@ -49,7 +49,6 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
         public void Move(Vector3 move, bool crouch, bool jump, bool ignoreTurn = false)
 		{
-
 			// convert the world relative moveInput vector into a local-relative
 			// turn amount and forward amount required to head in the desired
 			// direction.
@@ -85,6 +84,13 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             UpdateAnimator(move);
 		}
 
+        public void Jump()
+        {
+            if (m_IsGrounded)
+            {
+                m_Rigidbody.AddForce(Vector3.up * m_JumpPower, ForceMode.VelocityChange);
+            }
+        }
 
 		void ScaleCapsuleForCrouching(bool crouch)
 		{
@@ -128,6 +134,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		void UpdateAnimator(Vector3 move)
 		{
 			// update the animator parameters
+            /*
 			m_Animator.SetFloat("Forward", m_ForwardAmount, 0.1f, Time.deltaTime);
 			m_Animator.SetFloat("Turn", m_TurnAmount, 0.1f, Time.deltaTime);
 			m_Animator.SetBool("Crouch", m_Crouching);
@@ -136,6 +143,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			{
 				m_Animator.SetFloat("Jump", m_Rigidbody.velocity.y);
 			}
+            */
 
 			// calculate which leg is behind, so as to leave that leg trailing in the jump animation
 			// (This code is reliant on the specific run cycle offset in our animations,
@@ -144,10 +152,13 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 				Mathf.Repeat(
 					m_Animator.GetCurrentAnimatorStateInfo(0).normalizedTime + m_RunCycleLegOffset, 1);
 			float jumpLeg = (runCycle < k_Half ? 1 : -1) * m_ForwardAmount;
+
+            /*
 			if (m_IsGrounded)
 			{
 				m_Animator.SetFloat("JumpLeg", jumpLeg);
 			}
+            */
 
 			// the anim speed multiplier allows the overall speed of walking/running to be tweaked in the inspector,
 			// which affects the movement speed because of the root motion.
@@ -202,7 +213,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             {
                 if (m_IsGrounded)
                 {
-                    Vector3 v = (m_Animator.deltaPosition * m_MoveSpeedMultiplier) / Time.deltaTime;
+                    Vector3 v = (transform.forward * m_ForwardAmount * m_MoveSpeedMultiplier);
 
                     // we preserve the existing y part of the current velocity.
                     v.y = m_Rigidbody.velocity.y;
@@ -210,7 +221,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                 }
                 else
                 {
-                    Vector3 v = jumpForce * m_JumpMoveMultiplier * Time.deltaTime;
+                    Vector3 v = jumpForce * m_ForwardAmount * m_JumpMoveMultiplier * Time.deltaTime * Time.deltaTime;
                     Vector3 oldV = m_Rigidbody.velocity;
                     Vector3 newV = new Vector3(oldV.x + v.x, 0, oldV.z + v.z);
                     if(newV.sqrMagnitude >= maxJumpVelocity * maxJumpVelocity)

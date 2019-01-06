@@ -8,7 +8,7 @@ using UnityStandardAssets.Characters.ThirdPerson;
 public class PlayerMoveController : PlayerComponent
 {
     public bool Moving { get; private set; }
-
+    
     private Rigidbody rBody;
     private InputPair jumpInput;
     private Vector2 moveDelta = Vector2.up;
@@ -24,6 +24,7 @@ public class PlayerMoveController : PlayerComponent
     public override void HandleUpdate(Player3D player)
     {
         HandleMove(player);
+        HandleJump(player);
     }
 
     public override void HandleFixedUpdate(Player3D player)
@@ -66,6 +67,14 @@ public class PlayerMoveController : PlayerComponent
             controller.Move(Vector3.zero, false, !player.Dragging && jumpInput.GetAxisDown);
         }
     }
+
+    private void HandleJump(Player3D player)
+    {
+        if(jumpInput.GetAxisDown)
+        {
+            controller.Jump();
+        }
+    } 
 
     public void Stop()
     {
