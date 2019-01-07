@@ -88,6 +88,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         {
             if (m_IsGrounded)
             {
+                m_Rigidbody.velocity = new Vector3(m_Rigidbody.velocity.x, 0, m_Rigidbody.velocity.z);
                 m_Rigidbody.AddForce(Vector3.up * m_JumpPower, ForceMode.VelocityChange);
             }
         }
@@ -221,7 +222,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                 }
                 else
                 {
-                    Vector3 v = jumpForce * m_ForwardAmount * m_JumpMoveMultiplier * Time.deltaTime * Time.deltaTime;
+                    Vector3 v = jumpForce * m_ForwardAmount * m_JumpMoveMultiplier * Time.deltaTime;
                     Vector3 oldV = m_Rigidbody.velocity;
                     Vector3 newV = new Vector3(oldV.x + v.x, 0, oldV.z + v.z);
                     if(newV.sqrMagnitude >= maxJumpVelocity * maxJumpVelocity)

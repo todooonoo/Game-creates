@@ -45,26 +45,42 @@ public class PlayerMoveController : PlayerComponent
             var angle = Vector2.SignedAngle(Vector2.up, moveDelta);
             var dir = Quaternion.Euler(0, -angle, 0) * lookDir;
 
-            if (player.Dragging)
+            if (player.Pushing)
             {
                 var dirModifier = Mathf.Abs(Vector3.SignedAngle(dir, transform.forward, Vector3.up)) < 90 ? 1.0f : -1.0f;
                 transform.LookAt(transform.position - player.dragDirection);
 
                 if (dirModifier > 0)
+                {
                     controller.Move(-player.dragDirection, false, false, true);
+                    player.AnimationController.SetState(PlayerAnimationState.Push);
+                }
                 else
+                {
                     controller.Move(Vector3.zero, false, false, true);
+                    player.AnimationController.SetState(PlayerAnimationState.PushStart);
+                }
             } else
             {
                 transform.LookAt(transform.position + dir);
-                controller.Move(dir, false, !player.Dragging && jumpInput.GetAxisDown, player.Dragging);
+                controller.Move(dir, false, !player.Pushing && jumpInput.GetAxisDown, player.Pushing);
+
+                // Animation
+                player.AnimationController.SetState(PlayerAnimationState.Move);
             }
             Moving = true;
         }
         else
         {
-            Moving = false;
-            controller.Move(Vector3.zero, false, !player.Dragging && jumpInput.GetAxisDown);
+            if (player.Pushing)
+            {
+                player.AnimationController.SetState(PlayerAnimationState.PushStart);
+            }
+            else
+            {
+                player.AnimationController.SetState(PlayerAnimationState.Idle);
+            }
+            Stop(player);
         }
     }
 
@@ -76,9 +92,9 @@ public class PlayerMoveController : PlayerComponent
         }
     } 
 
-    public void Stop()
+    public void Stop(Player3D player)
     {
         Moving = false;
-        rBody.velocity = Vector3.up * rBody.velocity.y;
+        controller.Move(Vector3.zero, false, !player.Pushing && jumpInput.GetAxisDown);
     }
 }

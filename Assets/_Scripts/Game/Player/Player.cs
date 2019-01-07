@@ -26,7 +26,7 @@ public abstract class Player : MonoBehaviour
 
     [SerializeField]
     protected Vector3[] directions = new Vector3[] { Vector3.left, Vector3.right, Vector3.forward, -Vector3.forward };
-    public bool Dragging { get; protected set; }
+    public bool Pushing { get; protected set; }
 
     protected virtual void Start()
     {
@@ -53,7 +53,7 @@ public abstract class Player : MonoBehaviour
 
     public void SetLastDraggable(Draggable draggable)
     {
-        if(!Dragging)
+        if(!Pushing)
         {
             lastDraggable = draggable;
         }
@@ -61,7 +61,7 @@ public abstract class Player : MonoBehaviour
 
     public void ClearLastDraggable(Draggable draggable)
     {
-        if (!Dragging)
+        if (!Pushing)
         {
             if (lastDraggable == draggable)
                 lastDraggable = null;
@@ -76,12 +76,12 @@ public abstract class Player : MonoBehaviour
             {
                 SetDragDirection(lastDraggable);
                 lastDraggable.OnDrag(transform);
-                Dragging = true;
+                Pushing = true;
             }
             else if(dragInput.GetAxisUp)
             {
                 lastDraggable.OnRelease(transform);
-                Dragging = false;
+                Pushing = false;
             }
         } 
     }

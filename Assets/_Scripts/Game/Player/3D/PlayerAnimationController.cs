@@ -12,11 +12,30 @@ public enum PlayerAnimationState
     Jump
 }
 
+[System.Serializable]
+public struct PlayerAnimationStruct
+{
+    public PlayerAnimationState state;
+    public string stateName;
+    public float transitionTime;
+
+    public PlayerAnimationStruct(PlayerAnimationState state, string stateName, float transitionTime)
+    {
+        this.state = state;
+        this.stateName = stateName;
+        this.transitionTime = transitionTime;
+    }
+}
+
 public class PlayerAnimationController : MonoBehaviour {
 
     [SerializeField]
     private Animator animator;
-    private static readonly string moveBoolStr = "Moving";
+    [SerializeField]
+    private PlayerAnimationStruct[] animationStructs;
+
+    [HideInInspector]
+    public PlayerAnimationState currentState;
 
 	// Use this for initialization
 	void Start ()
@@ -24,8 +43,20 @@ public class PlayerAnimationController : MonoBehaviour {
         animator = animator ?? GetComponentInChildren<Animator>();
 	}
 
-    public void SetMove(bool moving)
+    public void SetState(PlayerAnimationState state)
     {
-        animator.SetBool(moveBoolStr, moving);
+        if (currentState == state)
+            return;
+
+        for(int i = 0; i < animationStructs.Length; i++)
+        {
+            if(animationStructs[i].state == state)
+            {
+                currentState = state;
+                animator.CrossFade(animationStructs[i].stateName, animationStructs[i].transitionTime);
+                return;
+            }
+        }
+        Debug.LogWarning("Animation state not found!");
     }
 }
