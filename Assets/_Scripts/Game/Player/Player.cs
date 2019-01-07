@@ -98,6 +98,7 @@ public abstract class Player : MonoBehaviour
             {
                 angle = tempAngle;
                 dragDirection = directions[i];
+                Debug.Log(delta + "/" + angle + "/" + dragDirection + "/" + i);
             }
         }
         transform.LookAt(transform.position - dragDirection);

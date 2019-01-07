@@ -68,14 +68,18 @@ public class TutorialManager : Singleton<TutorialManager> {
 
     private IEnumerator<float> _HideTutorial()
     {
-        var t = 0.0f;
-        while (t < animationTime)
+        // Hide previous tutorial
+        if (background.gameObject.activeSelf)
         {
-            t += Time.deltaTime;
-            background.transform.localPosition =
-                new Vector3(background.localPosition.x, Mathf.Lerp(showY, hideY, t / animationTime));
-            yield return 0;
+            var t = 0.0f;
+            while (t < animationTime)
+            {
+                t += Time.deltaTime;
+                background.transform.localPosition =
+                    new Vector3(background.localPosition.x, Mathf.Lerp(showY, hideY, t / animationTime));
+                yield return 0;
+            }
+            background.gameObject.SetActive(false);
         }
-        background.gameObject.SetActive(false);
     }
 }
