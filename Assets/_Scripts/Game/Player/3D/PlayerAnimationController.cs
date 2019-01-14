@@ -9,7 +9,9 @@ public enum PlayerAnimationState
     PushStart,
     Push,
     PushEnd,
-    Jump
+    Jump,
+    Fall,
+    Land
 }
 
 [System.Serializable]
@@ -37,6 +39,8 @@ public class PlayerAnimationController : MonoBehaviour {
     [HideInInspector]
     public PlayerAnimationState currentState;
 
+    public bool IsJumping { get; private set; }
+
 	// Use this for initialization
 	void Start ()
     {
@@ -48,7 +52,14 @@ public class PlayerAnimationController : MonoBehaviour {
         if (currentState == state)
             return;
 
-        for(int i = 0; i < animationStructs.Length; i++)
+        if (!IsJumping && state == PlayerAnimationState.Jump)
+            IsJumping = true;
+        else if (IsJumping && state == PlayerAnimationState.Land)
+            IsJumping = false;
+        else if (IsJumping && (state == PlayerAnimationState.Move || state == PlayerAnimationState.Push))
+            return;
+
+        for (int i = 0; i < animationStructs.Length; i++)
         {
             if(animationStructs[i].state == state)
             {

@@ -35,6 +35,8 @@ public class PlayerMoveController : PlayerComponent
     {
         if (player.playerState == PlayerState.Action)
             return;
+        if (player.AnimationController.IsJumping)
+            CheckJumpAnimation(player);
 
         moveDelta = new Vector2(Input.GetAxis(Static.horizontalAxis), Input.GetAxis(Static.verticalAxis));
         
@@ -72,15 +74,34 @@ public class PlayerMoveController : PlayerComponent
         }
         else
         {
-            if (player.Pushing)
+            if (player.AnimationController.IsJumping)
             {
-                player.AnimationController.SetState(PlayerAnimationState.PushStart);
-            }
-            else
+                CheckJumpAnimation(player);
+            } else
             {
-                player.AnimationController.SetState(PlayerAnimationState.Idle);
+                if (player.Pushing)
+                {
+                    player.AnimationController.SetState(PlayerAnimationState.PushStart);
+                }
+                else
+                {
+                    player.AnimationController.SetState(PlayerAnimationState.Idle);
+                }
             }
             Stop(player);
+        }
+    }
+
+    private void CheckJumpAnimation(Player3D player)
+    {
+        if (rBody.velocity.y < 0)
+        {
+            player.AnimationController.SetState(PlayerAnimationState.Fall);
+
+            if (controller.IsGrounded)
+            {
+                player.AnimationController.SetState(PlayerAnimationState.Land);
+            }
         }
     }
 
@@ -88,7 +109,10 @@ public class PlayerMoveController : PlayerComponent
     {
         if(jumpInput.GetAxisDown)
         {
-            controller.Jump();
+            if(controller.Jump())
+            {
+                player.AnimationController.SetState(PlayerAnimationState.Jump);
+            }
         }
     } 
 

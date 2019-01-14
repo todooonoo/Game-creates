@@ -6994,7 +6994,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MovingTurnSpeed: 360
   m_StationaryTurnSpeed: 180
-  m_JumpPower: 8
+  m_JumpPower: 7
   m_GravityMultiplier: 2
   m_RunCycleLegOffset: 0.2
   m_MoveSpeedMultiplier: 4
@@ -7043,6 +7043,15 @@ MonoBehaviour:
   - state: 4
     stateName: PushEnd
     transitionTime: 0.2
+  - state: 5
+    stateName: Jump
+    transitionTime: 0.1
+  - state: 6
+    stateName: Fall
+    transitionTime: 0.3
+  - state: 7
+    stateName: Land
+    transitionTime: 0
   currentState: 0
 --- !u!1 &477298967959342534
 GameObject:

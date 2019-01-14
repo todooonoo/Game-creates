@@ -18,9 +18,9 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         [SerializeField] float m_AnimSpeedMultiplier = 1f;
 		[SerializeField] float m_GroundCheckDistance = 0.1f;
 
-		Rigidbody m_Rigidbody;
+
+        Rigidbody m_Rigidbody;
 		Animator m_Animator;
-		bool m_IsGrounded;
 		float m_OrigGroundCheckDistance;
 		const float k_Half = 0.5f;
 		float m_TurnAmount;
@@ -32,6 +32,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		bool m_Crouching;
 
         // Custom
+        public bool IsGrounded { get; private set; }
         Vector3 jumpForce;
 
 		void Start()
@@ -67,7 +68,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			ApplyExtraTurnRotation();
 
 			// control and velocity handling is different when grounded and airborne:
-			if (m_IsGrounded)
+			if (IsGrounded)
 			{
 				HandleGroundedMovement(crouch, jump);
 			}
@@ -78,24 +79,26 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 			ScaleCapsuleForCrouching(crouch);
 			PreventStandingInLowHeadroom();
-            jumpForce = m_IsGrounded ? Vector3.zero : dir; 
+            jumpForce = IsGrounded ? Vector3.zero : dir; 
 
             // send input and other state parameters to the animator
             UpdateAnimator(move);
 		}
 
-        public void Jump()
+        public bool Jump()
         {
-            if (m_IsGrounded)
+            if (IsGrounded)
             {
                 m_Rigidbody.velocity = new Vector3(m_Rigidbody.velocity.x, 0, m_Rigidbody.velocity.z);
                 m_Rigidbody.AddForce(Vector3.up * m_JumpPower, ForceMode.VelocityChange);
+                return true;
             }
+            return false;
         }
 
 		void ScaleCapsuleForCrouching(bool crouch)
 		{
-			if (m_IsGrounded && crouch)
+			if (IsGrounded && crouch)
 			{
 				if (m_Crouching) return;
 				m_Capsule.height = m_Capsule.height / 2f;
@@ -163,7 +166,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 			// the anim speed multiplier allows the overall speed of walking/running to be tweaked in the inspector,
 			// which affects the movement speed because of the root motion.
-			if (m_IsGrounded && move.magnitude > 0)
+			if (IsGrounded && move.magnitude > 0)
 			{
 				m_Animator.speed = m_AnimSpeedMultiplier;
 			}
@@ -192,7 +195,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			{
 				// jump!
 				m_Rigidbody.velocity = new Vector3(m_Rigidbody.velocity.x, m_JumpPower, m_Rigidbody.velocity.z);
-				m_IsGrounded = false;
+				IsGrounded = false;
 				m_Animator.applyRootMotion = false;
 				m_GroundCheckDistance = 0.1f;
 			}
@@ -212,7 +215,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             // this allows us to modify the positional speed before it's applied.
             if (Time.deltaTime > 0)
             {
-                if (m_IsGrounded)
+                if (IsGrounded)
                 {
                     Vector3 v = (transform.forward * m_ForwardAmount * m_MoveSpeedMultiplier);
 
@@ -248,12 +251,12 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			if (Physics.Raycast(transform.position + (Vector3.up * 0.1f), Vector3.down, out hitInfo, m_GroundCheckDistance))
 			{
 				m_GroundNormal = hitInfo.normal;
-				m_IsGrounded = true;
+				IsGrounded = true;
 				m_Animator.applyRootMotion = true;
 			}
 			else
 			{
-				m_IsGrounded = false;
+				IsGrounded = false;
 				m_GroundNormal = Vector3.up;
 				m_Animator.applyRootMotion = false;
 			}
