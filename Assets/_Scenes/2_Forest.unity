@@ -5653,7 +5653,7 @@ PrefabInstance:
     - target: {fileID: 114102246545803794, guid: 085f741163727d5409d1d6694c7f3b16,
         type: 3}
       propertyPath: targetScene
-      value: MainMenu
+      value: 3_LabEntrance
       objectReference: {fileID: 0}
     - target: {fileID: 114102246545803794, guid: 085f741163727d5409d1d6694c7f3b16,
         type: 3}

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerTransitionController : PlayerComponent {
 
+    [SerializeField]
+    private GameObject transitionUIObject;
+
     private InputPair transitionInput;
 
     private void Start()
@@ -13,13 +16,10 @@ public class PlayerTransitionController : PlayerComponent {
 
     public override void HandleUpdate(Player3D player)
     {
-        if (player.playerState == PlayerState.Action)
+        if (player.playerState == PlayerState.Idle)
             return;
 
-        if(transitionInput.GetAxisDown)
-        {
-            // TODO: Transition UI
-        }
+        if(transitionUIObject)
+            transitionUIObject.SetActive(transitionInput.GetAxis);
     }
-    
 }

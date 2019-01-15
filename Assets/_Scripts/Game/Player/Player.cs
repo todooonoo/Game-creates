@@ -4,7 +4,8 @@ using System.Collections.Generic;
 public enum PlayerState
 {
     Idle,
-    Action
+    Action,
+    Transition
 }
 
 public abstract class Player : MonoBehaviour

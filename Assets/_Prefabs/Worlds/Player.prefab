@@ -6822,6 +6822,7 @@ GameObject:
   - component: {fileID: 507058429982153986}
   - component: {fileID: 507585179895429588}
   - component: {fileID: 506952164668885812}
+  - component: {fileID: 1729225322846571177}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -6994,7 +6995,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MovingTurnSpeed: 360
   m_StationaryTurnSpeed: 180
-  m_JumpPower: 7
+  m_JumpPower: 7.2
   m_GravityMultiplier: 2
   m_RunCycleLegOffset: 0.2
   m_MoveSpeedMultiplier: 4
@@ -7053,6 +7054,18 @@ MonoBehaviour:
     stateName: Land
     transitionTime: 0
   currentState: 0
+--- !u!114 &1729225322846571177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 477291561634552388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b81bbe3d2b3c584eb05be42fd2bea25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &477298967959342534
 GameObject:
   m_ObjectHideFlags: 0
