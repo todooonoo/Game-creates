@@ -49,6 +49,12 @@ public class GameCamera3D : GameCamera {
 
     public override void HandleUpdate()
     {
+        if (player.playerState == PlayerState.Transition)
+        {
+            GameManager.Instance.UnlockCursor();
+            return;
+        }
+
         if (Mode == CameraMode.ThreeDimensional)
         {
             HandleRotationMovement();
@@ -56,15 +62,13 @@ public class GameCamera3D : GameCamera {
 
         if (m_LockCursor && Input.GetMouseButtonUp(0))
         {
-            Cursor.lockState = m_LockCursor ? CursorLockMode.Locked : CursorLockMode.None;
-            Cursor.visible = !m_LockCursor;
+            GameManager.Instance.LockCursor(m_LockCursor);
         }
     }
 
     private void OnDisable()
     {
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        GameManager.Instance.UnlockCursor();
     }
 
     protected override void FollowTarget(float deltaTime)

@@ -49,4 +49,17 @@ public class GameManager : MonoBehaviour {
 
         player.HandleFixedUpdate();
     }
+    
+    public void UnlockCursor()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
+    public void LockCursor(bool forceLock)
+    {
+        Cursor.lockState = forceLock ? CursorLockMode.Locked : CursorLockMode.None;
+        Cursor.visible = !forceLock;
+    }
+
 }

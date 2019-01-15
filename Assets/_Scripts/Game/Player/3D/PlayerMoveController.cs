@@ -40,7 +40,7 @@ public class PlayerMoveController : PlayerComponent
 
         moveDelta = new Vector2(Input.GetAxis(Static.horizontalAxis), Input.GetAxis(Static.verticalAxis));
         
-        if (moveDelta.x != 0 || moveDelta.y != 0)
+        if ((moveDelta.x != 0 || moveDelta.y != 0) && player.playerState != PlayerState.Transition)
         {
             var lookDir = WorldManager.Instance.GameCamera.LookDirection;
             lookDir.y = 0;
@@ -98,6 +98,12 @@ public class PlayerMoveController : PlayerComponent
         {
             player.AnimationController.SetState(PlayerAnimationState.Fall);
 
+            if (controller.IsGrounded)
+            {
+                player.AnimationController.SetState(PlayerAnimationState.Land);
+            }
+        } else
+        {
             if (controller.IsGrounded)
             {
                 player.AnimationController.SetState(PlayerAnimationState.Land);

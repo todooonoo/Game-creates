@@ -52,10 +52,17 @@ public class PlayerAnimationController : MonoBehaviour {
         if (currentState == state)
             return;
 
+        if (currentState != PlayerAnimationState.Jump && state == PlayerAnimationState.Fall)
+            return;
+        if (currentState != PlayerAnimationState.Fall && state == PlayerAnimationState.Land)
+            return;
+
         if (!IsJumping && state == PlayerAnimationState.Jump)
             IsJumping = true;
         else if (IsJumping && state == PlayerAnimationState.Land)
+        {
             IsJumping = false;
+        }
         else if (IsJumping && (state == PlayerAnimationState.Move || state == PlayerAnimationState.Push))
             return;
 
