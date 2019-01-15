@@ -35,11 +35,16 @@ public class PlayerAnimationController : MonoBehaviour {
     private Animator animator;
     [SerializeField]
     private PlayerAnimationStruct[] animationStructs;
+    [SerializeField]
+    private float landingTime = 0.5f;
+    private float currentLandingTime;
 
     [HideInInspector]
     public PlayerAnimationState currentState;
 
     public bool IsJumping { get; private set; }
+
+
 
 	// Use this for initialization
 	void Start ()
@@ -56,6 +61,13 @@ public class PlayerAnimationController : MonoBehaviour {
             return;
         if (currentState != PlayerAnimationState.Fall && state == PlayerAnimationState.Land)
             return;
+        if(currentState == PlayerAnimationState.Land && (state == PlayerAnimationState.Idle || state == PlayerAnimationState.Move))
+        {
+            currentLandingTime += Time.deltaTime;
+            if (currentLandingTime < landingTime)
+                return;
+        }
+        currentLandingTime = 0;
 
         if (!IsJumping && state == PlayerAnimationState.Jump)
             IsJumping = true;
