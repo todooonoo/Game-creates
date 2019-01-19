@@ -118,6 +118,7 @@ public class PlayerMoveController : PlayerComponent
             if(controller.Jump())
             {
                 player.AnimationController.SetState(PlayerAnimationState.Jump);
+                // player.AnimationController.SetState(PlayerAnimationState.Jump);
             }
         }
     } 
