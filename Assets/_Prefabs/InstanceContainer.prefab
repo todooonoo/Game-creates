@@ -515,7 +515,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  keyCode: 303
+  keyCode: 304
 --- !u!114 &3732619583793833936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -567,11 +567,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc826e9687726a4cb79b1b606e5a8fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mousePairs:
-  - action: 0
-    mouseButton: 0
-  - action: 4
-    mouseButton: 0
+  mousePairs: []
   keyPairs:
   - action: 99
     keyCode: 48
@@ -583,8 +579,8 @@ MonoBehaviour:
     keyCode: 50
   - action: 102
     keyCode: 51
-  - action: 3
-    keyCode: 304
+  - action: 200
+    keyCode: 101
   - action: 10
     keyCode: 9
 --- !u!1 &4423326672220679260

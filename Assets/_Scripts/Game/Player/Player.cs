@@ -15,14 +15,10 @@ public abstract class Player : MonoBehaviour
 
     protected Renderer[] renderers;
     protected float targetAlpha = 1.0f, currentAlpha = 1.0f;
-
-    // Dash
-    protected InputPair dashInput;
-    protected float dashAmount;
-
+    
     // Dragging
     protected Draggable lastDraggable;
-    protected InputPair dragInput;
+    protected InputPair interactInput;
     [HideInInspector] public Vector3 dragDirection;
 
     [SerializeField]
@@ -32,8 +28,7 @@ public abstract class Player : MonoBehaviour
     protected virtual void Start()
     {
         renderers = GetComponentsInChildren<Renderer>();
-        dashInput = InputHandler.Instance.GetInput(InputAction.Dash);
-        dragInput = InputHandler.Instance.GetInput(InputAction.Drag);
+        interactInput = InputHandler.Instance.GetInput(InputAction.Interact);
     }
 
     public void SetVisible(bool visible)
@@ -49,14 +44,15 @@ public abstract class Player : MonoBehaviour
 
     public float TargetSpeed
     {
-        get { return dashInput.GetAxis ? speed * 2 : speed; }
+        get { return speed; }
     }
 
     public void SetLastDraggable(Draggable draggable)
     {
-        if(!Pushing)
+        if(!Pushing && lastDraggable != draggable)
         {
             lastDraggable = draggable;
+            lastDraggable.OnTrigger();
         }
     }
 
@@ -65,7 +61,9 @@ public abstract class Player : MonoBehaviour
         if (!Pushing)
         {
             if (lastDraggable == draggable)
+            {
                 lastDraggable = null;
+            }
         }
     }
 
@@ -73,22 +71,33 @@ public abstract class Player : MonoBehaviour
     {
         if(lastDraggable)
         {
-            if (dragInput.GetAxisDown)
+            GameManager.Instance.ShowInteractIcon(lastDraggable.InteractUIPos);
+            if (interactInput.GetAxisDown)
             {
                 SetDragDirection(lastDraggable);
                 lastDraggable.OnDrag(transform);
                 Pushing = true;
+                return;
             }
-            else if(dragInput.GetAxisUp)
+            else if(interactInput.GetAxisUp)
             {
                 lastDraggable.OnRelease(transform);
                 Pushing = false;
-            }
-        } 
+            } 
+        } else
+        {
+            GameManager.Instance.HideInteractIcon();
+        }
     }
 
     public virtual void SetDragDirection(Draggable lastDraggable)
     {
+        if(lastDraggable.lookAtTarget)
+        {
+            transform.LookAt(lastDraggable.transform);
+            return;
+        }
+
         var delta = transform.position - lastDraggable.transform.position;
         var angle = float.MaxValue;
         for (int i = 0; i < directions.Length; i++)

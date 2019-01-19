@@ -13,13 +13,14 @@ public class GameManager : MonoBehaviour {
     public static GameManager Instance { get; private set; }
 
     public Player player;
-
-    // Camera
+    
     public GameCamera gameCamera;
     public Camera Camera { get { return gameCamera.Camera; } }
 
     public GameState state = GameState.Idle;
     public bool IsIdle { get { return state == GameState.Idle; } }
+    
+    public InteractIcon interactIcon;
 
     private void OnEnable()
     {
@@ -62,4 +63,19 @@ public class GameManager : MonoBehaviour {
         Cursor.visible = !forceLock;
     }
 
+    public void ShowInteractIcon(Vector3 worldPos)
+    {
+        interactIcon.transform.position = Camera.WorldToScreenPoint(worldPos);
+        interactIcon.SetActive(true);
+    }
+
+    public void HideInteractIcon()
+    {
+        interactIcon.SetActive(false);
+    }
+
+    public void SetInteractIcon(InteractType type)
+    {
+        interactIcon.SetIcon(type);
+    }
 }

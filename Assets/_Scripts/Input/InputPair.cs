@@ -14,6 +14,7 @@ public enum InputAction
     TransitionRight = 100,
     TransitionUp = 101,
     TransitionFront = 102,
+    Interact = 200,
 }
 
 [Serializable]
