@@ -33,10 +33,11 @@ public class Draggable : MonoBehaviour {
         GameManager.Instance.SetInteractIcon(interactType);
     }
 
-    public virtual void OnDrag(Transform parent)
+    public virtual bool OnDrag(Transform parent)
     {
         // GameManager.Instance.SetInteractIcon(InteractType.Move);
         source.SetParent(parent);
+        return true;
     }
 
     public virtual void OnRelease(Transform parent)

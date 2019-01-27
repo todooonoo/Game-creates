@@ -21,6 +21,12 @@ public class GameManager : MonoBehaviour {
     public bool IsIdle { get { return state == GameState.Idle; } }
     
     public InteractIcon interactIcon;
+    public DialogueWindow dialogueWindow;
+
+    private void Start()
+    {
+        dialogueWindow.InitUI();
+    }
 
     private void OnEnable()
     {

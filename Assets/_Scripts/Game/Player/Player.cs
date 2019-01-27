@@ -75,8 +75,7 @@ public abstract class Player : MonoBehaviour
             if (interactInput.GetAxisDown)
             {
                 SetDragDirection(lastDraggable);
-                lastDraggable.OnDrag(transform);
-                Pushing = true;
+                Pushing = lastDraggable.OnDrag(transform);
                 return;
             }
             else if(interactInput.GetAxisUp)

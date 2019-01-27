@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class DraggableTalk : Draggable
 {
-    public override void OnDrag(Transform parent)
+    public string[] lines;
+
+    public override bool OnDrag(Transform parent)
     {
-        // TODO: Talk
+        GameManager.Instance.dialogueWindow.SetDialogue(lines);
+        return false;
     }
 
     public override void OnRelease(Transform parent)
