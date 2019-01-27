@@ -4676,15 +4676,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4382168425848464, guid: f3ededed1e6ae2a4cb25d269f066e0e6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3
+      value: 1.81
       objectReference: {fileID: 0}
     - target: {fileID: 4382168425848464, guid: f3ededed1e6ae2a4cb25d269f066e0e6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 4382168425848464, guid: f3ededed1e6ae2a4cb25d269f066e0e6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -46
+      value: -44.07
       objectReference: {fileID: 0}
     - target: {fileID: 4382168425848464, guid: f3ededed1e6ae2a4cb25d269f066e0e6, type: 3}
       propertyPath: m_LocalRotation.x
@@ -4718,6 +4718,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7538595306184524539, guid: f3ededed1e6ae2a4cb25d269f066e0e6,
+        type: 3}
+      propertyPath: lines.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7538595306184524539, guid: f3ededed1e6ae2a4cb25d269f066e0e6,
+        type: 3}
+      propertyPath: lines.Array.data[0]
+      value: '*Beep* Friend has woken up. *Beep*'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7538595306184524539, guid: f3ededed1e6ae2a4cb25d269f066e0e6,
+        type: 3}
+      propertyPath: lines.Array.data[1]
+      value: '*Beep* Friend wants to *Beep* return no lab? *Beep*'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7538595306184524539, guid: f3ededed1e6ae2a4cb25d269f066e0e6,
+        type: 3}
+      propertyPath: lines.Array.data[2]
+      value: '*Beep* Friend should press SPACE key to jump over these boxes. *Beep*'
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3ededed1e6ae2a4cb25d269f066e0e6, type: 3}
 --- !u!4 &1934705185 stripped
@@ -4726,6 +4746,27 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1934705184}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1934705186 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1968327929815068, guid: f3ededed1e6ae2a4cb25d269f066e0e6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1934705184}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1934705187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1934705186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fd911512848c3f48ba19adcaa8ffb97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newLines:
+  - '*Beep* Friend should press SPACE key to jump over these boxes. *Beep*'
+  - '*Beep* Me? Me can''t move. Me can''t go with friend. *Beep*'
 --- !u!1 &1947469102
 GameObject:
   m_ObjectHideFlags: 0

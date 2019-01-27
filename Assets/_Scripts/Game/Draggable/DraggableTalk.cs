@@ -9,6 +9,12 @@ public class DraggableTalk : Draggable
     public override bool OnDrag(Transform parent)
     {
         GameManager.Instance.dialogueWindow.SetDialogue(lines);
+
+        DialogueChanger changer = GetComponent<DialogueChanger>();
+        if(changer)
+        {
+            lines = changer.newLines;
+        }
         return false;
     }
 
