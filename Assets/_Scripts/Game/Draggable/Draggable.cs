@@ -35,13 +35,13 @@ public class Draggable : MonoBehaviour {
 
     public virtual void OnDrag(Transform parent)
     {
-        GameManager.Instance.SetInteractIcon(InteractType.Move);
+        // GameManager.Instance.SetInteractIcon(InteractType.Move);
         source.SetParent(parent);
     }
 
     public virtual void OnRelease(Transform parent)
     {
-        GameManager.Instance.SetInteractIcon(interactType);
+        // GameManager.Instance.SetInteractIcon(interactType);
         source.SetParent(originalParent);
     }
 }

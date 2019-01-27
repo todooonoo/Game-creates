@@ -7037,7 +7037,7 @@ MonoBehaviour:
     transitionTime: 0.1
   - state: 3
     stateName: Push
-    transitionTime: 0.3
+    transitionTime: 0.1
   - state: 2
     stateName: PushStart
     transitionTime: 0.2
@@ -7053,6 +7053,7 @@ MonoBehaviour:
   - state: 7
     stateName: Land
     transitionTime: 0
+  landingTime: 0.5
   currentState: 0
 --- !u!114 &1729225322846571177
 MonoBehaviour:
@@ -7066,7 +7067,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b81bbe3d2b3c584eb05be42fd2bea25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transitionUIObject: {fileID: 0}
 --- !u!1 &477298967959342534
 GameObject:
   m_ObjectHideFlags: 0

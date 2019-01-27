@@ -38,38 +38,28 @@ public class PlayerMoveController : PlayerComponent
         if (player.AnimationController.IsJumping)
             CheckJumpAnimation(player);
 
+        var lookDir = WorldManager.Instance.GameCamera.LookDirection;
+        lookDir.y = 0;
+        var angle = Vector2.SignedAngle(Vector2.up, moveDelta);
+        var dir = Quaternion.Euler(0, -angle, 0) * lookDir;
+
+        if (player.Pushing)
+        {
+            transform.LookAt(transform.position - player.dragDirection);
+            controller.Move(-player.dragDirection, false, false, true);
+            player.AnimationController.SetState(PlayerAnimationState.Push);
+            return;
+        }
         moveDelta = new Vector2(Input.GetAxis(Static.horizontalAxis), Input.GetAxis(Static.verticalAxis));
         
         if ((moveDelta.x != 0 || moveDelta.y != 0) && player.playerState != PlayerState.Transition)
         {
-            var lookDir = WorldManager.Instance.GameCamera.LookDirection;
-            lookDir.y = 0;
-            var angle = Vector2.SignedAngle(Vector2.up, moveDelta);
-            var dir = Quaternion.Euler(0, -angle, 0) * lookDir;
 
-            if (player.Pushing)
-            {
-                var dirModifier = Mathf.Abs(Vector3.SignedAngle(dir, transform.forward, Vector3.up)) < 90 ? 1.0f : -1.0f;
-                transform.LookAt(transform.position - player.dragDirection);
+            transform.LookAt(transform.position + dir);
+            controller.Move(dir, false, !player.Pushing && jumpInput.GetAxisDown, player.Pushing);
 
-                if (dirModifier > 0)
-                {
-                    controller.Move(-player.dragDirection, false, false, true);
-                    player.AnimationController.SetState(PlayerAnimationState.Push);
-                }
-                else
-                {
-                    controller.Move(Vector3.zero, false, false, true);
-                    player.AnimationController.SetState(PlayerAnimationState.PushStart);
-                }
-            } else
-            {
-                transform.LookAt(transform.position + dir);
-                controller.Move(dir, false, !player.Pushing && jumpInput.GetAxisDown, player.Pushing);
-
-                // Animation
-                player.AnimationController.SetState(PlayerAnimationState.Move);
-            }
+            // Animation
+            player.AnimationController.SetState(PlayerAnimationState.Move);
             Moving = true;
         }
         else
