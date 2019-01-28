@@ -25,7 +25,8 @@ public class GameManager : MonoBehaviour {
 
     private void Start()
     {
-        dialogueWindow.InitUI();
+        if(dialogueWindow)
+            dialogueWindow.InitUI();
     }
 
     private void OnEnable()
@@ -77,11 +78,13 @@ public class GameManager : MonoBehaviour {
 
     public void HideInteractIcon()
     {
-        interactIcon.SetActive(false);
+        if(interactIcon)
+            interactIcon.SetActive(false);
     }
 
     public void SetInteractIcon(InteractType type)
     {
-        interactIcon.SetIcon(type);
+        if (interactIcon)
+            interactIcon.SetIcon(type);
     }
 }
