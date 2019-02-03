@@ -54,7 +54,6 @@ public class PlayerMoveController : PlayerComponent
         
         if ((moveDelta.x != 0 || moveDelta.y != 0) && player.playerState != PlayerState.Transition)
         {
-
             transform.LookAt(transform.position + dir);
             controller.Move(dir, false, !player.Pushing && jumpInput.GetAxisDown, player.Pushing);
 

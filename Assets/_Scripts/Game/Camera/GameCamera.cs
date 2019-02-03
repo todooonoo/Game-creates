@@ -102,6 +102,11 @@ public abstract class GameCamera : PivotBasedCameraRig {
         // Nothing in base
     }
 
+    public virtual void StartAnimate(Quaternion lookRot, Vector3 pivotEulers, float time)
+    {
+        // Nothing in base
+    }
+
     public virtual Quaternion GetLookRot()
     {
         return transform.rotation;

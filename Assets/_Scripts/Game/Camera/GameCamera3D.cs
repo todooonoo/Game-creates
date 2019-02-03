@@ -52,6 +52,7 @@ public class GameCamera3D : GameCamera {
         if (player.playerState == PlayerState.Transition)
         {
             GameManager.Instance.UnlockCursor();
+            ApplyRotation();
             return;
         }
 
@@ -136,6 +137,29 @@ public class GameCamera3D : GameCamera {
         var euler = lookRot.eulerAngles;
         m_LookAngle = euler.y;
         m_PivotEulers = pivotEulers;
+    }
+
+    public override void StartAnimate(Quaternion lookRot, Vector3 pivotEulers, float time)
+    {
+        StopAllCoroutines();
+        StartCoroutine(AnimateTransitionPreview(lookRot, pivotEulers, time));
+    }
+
+    private IEnumerator AnimateTransitionPreview(Quaternion lookRot, Vector3 pivotEulers, float time)
+    {
+        float t = 0.0f;
+
+        Quaternion startRot = transform.localRotation;
+        Vector3 startEulers = m_PivotEulers;
+
+        while(t < time)
+        {
+            t += Time.deltaTime;
+
+            float ratio = t / time;
+            SetLook(Quaternion.Lerp(startRot, lookRot, ratio), Vector3.Lerp(startEulers, pivotEulers, ratio));
+            yield return null;
+        }
     }
 
     public override Quaternion GetPivotRot()
