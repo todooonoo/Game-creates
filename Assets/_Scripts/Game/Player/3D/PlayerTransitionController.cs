@@ -18,11 +18,11 @@ public class PlayerTransitionController : PlayerComponent {
         
         if (transitionInput.GetAxisDown)
         {
-            TransitionScreen.Instance.SetVisible(true);
+            GameManager.Instance.transitionScreen.SetVisible(true);
             player.playerState = PlayerState.Transition;
         } else if(transitionInput.GetAxisUp)
         {
-            TransitionScreen.Instance.SetVisible(false);
+            GameManager.Instance.transitionScreen.SetVisible(false);
             GameManager.Instance.LockCursor(true);
             player.playerState = PlayerState.Idle;
         }

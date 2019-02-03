@@ -10,4 +10,15 @@ public class TransitionScreen : Singleton<TransitionScreen>
     {
         screenObject.SetActive(visible);
     }
+
+    public void Transition(int worldType)
+    {
+        SetVisible(false);
+        WorldManager.Instance.Transition((WorldType)worldType);
+    }
+
+    public void CameraPreview()
+    {
+
+    }
 }

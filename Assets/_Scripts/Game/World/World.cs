@@ -2,10 +2,10 @@
 
 public enum WorldType
 {
-    World3D,
-    WorldRight2D,
-    WorldUp2D,
-    WorldFront2D,
+    World3D = 0,
+    WorldRight2D = 1,
+    WorldUp2D = 2,
+    WorldFront2D = 3,
 }
 
 public class World : MonoBehaviour {

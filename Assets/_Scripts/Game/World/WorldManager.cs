@@ -60,7 +60,6 @@ public class WorldManager : MonoBehaviour {
         {
             transition = currentWorldType != WorldType.World3D;
             currentWorldType = WorldType.World3D;
-
         } else if(transitionInputUp.GetAxisDown)
         {
             currentWorldType = currentWorldType == WorldType.WorldUp2D ? WorldType.World3D : WorldType.WorldUp2D;
@@ -76,6 +75,38 @@ public class WorldManager : MonoBehaviour {
         }
 
         if(transition)
+        {
+            currentWorld.GameCamera.onTransitionComplete.AddListener(SwitchWorld);
+            currentWorld.GameCamera.TransitionIn();
+        }
+    }
+    
+    public void Transition(WorldType worldType)
+    {
+        bool transition = false;
+
+        if (worldType == WorldType.World3D)
+        {
+            transition = currentWorldType != WorldType.World3D;
+            currentWorldType = WorldType.World3D;
+        }
+        else if (worldType == WorldType.WorldUp2D)
+        {
+            currentWorldType = currentWorldType == WorldType.WorldUp2D ? WorldType.World3D : WorldType.WorldUp2D;
+            transition = true;
+        }
+        else if (worldType == WorldType.WorldRight2D)
+        {
+            currentWorldType = currentWorldType == WorldType.WorldRight2D ? WorldType.World3D : WorldType.WorldRight2D;
+            transition = true;
+        }
+        else if (worldType == WorldType.WorldFront2D)
+        {
+            currentWorldType = currentWorldType == WorldType.WorldFront2D ? WorldType.World3D : WorldType.WorldFront2D;
+            transition = true;
+        }
+
+        if (transition)
         {
             currentWorld.GameCamera.onTransitionComplete.AddListener(SwitchWorld);
             currentWorld.GameCamera.TransitionIn();

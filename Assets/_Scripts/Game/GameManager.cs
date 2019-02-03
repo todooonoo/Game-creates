@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour {
     
     public InteractIcon interactIcon;
     public DialogueWindow dialogueWindow;
+    public TransitionScreen transitionScreen;
 
     private void Start()
     {
