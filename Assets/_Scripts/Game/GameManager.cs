@@ -24,6 +24,10 @@ public class GameManager : MonoBehaviour {
     public DialogueWindow dialogueWindow;
     public TransitionScreen transitionScreen;
 
+    [Header("Save States")]
+    public bool transitionUnlocked;
+    public bool upTransitionUnlocked;
+
     private void Start()
     {
         if(dialogueWindow)

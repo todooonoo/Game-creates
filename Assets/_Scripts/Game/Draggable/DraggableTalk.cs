@@ -2,12 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum TalkClearType
+{
+    None,
+    UnlockSide,
+    UnlockUp,
+    UnlockFront
+}
+
 public class DraggableTalk : Draggable
 {
     public string[] lines;
+    public TalkClearType clearType;
 
     public override bool OnDrag(Transform parent)
     {
+        if(clearType == TalkClearType.UnlockSide)
+        {
+            GameManager.Instance.transitionUnlocked = true;
+        }
+
         GameManager.Instance.dialogueWindow.SetDialogue(lines);
 
         DialogueChanger changer = GetComponent<DialogueChanger>();
