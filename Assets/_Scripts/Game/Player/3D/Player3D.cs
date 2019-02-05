@@ -70,4 +70,11 @@ public class Player3D : Player {
     {
         rBody.isKinematic = !active;
     }
+
+    public override void Stop()
+    {
+        base.Stop();
+        GetComponent<PlayerMoveController>().Stop(this);
+        GetComponent<PlayerAnimationController>().SetState(PlayerAnimationState.Idle);
+    }
 }

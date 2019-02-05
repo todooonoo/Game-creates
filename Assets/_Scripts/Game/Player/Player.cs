@@ -67,6 +67,11 @@ public abstract class Player : MonoBehaviour
         }
     }
 
+    public virtual void Stop()
+    {
+        playerState = PlayerState.Action;
+    }
+
     public virtual void HandleUpdate()
     {
         if(lastDraggable)

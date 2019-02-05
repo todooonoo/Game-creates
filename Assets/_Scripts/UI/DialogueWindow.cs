@@ -37,6 +37,7 @@ public class DialogueWindow : MonoBehaviour
     private IEnumerator PlayDialogue(string[] lines)
     {
         GameManager.Instance.state = GameState.Event;
+        GameManager.Instance.player.Stop();
         yield return ShowWindow();
         
         // Show each lines
@@ -47,6 +48,7 @@ public class DialogueWindow : MonoBehaviour
 
         yield return HideWindow();
         GameManager.Instance.state = GameState.Idle;
+        GameManager.Instance.player.playerState = PlayerState.Idle;
         gameObject.SetActive(false);
     }
 

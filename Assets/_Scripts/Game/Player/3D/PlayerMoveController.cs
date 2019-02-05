@@ -34,7 +34,10 @@ public class PlayerMoveController : PlayerComponent
     private void HandleMove(Player3D player)
     {
         if (player.playerState == PlayerState.Action)
+        {
+            Stop(player);
             return;
+        }
         if (player.AnimationController.IsJumping)
             CheckJumpAnimation(player);
 
@@ -116,5 +119,6 @@ public class PlayerMoveController : PlayerComponent
     {
         Moving = false;
         controller.Move(Vector3.zero, false, !player.Pushing && jumpInput.GetAxisDown);
+        player.AnimationController.SetState(PlayerAnimationState.Idle);
     }
 }
