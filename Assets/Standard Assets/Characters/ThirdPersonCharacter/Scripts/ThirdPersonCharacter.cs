@@ -50,10 +50,12 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
         public void Move(Vector3 move, bool crouch, bool jump, bool ignoreTurn = false)
 		{
-			// convert the world relative moveInput vector into a local-relative
-			// turn amount and forward amount required to head in the desired
-			// direction.
-			if (move.magnitude > 1f) move.Normalize();
+            float mag = move.magnitude;
+			if (mag > 1f) move.Normalize();
+            else if(mag <= 0.1f)
+            {
+                m_Rigidbody.velocity = new Vector3(0, m_Rigidbody.velocity.y, 0);
+            }
             Vector3 dir = move;
 
 			move = transform.InverseTransformDirection(move);
@@ -209,32 +211,27 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		}
 
 
-		public void OnAnimatorMove()
+		public void FixedUpdate()
 		{
-            // we implement this function to override the default root motion.
-            // this allows us to modify the positional speed before it's applied.
-            if (Time.deltaTime > 0)
+            if (IsGrounded)
             {
-                if (IsGrounded)
-                {
-                    Vector3 v = (transform.forward * m_ForwardAmount * m_MoveSpeedMultiplier);
+                Vector3 v = (transform.forward * m_ForwardAmount * m_MoveSpeedMultiplier);
 
-                    // we preserve the existing y part of the current velocity.
-                    v.y = m_Rigidbody.velocity.y;
-                    m_Rigidbody.velocity = v;
-                }
-                else
+                // we preserve the existing y part of the current velocity.
+                v.y = m_Rigidbody.velocity.y;
+                m_Rigidbody.velocity = v;
+            }
+            else
+            {
+                Vector3 v = jumpForce * m_ForwardAmount * m_JumpMoveMultiplier * Time.fixedDeltaTime;
+                Vector3 oldV = m_Rigidbody.velocity;
+                Vector3 newV = new Vector3(oldV.x + v.x, 0, oldV.z + v.z);
+                if(newV.sqrMagnitude >= maxJumpVelocity * maxJumpVelocity)
                 {
-                    Vector3 v = jumpForce * m_ForwardAmount * m_JumpMoveMultiplier * Time.deltaTime;
-                    Vector3 oldV = m_Rigidbody.velocity;
-                    Vector3 newV = new Vector3(oldV.x + v.x, 0, oldV.z + v.z);
-                    if(newV.sqrMagnitude >= maxJumpVelocity * maxJumpVelocity)
-                    {
-                        newV = newV.normalized * maxJumpVelocity;
-                    }
-
-                    m_Rigidbody.velocity = new Vector3(newV.x, oldV.y, newV.z);
+                    newV = newV.normalized * maxJumpVelocity;
                 }
+
+                m_Rigidbody.velocity = new Vector3(newV.x, oldV.y, newV.z);
             }
 		}
 

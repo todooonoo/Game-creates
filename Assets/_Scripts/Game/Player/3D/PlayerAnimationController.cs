@@ -66,8 +66,9 @@ public class PlayerAnimationController : MonoBehaviour {
             currentLandingTime += Time.deltaTime;
             if (currentLandingTime < landingTime)
                 return;
+            else
+                currentLandingTime = 0;
         }
-        currentLandingTime = 0;
 
         if (!IsJumping && state == PlayerAnimationState.Jump)
             IsJumping = true;
@@ -82,11 +83,20 @@ public class PlayerAnimationController : MonoBehaviour {
         {
             if(animationStructs[i].state == state)
             {
+                if(state == PlayerAnimationState.Idle)
+                {
+                    ResetVars();
+                }
                 currentState = state;
                 animator.CrossFade(animationStructs[i].stateName, animationStructs[i].transitionTime);
                 return;
             }
         }
-        Debug.LogWarning("Animation state not found!");
+    }
+
+    private void ResetVars()
+    {
+        IsJumping = false;
+        currentLandingTime = 0;
     }
 }
