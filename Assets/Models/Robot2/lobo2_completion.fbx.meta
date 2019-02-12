@@ -40,9 +40,24 @@ ModelImporter:
     4300008: pPipe3
     4300010: pSphere4
     4300012: extrudedSurface3
-    7400000: Take 001
+    7400000: SecurityRobot_2
     9500000: //RootNode
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: lobo2_tex
+    second: {fileID: 2800000, guid: 3396e81e5a7a2434bbf24caec94861f1, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: lobo2_tex_MetallicSmoothness
+    second: {fileID: 2800000, guid: 2e57701d837d76a489a3c5486ba87d12, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: lobo2_tex_Normal
+    second: {fileID: 2800000, guid: c315414917ba4754294bd4a93ff90365, type: 3}
   materials:
     importMaterials: 1
     materialName: 0
@@ -69,7 +84,35 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: SecurityRobot_2
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 150
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
