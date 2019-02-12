@@ -88,7 +88,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
-  m_LightingDataAsset: {fileID: 112000002, guid: 779f626ee7b5b6742a522a8a4ceea02a,
+  m_LightingDataAsset: {fileID: 112000000, guid: 779f626ee7b5b6742a522a8a4ceea02a,
     type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -4271,6 +4271,12 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114975339047435320, guid: 6a11171a2115c7e4e9da46df7c0a0e02,
+        type: 3}
+      propertyPath: pairs.Array.data[0].prefab
+      value: 
+      objectReference: {fileID: 114308897313182808, guid: 1221167b1db5c054b8b25d252a5aa353,
+        type: 3}
     - target: {fileID: 4232337647564088, guid: 6a11171a2115c7e4e9da46df7c0a0e02, type: 3}
       propertyPath: m_LocalPosition.z
       value: 1.5
@@ -4279,12 +4285,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -1
       objectReference: {fileID: 0}
-    - target: {fileID: 114975339047435320, guid: 6a11171a2115c7e4e9da46df7c0a0e02,
-        type: 3}
-      propertyPath: pairs.Array.data[0].prefab
-      value: 
-      objectReference: {fileID: 114308897313182808, guid: 1221167b1db5c054b8b25d252a5aa353,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a11171a2115c7e4e9da46df7c0a0e02, type: 3}
 --- !u!1 &1312461929380355348

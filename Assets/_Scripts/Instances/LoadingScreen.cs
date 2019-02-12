@@ -12,7 +12,10 @@ public class LoadingScreen : Singleton<LoadingScreen> {
     private float animationTime = 0.5f;
     private const float frameTime = 0.04f;
 
-	public bool IsLoading { get; private set; }
+    [SerializeField]
+    private bool enableReload = true;
+
+    public bool IsLoading { get; private set; }
     public string CurrentScene { get; private set; }
 
     protected override void Init()
@@ -29,6 +32,12 @@ public class LoadingScreen : Singleton<LoadingScreen> {
 		if (IsLoading)
 			return;
         StartCoroutine(AnimateLoad(sceneName));
+    }
+
+    private void Update()
+    {
+        if (enableReload && Input.GetKeyDown(KeyCode.F5))
+            ReloadScene();
     }
 
     private IEnumerator AnimateLoad(string sceneName)

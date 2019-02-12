@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/_Scenes/1_ForestMid.unity
     guid: 8daaa1cc29f897149b05c327ca06e8c7
   - enabled: 1
-    path: Assets/_Scenes/1_ForestMid_Temp.unity
+    path: Assets/_Scenes/0_ForestStart_Temp.unity
     guid: 1bbf60d0631a0934a94d6048e4a2c64d
   - enabled: 1
     path: Assets/_Scenes/2_Forest.unity
