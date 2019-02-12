@@ -757,7 +757,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1400475033481994, guid: 085f741163727d5409d1d6694c7f3b16, type: 3}
       propertyPath: m_Name
-      value: LevelTrigger_Forest
+      value: LevelTrigger_ForestMid
       objectReference: {fileID: 0}
     - target: {fileID: 4689530805202348, guid: 085f741163727d5409d1d6694c7f3b16, type: 3}
       propertyPath: m_LocalPosition.x
@@ -799,7 +799,7 @@ PrefabInstance:
     - target: {fileID: 114102246545803794, guid: 085f741163727d5409d1d6694c7f3b16,
         type: 3}
       propertyPath: targetScene
-      value: 2_Forest
+      value: 1_ForestMid
       objectReference: {fileID: 0}
     - target: {fileID: 114102246545803794, guid: 085f741163727d5409d1d6694c7f3b16,
         type: 3}

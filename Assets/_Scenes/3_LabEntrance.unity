@@ -866,11 +866,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 65354157624462384, guid: 085f741163727d5409d1d6694c7f3b16,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 114102246545803794, guid: 085f741163727d5409d1d6694c7f3b16,
         type: 3}
       propertyPath: spawnPosLocal.z
@@ -880,6 +875,16 @@ PrefabInstance:
         type: 3}
       propertyPath: targetScene
       value: 2_Forest
+      objectReference: {fileID: 0}
+    - target: {fileID: 114102246545803794, guid: 085f741163727d5409d1d6694c7f3b16,
+        type: 3}
+      propertyPath: targetId
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 65354157624462384, guid: 085f741163727d5409d1d6694c7f3b16,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 085f741163727d5409d1d6694c7f3b16, type: 3}

@@ -33,7 +33,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
         // Custom
         public bool IsGrounded { get; private set; }
-        Vector3 jumpForce;
+        Vector3 jumpForce, moveVector;
 
 		void Start()
 		{
@@ -57,16 +57,19 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                 m_Rigidbody.velocity = new Vector3(0, m_Rigidbody.velocity.y, 0);
             }
             Vector3 dir = move;
+            moveVector = new Vector3(move.x, move.y, move.z);
 
-			move = transform.InverseTransformDirection(move);
-			CheckGroundStatus();
+            move = transform.InverseTransformDirection(move);
+            CheckGroundStatus();
 			move = Vector3.ProjectOnPlane(move, m_GroundNormal);
 
             if(!ignoreTurn)
 			    m_TurnAmount = Mathf.Atan2(move.x, move.z);
-			m_ForwardAmount = move.z;
-            
+            else
+            {
 
+            }
+			m_ForwardAmount = move.z;
 			ApplyExtraTurnRotation();
 
 			// control and velocity handling is different when grounded and airborne:
@@ -85,7 +88,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
             // send input and other state parameters to the animator
             UpdateAnimator(move);
-		}
+        }
 
         public bool Jump()
         {
@@ -136,7 +139,6 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			}
 		}
 
-
 		void UpdateAnimator(Vector3 move)
 		{
 			// update the animator parameters
@@ -179,7 +181,6 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			}
 		}
 
-
 		void HandleAirborneMovement()
 		{
 			// apply extra gravity from multiplier:
@@ -188,7 +189,6 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 			m_GroundCheckDistance = m_Rigidbody.velocity.y < 0 ? m_OrigGroundCheckDistance : 0.01f;
 		}
-
 
 		void HandleGroundedMovement(bool crouch, bool jump)
 		{
@@ -210,7 +210,6 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			transform.Rotate(0, m_TurnAmount * turnSpeed * Time.deltaTime, 0);
 		}
 
-
 		public void FixedUpdate()
 		{
             if (IsGrounded)
@@ -223,9 +222,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             }
             else
             {
-                Vector3 v = jumpForce * m_ForwardAmount * m_JumpMoveMultiplier * Time.fixedDeltaTime;
                 Vector3 oldV = m_Rigidbody.velocity;
-                Vector3 newV = new Vector3(oldV.x + v.x, 0, oldV.z + v.z);
+                Vector3 newV = new Vector3(oldV.x + moveVector.x, 0, oldV.z + moveVector.z);
                 if(newV.sqrMagnitude >= maxJumpVelocity * maxJumpVelocity)
                 {
                     newV = newV.normalized * maxJumpVelocity;
