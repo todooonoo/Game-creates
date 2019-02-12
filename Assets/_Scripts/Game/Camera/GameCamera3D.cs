@@ -60,16 +60,17 @@ public class GameCamera3D : GameCamera {
         {
             HandleRotationMovement();
         }
-
+        /*
         if (m_LockCursor && Input.GetMouseButtonUp(0))
         {
             GameManager.Instance.LockCursor(m_LockCursor);
         }
+        */
     }
 
     private void OnDisable()
     {
-        GameManager.Instance.UnlockCursor();
+        // GameManager.Instance.UnlockCursor();
     }
 
     protected override void FollowTarget(float deltaTime)

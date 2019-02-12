@@ -14,7 +14,8 @@ public class Player2D : Player
     [Header("Jump")]
     [SerializeField] private float jumpForce;
     [SerializeField] private LayerMask groundLayer;
-    private InputPair jumpInput;
+    private InputPair jumpInput, transitionInput;
+    private const string transitionSFXName = "Transition";
 
     [Header("Contact Check")]
     [SerializeField] private float contactDist = 0.05f;
@@ -30,13 +31,23 @@ public class Player2D : Player
         rBody = GetComponent<Rigidbody2D>();
         col = GetComponentInChildren<Collider2D>();
         jumpInput = InputHandler.Instance.GetInput(InputAction.Jump);
-	}
+        transitionInput = InputHandler.Instance.GetInput(InputAction.TransitionMain);
+    }
 
     public override void HandleUpdate()
     {
+        bool grounded = IsGrounded();
+
+        if(grounded && transitionInput.GetAxisDown)
+        {
+            WorldManager.Instance.Transition(WorldType.World3D);
+            AudioManager.Instance.PlaySFX(transitionSFXName);
+            return;
+        }
+
         Move();
 
-        if(jumpInput.GetAxisDown && IsGrounded())
+        if(jumpInput.GetAxisDown && grounded)
         {
             Jump();
         }

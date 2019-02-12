@@ -22,9 +22,19 @@ public class PlayerTransitionController : PlayerComponent {
             player.playerState = PlayerState.Transition;
         } else if(transitionInput.GetAxisUp)
         {
-            GameManager.Instance.transitionScreen.SetVisible(false);
-            GameManager.Instance.LockCursor(true);
-            player.playerState = PlayerState.Idle;
+            ResetState(player);
         }
+    }
+
+    public void ResetState()
+    {
+        ResetState(GetComponent<Player3D>());
+    }
+
+    public void ResetState(Player3D player)
+    {
+        GameManager.Instance.transitionScreen.SetVisible(false);
+        GameManager.Instance.LockCursor(true);
+        player.playerState = PlayerState.Idle;
     }
 }

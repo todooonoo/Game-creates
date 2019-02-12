@@ -108,6 +108,7 @@ public class WorldManager : MonoBehaviour {
 
         if (transition)
         {
+            GameManager.Instance.state = GameState.Event;
             currentWorld.GameCamera.onTransitionComplete.AddListener(SwitchWorld);
             currentWorld.GameCamera.TransitionIn();
         }
@@ -129,6 +130,8 @@ public class WorldManager : MonoBehaviour {
     {
         currentWorld.SetPlayerCollision(true);
         currentWorld.CheckPlayerCollision();
+        GameManager.Instance.state = GameState.Idle;
+        GameManager.Instance.player.playerState = PlayerState.Idle;
     }
 
     public World GetWorld(WorldType worldType)

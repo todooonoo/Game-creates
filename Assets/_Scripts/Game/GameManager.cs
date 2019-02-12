@@ -36,8 +36,11 @@ public class GameManager : MonoBehaviour {
 
     private void OnEnable()
     {
-        if(!Instance)
+        if (!Instance)
+        {
             Instance = this;
+        }
+        LockCursor(true);
     }
 
     private void OnDisable()
@@ -65,6 +68,7 @@ public class GameManager : MonoBehaviour {
     
     public void UnlockCursor()
     {
+        Debug.Log("Unlock");
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }
