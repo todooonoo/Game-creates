@@ -64,10 +64,19 @@ public class PlayerMoveController : PlayerComponent
         if ((moveDelta.x != 0 || moveDelta.y != 0) && player.playerState != PlayerState.Transition)
         {
             transform.LookAt(transform.position + dir);
+
+            bool grounded = controller.IsGrounded;
             controller.Move(dir, false, !player.Pushing && jumpInput.GetAxisDown, player.Pushing);
 
             // Animation
-            player.AnimationController.SetState(PlayerAnimationState.Move);
+            if (grounded && !controller.IsGrounded)
+            {
+                player.AnimationController.SetState(PlayerAnimationState.Jump);
+            } else
+            {
+                player.AnimationController.SetState(PlayerAnimationState.Move);
+            }
+
             Moving = true;
         }
         else
@@ -111,20 +120,33 @@ public class PlayerMoveController : PlayerComponent
 
     private void HandleJump(Player3D player)
     {
+        /*
         if(jumpInput.GetAxisDown)
         {
             if(controller.Jump())
             {
                 player.AnimationController.SetState(PlayerAnimationState.Jump);
-                // player.AnimationController.SetState(PlayerAnimationState.Jump);
             }
         }
+        */
     } 
 
     public void Stop(Player3D player)
     {
         Moving = false;
+
+        bool grounded = controller.IsGrounded;
         controller.Move(Vector3.zero, false, !player.Pushing && jumpInput.GetAxisDown);
-        player.AnimationController.SetState(PlayerAnimationState.Idle);
+        
+        // Animation
+        if (grounded && !controller.IsGrounded)
+        {
+            player.AnimationController.SetState(PlayerAnimationState.Jump);
+        }
+        else
+        {
+            player.AnimationController.SetState(PlayerAnimationState.Idle);
+        }
+
     }
 }

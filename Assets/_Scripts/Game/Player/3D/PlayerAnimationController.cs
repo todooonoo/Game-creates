@@ -76,12 +76,14 @@ public class PlayerAnimationController : MonoBehaviour {
         }
 
         if (!IsJumping && state == PlayerAnimationState.Jump)
+        {
             IsJumping = true;
+        }
         else if (IsJumping && state == PlayerAnimationState.Land)
         {
-            IsJumping = false;
+            ResetVars();
         }
-        else if (IsJumping && (state == PlayerAnimationState.Move || state == PlayerAnimationState.Push))
+        else if (IsJumping && (state == PlayerAnimationState.Move || state == PlayerAnimationState.Push || state == PlayerAnimationState.Idle))
             return;
 
         for (int i = 0; i < animationStructs.Length; i++)

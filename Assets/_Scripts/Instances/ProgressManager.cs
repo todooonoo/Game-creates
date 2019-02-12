@@ -5,5 +5,5 @@ using UnityEngine;
 public class ProgressManager : Singleton<ProgressManager>
 {
     [HideInInspector]
-    public bool transitionUnlocked, transitionUpUnlocked;
+    public bool transitionUnlocked, transitionUpUnlocked, transitionFrontUnlocked;
 }
