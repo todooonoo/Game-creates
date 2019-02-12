@@ -2,7 +2,7 @@ fileFormatVersion: 2
 guid: 2738b102e68f6fd40ae28802b452f036
 TextureImporter:
   fileIDToRecycleName:
-    21300000: ground_0
+    21300000: ground_3
     21300002: ground_1
     21300004: ground_2
   externalObjects: {}
@@ -120,13 +120,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ground_0
+      name: ground_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 65
-        width: 96
-        height: 95
+        x: 18
+        y: 72
+        width: 60
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

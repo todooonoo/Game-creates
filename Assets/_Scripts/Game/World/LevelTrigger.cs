@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 
-[RequireComponent(typeof(Collider))]
 public class LevelTrigger : MonoBehaviour
 {
     public static int id = -1;
@@ -18,12 +17,17 @@ public class LevelTrigger : MonoBehaviour
 
 	private void Start()
 	{
-		if (id == targetId)
-		{
-			id = -1;
+		// CheckSpawn
+	}
 
-			if (GameManager.Instance.IsIdle)
-			{
+    public void CheckSpawn()
+    {
+        if (id == targetId)
+        {
+            id = -1;
+
+            if (GameManager.Instance.IsIdle)
+            {
                 // Reset manager rotation;
                 GameManager.Instance.transform.localRotation = Quaternion.identity;
 
@@ -37,9 +41,9 @@ public class LevelTrigger : MonoBehaviour
                 var gameCamera = GameManager.Instance.gameCamera;
                 gameCamera.transform.position = playerPos;
                 gameCamera.SetLook(gameCamera.GetLookRot(), player.transform.rotation.eulerAngles);
-			}
-		}
-	}
+            }
+        }
+    }
 
     public void SetLock(bool locked)
     {

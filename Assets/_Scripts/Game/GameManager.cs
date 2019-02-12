@@ -32,6 +32,14 @@ public class GameManager : MonoBehaviour {
     {
         if(dialogueWindow)
             dialogueWindow.InitUI();
+
+        // Check spanw
+        LevelTrigger[] triggers = FindObjectsOfType<LevelTrigger>();
+
+        for(int i = 0; i < triggers.Length; i++)
+        {
+            triggers[i].CheckSpawn();
+        }
     }
 
     private void OnEnable()

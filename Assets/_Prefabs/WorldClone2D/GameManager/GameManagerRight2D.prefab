@@ -192,7 +192,6 @@ GameObject:
   - component: {fileID: 81783252740489578}
   - component: {fileID: 114232111362081780}
   - component: {fileID: 114019718563867092}
-  - component: {fileID: 114259712112300722}
   m_Layer: 0
   m_Name: Camera2D
   m_TagString: Untagged
@@ -299,20 +298,6 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   speed: 5
   offset: {x: 0, y: 1, z: -10}
---- !u!114 &114259712112300722
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1621735930073584}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42cd8dcae69d178488f5efa28e7c7e78, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shader: {fileID: 4800000, guid: 95703b29f49b899499233ea7308bb800, type: 3}
-  BlockCount: 64
 --- !u!1 &1635916286493580
 GameObject:
   m_ObjectHideFlags: 0
@@ -340,7 +325,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1635916286493580}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.01, z: 0}
+  m_LocalPosition: {x: -0.5, y: 1, z: 0}
   m_LocalScale: {x: 5, y: 4.7619047, z: 1}
   m_Children: []
   m_Father: {fileID: 4694273043043626}
@@ -383,7 +368,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 5d590e8eba184344593677a4ee564604, type: 3}
+  m_Sprite: {fileID: 21300008, guid: a830560e143027846b38dfbfdf9323c7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -427,5 +412,5 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.2, y: 0.42}
+  m_Size: {x: 0.12, y: 0.42}
   m_Direction: 0
