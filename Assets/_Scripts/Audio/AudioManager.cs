@@ -12,6 +12,28 @@ public class AudioManager : Singleton<AudioManager>
     private AudioSource currentSource;
     private bool settingBGM;
 
+    [SerializeField]
+    private GameObject sfxContainer;
+    private AudioSource[] sfxArray;
+
+    protected override void Init()
+    {
+        base.Init();
+        sfxArray = sfxContainer.GetComponentsInChildren<AudioSource>();
+    }
+
+    public void PlaySFX(string name)
+    {
+        for(int i = 0; i < sfxArray.Length; i++)
+        {
+            if(sfxArray[i].name == name)
+            {
+                sfxArray[i].Play();
+                return;
+            }
+        }
+    }
+
     public void SetBGM(AudioSource bgmPrefab, bool instant = false)
     {
         StartCoroutine(SetBGMEnum(bgmPrefab, instant));

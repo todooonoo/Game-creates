@@ -13,7 +13,7 @@ public class PlayerTransitionController : PlayerComponent {
 
     public override void HandleUpdate(Player3D player)
     {
-        if (player.playerState == PlayerState.Action || !GameManager.Instance.transitionUnlocked)
+        if (player.playerState == PlayerState.Action || (!GameManager.Instance.transitionUnlocked && !Application.isEditor))
             return;
         
         if (transitionInput.GetAxisDown)

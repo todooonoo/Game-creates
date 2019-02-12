@@ -585,6 +585,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   screenObject: {fileID: 1506013887308567131}
+  transitionSFX: {fileID: 0}
 --- !u!1 &9003519429386138327
 GameObject:
   m_ObjectHideFlags: 0

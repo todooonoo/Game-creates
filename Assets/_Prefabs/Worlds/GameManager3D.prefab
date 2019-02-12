@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetRot: {x: 0, y: -90, z: 0}
   targetPivotRot: {x: 0, y: 0, z: 0}
+  transitionTime: 0.2
 --- !u!1 &6678907638085259128
 GameObject:
   m_ObjectHideFlags: 0
@@ -240,6 +241,8 @@ MonoBehaviour:
   interactIcon: {fileID: 761514111826599123}
   dialogueWindow: {fileID: 8675428331910924311}
   transitionScreen: {fileID: 6513564947674831988}
+  transitionUnlocked: 0
+  upTransitionUnlocked: 0
 --- !u!114 &6711070031260868070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -360,7 +363,6 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 1024
-  animationTime: 1
 --- !u!1 &6679630614867644466
 GameObject:
   m_ObjectHideFlags: 0
@@ -648,6 +650,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f7f6244699b8554d9605ea61dc15e6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &76444733608459801 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6568363250115006641, guid: b7475a30a0fb9db46bf1f6680efb2969,
+    type: 3}
+  m_PrefabInstance: {fileID: 6496466135292817064}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8530833897301232388
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -765,6 +773,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3172584675467614064, guid: f4068d7327b4c6545bef055611890c30,
+        type: 3}
+      propertyPath: transitionSFX
+      value: 
+      objectReference: {fileID: 76444733608459801}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4068d7327b4c6545bef055611890c30, type: 3}
 --- !u!224 &761514112600372705 stripped
