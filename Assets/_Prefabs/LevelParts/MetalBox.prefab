@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4288215712662752}
   - component: {fileID: 114907058154252274}
+  - component: {fileID: 7318254618596671545}
   m_Layer: 0
   m_Name: MetalBox
   m_TagString: Untagged
@@ -51,6 +52,21 @@ MonoBehaviour:
     prefab: {fileID: 114270372444466176, guid: 629151a59797c0c48a799daaabfe2b5c, type: 3}
   - worldType: 3
     prefab: {fileID: 114308897313182808, guid: 1221167b1db5c054b8b25d252a5aa353, type: 3}
+--- !u!114 &7318254618596671545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1263441852715514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d3f7e31dfdbf2642b70f1f50436b047, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  linesMove:
+  - "Unable to move.\n (Combined with an immovable object)."
+  - Press TAB to revert dimensions.
 --- !u!1 &1879302431150912
 GameObject:
   m_ObjectHideFlags: 0

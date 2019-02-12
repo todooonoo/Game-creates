@@ -26,6 +26,7 @@ public class Player2D : Player
     private Rigidbody2D rBody;
     private Collider2D col;
     private int direction = 1;
+    private Combinable combinable;
 
     // Use this for initialization
     protected override void Start ()
@@ -40,21 +41,52 @@ public class Player2D : Player
 
     public override void HandleUpdate()
     {
+        if(combinable)
+        {
+            combinable.HandleUpdate(this);
+            return;
+        }
+
+        Locomotion();
+        base.HandleUpdate();
+    }
+
+    public void Locomotion()
+    {
         bool grounded = IsGrounded();
 
-        if(grounded && transitionInput.GetAxisDown)
+        if (CheckTransition(grounded))
         {
-            WorldManager.Instance.Transition(WorldType.World3D);
-            AudioManager.Instance.PlaySFX(transitionSFXName);
             return;
         }
         Move();
 
-        if(jumpInput.GetAxisDown && grounded)
+        if (jumpInput.GetAxisDown && grounded)
         {
             Jump();
         }
-        base.HandleUpdate();
+    }
+
+    public bool CheckTransition(bool grounded)
+    {
+        if (grounded && transitionInput.GetAxisDown)
+        {
+            WorldManager.Instance.Transition(WorldType.World3D);
+            AudioManager.Instance.PlaySFX(transitionSFXName);
+            return true;
+        }
+        return false;
+    }
+
+    public void SetCombinable(Combinable combinable)
+    {
+        this.combinable = combinable;
+
+        if (combinable)
+        {
+            transform.position = combinable.transform.position;
+            combinable.transform.SetParent(transform);
+        }
     }
 
     public override void HandleFixedUpdate()

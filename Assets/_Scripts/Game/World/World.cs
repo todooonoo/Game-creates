@@ -14,7 +14,6 @@ public class World : MonoBehaviour {
     private Player player;
     private GameCamera gameCamera;
     private WorldObjectClone[] clones;
-    private Combinable[] combinables;
     protected Checkpoint[] checkpoints;
 
     private static readonly string combineSfxName = "Combine";
@@ -79,8 +78,8 @@ public class World : MonoBehaviour {
                 if(combinable)
                 {
                     AudioManager.Instance.PlaySFX(combineSfxName);
-                    Player.transform.position = combinable.transform.position;
-                    combinable.transform.SetParent(Player.transform);
+                    var p2 = Player.GetComponent<Player2D>();
+                    p2.SetCombinable(combinable);
                 }
             }
         }

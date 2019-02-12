@@ -179,3 +179,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d3f7e31dfdbf2642b70f1f50436b047, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lines:
+  - "Unable to move.\n (Combined with an immovable object)."
+  - Press TAB to revert dimensions.

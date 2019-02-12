@@ -118,6 +118,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4223423892413602}
   - component: {fileID: 114275056932700762}
+  - component: {fileID: 8074256647522100442}
   m_Layer: 12
   m_Name: WoodenBox
   m_TagString: Untagged
@@ -159,3 +160,18 @@ MonoBehaviour:
     prefab: {fileID: 114270372444466176, guid: 629151a59797c0c48a799daaabfe2b5c, type: 3}
   - worldType: 3
     prefab: {fileID: 114308897313182808, guid: 1221167b1db5c054b8b25d252a5aa353, type: 3}
+--- !u!114 &8074256647522100442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1378540917023174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d3f7e31dfdbf2642b70f1f50436b047, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  linesMove:
+  - "Unable to move.\n (Combined with an immovable object)."
+  - Press TAB to revert dimensions.
