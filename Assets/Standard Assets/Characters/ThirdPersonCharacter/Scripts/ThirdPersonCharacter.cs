@@ -48,7 +48,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		}
 
 
-        public void Move(Vector3 move, bool crouch, bool jump, bool ignoreTurn = false, bool pulling = false)
+        public void Move(Vector3 move, bool crouch, bool jump, bool ignoreTurn = false, bool reverse = false)
 		{
             float mag = move.magnitude;
 			if (mag > 1f) move.Normalize();
@@ -65,11 +65,10 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
             if(!ignoreTurn)
 			    m_TurnAmount = Mathf.Atan2(move.x, move.z);
-            else
-            {
-
-            }
 			m_ForwardAmount = move.z;
+            if (reverse)
+                m_ForwardAmount *= -1;
+
 			ApplyExtraTurnRotation();
 
 			// control and velocity handling is different when grounded and airborne:

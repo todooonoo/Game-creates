@@ -18,7 +18,7 @@ public abstract class Player : MonoBehaviour
     
     // Dragging
     protected Draggable lastDraggable;
-    protected InputPair interactInput;
+    protected InputPair interactInput, reverseInput;
     [HideInInspector] public Vector3 dragDirection;
 
     [SerializeField]
@@ -30,6 +30,7 @@ public abstract class Player : MonoBehaviour
     {
         renderers = GetComponentsInChildren<Renderer>();
         interactInput = InputHandler.Instance.GetInput(InputAction.Interact);
+        reverseInput = InputHandler.Instance.GetInput(InputAction.Reverse);
     }
 
     public void SetVisible(bool visible)
@@ -50,7 +51,7 @@ public abstract class Player : MonoBehaviour
 
     public void SetLastDraggable(Draggable draggable)
     {
-        if(!Pushing && lastDraggable != draggable)
+        if(!Pushing && !Pulling && lastDraggable != draggable)
         {
             lastDraggable = draggable;
             lastDraggable.OnTrigger();
@@ -59,7 +60,7 @@ public abstract class Player : MonoBehaviour
 
     public void ClearLastDraggable(Draggable draggable)
     {
-        if (!Pushing)
+        if (!Pushing && !Pulling)
         {
             if (lastDraggable == draggable)
             {
@@ -78,6 +79,18 @@ public abstract class Player : MonoBehaviour
         if(lastDraggable)
         {
             GameManager.Instance.ShowInteractIcon(lastDraggable.InteractUIPos);
+
+            if(reverseInput.GetAxisDown)
+            {
+                SetDragDirection(lastDraggable);
+                Pulling = lastDraggable.OnDrag(transform);
+                return;
+            } else if(reverseInput.GetAxisUp)
+            {
+                lastDraggable.OnRelease(transform);
+                Pulling = false;
+            }
+
             if (interactInput.GetAxisDown)
             {
                 SetDragDirection(lastDraggable);

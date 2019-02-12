@@ -732,6 +732,8 @@ MonoBehaviour:
     keyCode: 101
   - action: 10
     keyCode: 9
+  - action: 5
+    keyCode: 113
 --- !u!1 &2752714459064666425
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,6 +9,8 @@ public class PlayerMoveController : PlayerComponent
 {
     public bool Moving { get; private set; }
     
+    private RigidbodyConstraints defaultConstraints, pullConstraints;
+
     private Rigidbody rBody;
     private InputPair jumpInput;
     private Vector2 moveDelta = Vector2.up;
@@ -19,6 +21,8 @@ public class PlayerMoveController : PlayerComponent
         rBody = GetComponent<Rigidbody>();
         jumpInput = InputHandler.Instance.GetInput(InputAction.Jump);
         controller = GetComponent<ThirdPersonCharacter>();
+        defaultConstraints = rBody.constraints;
+        pullConstraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionY;
     }
     
     public override void HandleUpdate(Player3D player)
@@ -46,13 +50,16 @@ public class PlayerMoveController : PlayerComponent
         var angle = Vector2.SignedAngle(Vector2.up, moveDelta);
         var dir = Quaternion.Euler(0, -angle, 0) * lookDir;
 
-        if (player.Pushing)
+        if (player.Pushing || player.Pulling)
         {
+            Vector3 d = player.Pushing ? -player.dragDirection : player.dragDirection;
             transform.LookAt(transform.position - player.dragDirection);
-            controller.Move(-player.dragDirection, false, false, true);
+            controller.Move(-player.dragDirection, false, false, true, player.Pulling);
             player.AnimationController.SetState(PlayerAnimationState.Push);
+            rBody.constraints = pullConstraints;
             return;
         }
+        rBody.constraints = defaultConstraints;
         moveDelta = new Vector2(Input.GetAxis(Static.horizontalAxis), Input.GetAxis(Static.verticalAxis));
         
         if ((moveDelta.x != 0 || moveDelta.y != 0) && player.playerState != PlayerState.Transition)
@@ -71,7 +78,7 @@ public class PlayerMoveController : PlayerComponent
                 CheckJumpAnimation(player);
             } else
             {
-                if (player.Pushing)
+                if (player.Pushing || player.Pulling)
                 {
                     player.AnimationController.SetState(PlayerAnimationState.PushStart);
                 }
