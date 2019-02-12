@@ -10,8 +10,8 @@ public class TransitionScreen : Singleton<TransitionScreen>
     public void SetVisible(bool visible)
     {
         screenObject.SetActive(visible);
-        upTransitionButton.SetActive(ProgressManager.Instance.transitionUpUnlocked);
-        frontTransitionButton.SetActive(ProgressManager.Instance.transitionFrontUnlocked);
+        upTransitionButton.SetActive(ProgressManager.Instance.transitionUpUnlocked || Application.isEditor);
+        frontTransitionButton.SetActive(ProgressManager.Instance.transitionFrontUnlocked || Application.isEditor);
     }
 
     public void Transition(int worldType)

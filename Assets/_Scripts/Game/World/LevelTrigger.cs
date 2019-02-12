@@ -15,9 +15,18 @@ public class LevelTrigger : MonoBehaviour
     [SerializeField]
     private Vector3 spawnPosLocal;
 
-	private void Start()
+    [Header("Lock Dialogue")]
+    public string[] lines;
+    public bool reloadScene;
+
+    private void Start()
 	{
 		// CheckSpawn
+
+        if(lines.Length > 0)
+        {
+            GetComponent<Collider>().isTrigger = false;
+        }
 	}
 
     public void CheckSpawn()
@@ -73,6 +82,20 @@ public class LevelTrigger : MonoBehaviour
             id = targetId;
             TutorialManager.Instance.HideTutorial();
             LoadingScreen.Instance.LoadScene(targetScene);
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (LoadingScreen.Instance.IsLoading)
+            return;
+
+        var col = collision.collider;
+        var player = col.GetComponentInParent<Player>();
+
+        if (player && !col.isTrigger)
+        {
+            GameManager.Instance.dialogueWindow.SetDialogue(lines, reloadScene);
         }
     }
 }

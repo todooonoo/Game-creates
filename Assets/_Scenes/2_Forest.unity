@@ -6145,7 +6145,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4689530805202348, guid: 085f741163727d5409d1d6694c7f3b16, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -76.89
+      value: -74
       objectReference: {fileID: 0}
     - target: {fileID: 4689530805202348, guid: 085f741163727d5409d1d6694c7f3b16, type: 3}
       propertyPath: m_LocalRotation.x
@@ -6169,6 +6169,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 114102246545803794, guid: 085f741163727d5409d1d6694c7f3b16,
         type: 3}
+      propertyPath: lines.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114102246545803794, guid: 085f741163727d5409d1d6694c7f3b16,
+        type: 3}
       propertyPath: spawnPosLocal.z
       value: 4
       objectReference: {fileID: 0}
@@ -6177,5 +6182,60 @@ PrefabInstance:
       propertyPath: targetId
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114102246545803794, guid: 085f741163727d5409d1d6694c7f3b16,
+        type: 3}
+      propertyPath: lines.Array.data[0]
+      value: You should be going towards the lab...
+      objectReference: {fileID: 0}
+    - target: {fileID: 114102246545803794, guid: 085f741163727d5409d1d6694c7f3b16,
+        type: 3}
+      propertyPath: reloadScene
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 085f741163727d5409d1d6694c7f3b16, type: 3}
+--- !u!1 &2140930709
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2140930710}
+  - component: {fileID: 2140930711}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2140930710
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2140930709}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 186979094}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2140930711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2140930709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d6dafa5894755949aeea6aaf81f5860, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  angleMin: 15
+  angleMax: -15

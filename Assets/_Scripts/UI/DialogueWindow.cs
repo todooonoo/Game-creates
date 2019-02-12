@@ -28,13 +28,13 @@ public class DialogueWindow : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public void SetDialogue(string[] lines)
+    public void SetDialogue(string[] lines, bool reloadScene = false)
     {
         gameObject.SetActive(true);
-        StartCoroutine(PlayDialogue(lines));
+        StartCoroutine(PlayDialogue(lines, reloadScene));
     }
 
-    private IEnumerator PlayDialogue(string[] lines)
+    private IEnumerator PlayDialogue(string[] lines, bool reloadScene)
     {
         GameManager.Instance.state = GameState.Event;
         GameManager.Instance.player.Stop();
@@ -50,6 +50,9 @@ public class DialogueWindow : MonoBehaviour
         GameManager.Instance.state = GameState.Idle;
         GameManager.Instance.player.playerState = PlayerState.Idle;
         gameObject.SetActive(false);
+
+        if (reloadScene)
+            LoadingScreen.Instance.ReloadScene();
     }
 
     private IEnumerator ShowWindow()

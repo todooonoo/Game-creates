@@ -5,6 +5,7 @@ TextureImporter:
     21300000: ground_3
     21300002: ground_1
     21300004: ground_2
+    21300006: ground_0
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -175,6 +176,26 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: b23cdae5e58c9b7489daddcaf53d37c0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ground_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 67
+        width: 96
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d282c5bda54f3f84da711256a889d142
       vertices: []
       indices: 
       edges: []
