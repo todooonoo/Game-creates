@@ -7016,7 +7016,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c76368e1d6c520a40864b11015e8ca53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pullConstraints: 32
 --- !u!114 &506952164668885812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7357,8 +7356,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.5, z: 0.3}
-  m_Center: {x: 0, y: 0.75, z: -0.2}
+  m_Size: {x: 0.3, y: 0.5, z: 0.5}
+  m_Center: {x: 0, y: 0.75, z: -0.25}
 --- !u!114 &505609238713967658
 MonoBehaviour:
   m_ObjectHideFlags: 0

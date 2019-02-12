@@ -68,7 +68,6 @@ public class GameManager : MonoBehaviour {
     
     public void UnlockCursor()
     {
-        Debug.Log("Unlock");
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }

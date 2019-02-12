@@ -28,7 +28,6 @@ GameObject:
   - component: {fileID: 6743468619278190226}
   - component: {fileID: 6713803233587989066}
   - component: {fileID: 6711266710157429114}
-  - component: {fileID: 6711105027577038842}
   - component: {fileID: 6711189695308821110}
   - component: {fileID: 6710997297869383126}
   m_Layer: 0
@@ -129,20 +128,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 301eca71255100647bb9bad1d5641921, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6711105027577038842
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6678907638085259128}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42cd8dcae69d178488f5efa28e7c7e78, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shader: {fileID: 4800000, guid: 95703b29f49b899499233ea7308bb800, type: 3}
-  BlockCount: 512
 --- !u!114 &6711189695308821110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -326,7 +311,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clipMoveTime: 0.02
   returnTime: 0.2
-  sphereCastRadius: 0.3
+  sphereCastRadius: 0.15
   visualiseInEditor: 1
   closestDistance: 0
   dontClipTag: Player

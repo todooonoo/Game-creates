@@ -50,9 +50,8 @@ public class PlayerMoveController : PlayerComponent
         var angle = Vector2.SignedAngle(Vector2.up, moveDelta);
         var dir = Quaternion.Euler(0, -angle, 0) * lookDir;
 
-        if (player.Pushing || player.Pulling)
+        if (controller.IsGrounded && (player.Pushing || player.Pulling))
         {
-            Vector3 d = player.Pushing ? -player.dragDirection : player.dragDirection;
             transform.LookAt(transform.position - player.dragDirection);
             controller.Move(-player.dragDirection, false, false, true, player.Pulling);
             player.AnimationController.SetState(PlayerAnimationState.Push);
@@ -78,7 +77,7 @@ public class PlayerMoveController : PlayerComponent
                 CheckJumpAnimation(player);
             } else
             {
-                if (player.Pushing || player.Pulling)
+                if (controller.IsGrounded && (player.Pushing || player.Pulling))
                 {
                     player.AnimationController.SetState(PlayerAnimationState.PushStart);
                 }

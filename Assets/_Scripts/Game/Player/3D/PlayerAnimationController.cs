@@ -11,7 +11,12 @@ public enum PlayerAnimationState
     PushEnd,
     Jump,
     Fall,
-    Land
+    Land,
+
+    MoveLeft2D = 100,
+    MoveRight2D = 101,
+    IdleLeft2D = 102,
+    IdleRight2D = 103
 }
 
 [System.Serializable]

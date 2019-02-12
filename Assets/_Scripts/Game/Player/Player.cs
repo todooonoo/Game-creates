@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using UnityStandardAssets.Characters.ThirdPerson;
 
 public enum PlayerState
 {
@@ -26,11 +27,15 @@ public abstract class Player : MonoBehaviour
     public bool Pushing { get; protected set; }
     public bool Pulling { get; protected set; }
 
+    // Hard fix
+    private ThirdPersonCharacter controller;
+
     protected virtual void Start()
     {
         renderers = GetComponentsInChildren<Renderer>();
         interactInput = InputHandler.Instance.GetInput(InputAction.Interact);
         reverseInput = InputHandler.Instance.GetInput(InputAction.Reverse);
+        controller = GetComponent<ThirdPersonCharacter>();
     }
 
     public void SetVisible(bool visible)
@@ -76,16 +81,20 @@ public abstract class Player : MonoBehaviour
 
     public virtual void HandleUpdate()
     {
-        if(lastDraggable)
+        if (lastDraggable)
         {
             GameManager.Instance.ShowInteractIcon(lastDraggable.InteractUIPos);
 
-            if(reverseInput.GetAxisDown)
+            if (!controller.IsGrounded)
+                return;
+
+            if (reverseInput.GetAxisDown)
             {
                 SetDragDirection(lastDraggable);
                 Pulling = lastDraggable.OnDrag(transform);
                 return;
-            } else if(reverseInput.GetAxisUp)
+            }
+            else if (reverseInput.GetAxisUp)
             {
                 lastDraggable.OnRelease(transform);
                 Pulling = false;
@@ -97,12 +106,13 @@ public abstract class Player : MonoBehaviour
                 Pushing = lastDraggable.OnDrag(transform);
                 return;
             }
-            else if(interactInput.GetAxisUp)
+            else if (interactInput.GetAxisUp)
             {
                 lastDraggable.OnRelease(transform);
                 Pushing = false;
-            } 
-        } else
+            }
+        }
+        else
         {
             GameManager.Instance.HideInteractIcon();
         }

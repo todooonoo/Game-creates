@@ -12,6 +12,16 @@ public class PlayerDragCollider : MonoBehaviour {
         player = GetComponentInParent<Player>();
 	}
 
+    private void OnTriggerEnter(Collider other)
+    {
+        var draggable = other.GetComponentInParent<Draggable>();
+
+        if (draggable)
+        {
+            player.SetLastDraggable(draggable);
+        }
+    }
+
     private void OnTriggerStay(Collider other)
     {
         var draggable = other.GetComponentInParent<Draggable>();

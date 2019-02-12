@@ -22,15 +22,30 @@ public struct InteractIconStruct
 public class InteractIcon : MonoBehaviour
 {
     public Image mainIcon;
+    public GameObject pushPullIcons;
     public Text mainText;
     public InteractIconStruct[] structs;
-    
+
+    private GameObject target;
+
+    private void Start()
+    {
+        target = mainIcon.gameObject;
+    }
+
     public void SetIcon(InteractType type)
     {
+        if(type == InteractType.Push)
+        {
+            target = pushPullIcons;
+            return;
+        }
+
         for(int i = 0; i < structs.Length; i++)
         {
             if(structs[i].interactType == type)
             {
+                target = mainIcon.gameObject;
                 mainIcon.sprite = structs[i].iconSprite;
                 mainIcon.rectTransform.sizeDelta = structs[i].size;
                 mainText.text = structs[i].text;
@@ -41,6 +56,6 @@ public class InteractIcon : MonoBehaviour
 
     public void SetActive(bool active)
     {
-        gameObject.SetActive(active);
+        target.SetActive(active);
     }
 }

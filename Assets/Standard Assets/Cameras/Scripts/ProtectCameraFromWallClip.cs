@@ -61,6 +61,7 @@ namespace UnityStandardAssets.Cameras
                 if ((!cols[i].isTrigger) &&
                     !(cols[i].attachedRigidbody != null && cols[i].attachedRigidbody.CompareTag(dontClipTag)))
                 {
+                    Debug.Log("Col: " + cols[i].name);
                     initialIntersect = true;
                     break;
                 }
@@ -98,6 +99,8 @@ namespace UnityStandardAssets.Cameras
                     nearest = m_Hits[i].distance;
                     targetDist = -m_Pivot.InverseTransformPoint(m_Hits[i].point).z;
                     hitSomething = true;
+
+                    Debug.Log("Col: " + m_Hits[i].collider.name);
                 }
             }
 

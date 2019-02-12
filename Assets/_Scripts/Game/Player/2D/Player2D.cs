@@ -10,6 +10,8 @@ public enum Movement2D
 
 public class Player2D : Player
 {
+    public PlayerAnimationController2D AnimationController { get; private set; }
+
     [SerializeField] private Movement2D movement;
     [Header("Jump")]
     [SerializeField] private float jumpForce;
@@ -23,6 +25,7 @@ public class Player2D : Player
 
     private Rigidbody2D rBody;
     private Collider2D col;
+    private int direction = 1;
 
     // Use this for initialization
     protected override void Start ()
@@ -30,6 +33,7 @@ public class Player2D : Player
         base.Start();
         rBody = GetComponent<Rigidbody2D>();
         col = GetComponentInChildren<Collider2D>();
+        AnimationController = GetComponent<PlayerAnimationController2D>();
         jumpInput = InputHandler.Instance.GetInput(InputAction.Jump);
         transitionInput = InputHandler.Instance.GetInput(InputAction.TransitionMain);
     }
@@ -44,7 +48,6 @@ public class Player2D : Player
             AudioManager.Instance.PlaySFX(transitionSFXName);
             return;
         }
-
         Move();
 
         if(jumpInput.GetAxisDown && grounded)
@@ -70,6 +73,19 @@ public class Player2D : Player
         else if (movement == Movement2D.Horizontal)
         {
             rBody.velocity = new Vector2(moveDelta.x * TargetSpeed, rBody.velocity.y);
+
+            if(moveDelta.x == 0)
+            {
+                bool right = direction > 0;
+                AnimationController.SetState(
+                    right ? PlayerAnimationState.IdleRight2D : PlayerAnimationState.IdleLeft2D);
+            } else
+            {
+                bool right = moveDelta.x > 0;
+                AnimationController.SetState(
+                    right ? PlayerAnimationState.MoveRight2D : PlayerAnimationState.MoveLeft2D);
+                direction = right ? 1 : -1;
+            }
         }
     }
 
