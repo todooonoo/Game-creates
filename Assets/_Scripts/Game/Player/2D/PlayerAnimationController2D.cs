@@ -29,7 +29,6 @@ public class PlayerAnimationController2D : MonoBehaviour {
             if(animationStructs[i].state == state)
             {
                 currentState = state;
-                Debug.Log(animationStructs[i].stateName);
                 animator.CrossFade(animationStructs[i].stateName, animationStructs[i].transitionTime);
                 return;
             }

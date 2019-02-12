@@ -220,7 +220,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             else
             {
                 Vector3 oldV = m_Rigidbody.velocity;
-                Vector3 newV = new Vector3(oldV.x + moveVector.x, 0, oldV.z + moveVector.z);
+                Vector3 newV = new Vector3(oldV.x + moveVector.x * m_JumpMoveMultiplier, 0, oldV.z + moveVector.z * m_JumpMoveMultiplier);
                 if(newV.sqrMagnitude >= maxJumpVelocity * maxJumpVelocity)
                 {
                     newV = newV.normalized * maxJumpVelocity;

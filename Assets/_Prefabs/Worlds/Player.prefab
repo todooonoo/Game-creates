@@ -7000,7 +7000,7 @@ MonoBehaviour:
   m_GravityMultiplier: 2
   m_RunCycleLegOffset: 0.2
   m_MoveSpeedMultiplier: 4
-  m_JumpMoveMultiplier: 3
+  m_JumpMoveMultiplier: 0.5
   maxJumpVelocity: 4
   m_AnimSpeedMultiplier: 1
   m_GroundCheckDistance: 0.3
