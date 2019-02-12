@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4111973537748802}
   - component: {fileID: 212904217690774556}
   - component: {fileID: 61591350892264686}
+  - component: {fileID: 828516605}
   m_Layer: 10
   m_Name: Sprite
   m_TagString: Untagged
@@ -26,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1196377178113322}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 2.3809524, z: 1}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 4594420683198836}
   m_RootOrder: 0
@@ -69,7 +70,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 5d590e8eba184344593677a4ee564604, type: 3}
+  m_Sprite: {fileID: 21300002, guid: a830560e143027846b38dfbfdf9323c7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -93,19 +94,38 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.1}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.2, y: 0.42}
+    oldSize: {x: 0.2, y: 0.43}
     newSize: {x: 1, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.2, y: 0.42}
+  m_Size: {x: 0.2, y: 0.23}
   m_EdgeRadius: 0
+--- !u!95 &828516605
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1196377178113322}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5a133134e71bfb844aad579715f399b9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1204175426219614
 GameObject:
   m_ObjectHideFlags: 0
@@ -119,7 +139,6 @@ GameObject:
   - component: {fileID: 81379449935270854}
   - component: {fileID: 114453992166860494}
   - component: {fileID: 114496885569544462}
-  - component: {fileID: 114597772243658556}
   m_Layer: 0
   m_Name: Camera2D
   m_TagString: Untagged
@@ -226,20 +245,6 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   speed: 5
   offset: {x: 0, y: 0, z: -10}
---- !u!114 &114597772243658556
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1204175426219614}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42cd8dcae69d178488f5efa28e7c7e78, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shader: {fileID: 4800000, guid: 95703b29f49b899499233ea7308bb800, type: 3}
-  BlockCount: 64
 --- !u!1 &1660332070248746
 GameObject:
   m_ObjectHideFlags: 0
@@ -289,9 +294,6 @@ MonoBehaviour:
   player: {fileID: 114999017255189848}
   gameCamera: {fileID: 114496885569544462}
   state: 0
-  interactIcon: {fileID: 0}
-  dialogueWindow: {fileID: 0}
-  transitionScreen: {fileID: 0}
   transitionUnlocked: 0
   upTransitionUnlocked: 0
 --- !u!114 &114371491017723186
@@ -319,6 +321,7 @@ GameObject:
   - component: {fileID: 4594420683198836}
   - component: {fileID: 50890966752873884}
   - component: {fileID: 114999017255189848}
+  - component: {fileID: 828516607}
   m_Layer: 10
   m_Name: PlayerUp2D
   m_TagString: Untagged
@@ -391,3 +394,24 @@ MonoBehaviour:
   contactLayer:
     serializedVersion: 2
     m_Bits: 1
+--- !u!114 &828516607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1862161460277838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca1ca77a605c40844a05779f1d964401, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 828516605}
+  animationStructs:
+  - state: 0
+    stateName: Idle
+    transitionTime: 0
+  - state: 1
+    stateName: Move
+    transitionTime: 0
+  currentState: 0
