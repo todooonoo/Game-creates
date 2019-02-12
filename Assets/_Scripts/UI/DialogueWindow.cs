@@ -11,9 +11,14 @@ public class DialogueWindow : MonoBehaviour
     private List<InputPair> skipInputPairs;
 
     private Vector3 delta;
+    private bool initComplete;
 
     public void InitUI()
     {
+        if (initComplete)
+            return;
+        initComplete = true;
+
         skipInputPairs = new List<InputPair>();
         for (int i = 0; i < skipActions.Length; i++)
         {

@@ -130,6 +130,8 @@ public class Player2D : Player
 
     private bool IsGrounded()
     {
+        if (!col)
+            Start();
         return Physics2D.Raycast(new Vector2(col.bounds.center.x, col.bounds.min.y), Vector2.down, contactDist, groundLayer);
     }
 

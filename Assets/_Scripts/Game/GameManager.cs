@@ -20,35 +20,22 @@ public class GameManager : MonoBehaviour {
     public GameState state = GameState.Idle;
     public bool IsIdle { get { return state == GameState.Idle; } }
     
-    public InteractIcon interactIcon;
-    public DialogueWindow dialogueWindow;
-    public TransitionScreen transitionScreen;
-
     [Header("Save States")]
     public bool transitionUnlocked;
     public bool upTransitionUnlocked;
-
-    private void Start()
-    {
-        if(dialogueWindow)
-            dialogueWindow.InitUI();
-
-        // Check spanw
-        LevelTrigger[] triggers = FindObjectsOfType<LevelTrigger>();
-
-        for(int i = 0; i < triggers.Length; i++)
-        {
-            triggers[i].CheckSpawn();
-        }
-    }
-
+    
     private void OnEnable()
     {
         if (!Instance)
         {
-            Instance = this;
+            SetInstance();
         }
         LockCursor(true);
+    }
+
+    public void SetInstance()
+    {
+        GameManager.Instance = this;
     }
 
     private void OnDisable()
@@ -88,18 +75,21 @@ public class GameManager : MonoBehaviour {
 
     public void ShowInteractIcon(Vector3 worldPos)
     {
+        var interactIcon = TransitionScreen.Instance.interactIcon;
         interactIcon.transform.position = Camera.WorldToScreenPoint(worldPos);
         interactIcon.SetActive(true);
     }
 
     public void HideInteractIcon()
     {
-        if(interactIcon)
+        var interactIcon = TransitionScreen.Instance.interactIcon;
+        if (interactIcon)
             interactIcon.SetActive(false);
     }
 
     public void SetInteractIcon(InteractType type)
     {
+        var interactIcon = TransitionScreen.Instance.interactIcon;
         if (interactIcon)
             interactIcon.SetIcon(type);
     }

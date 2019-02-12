@@ -68,6 +68,8 @@ public class Player3D : Player {
 
     public override void SetCollision(bool active)
     {
+        if (!rBody)
+            Start();
         rBody.isKinematic = !active;
     }
 

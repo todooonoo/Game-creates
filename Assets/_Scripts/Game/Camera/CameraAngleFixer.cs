@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class CameraAngleFixer : MonoBehaviour
 {
-    [SerializeField]
-    private float angleMin, angleMax;
+    public float angleMin, angleMax;
     private GameCamera3D gameCamera;
     
     private void Start()

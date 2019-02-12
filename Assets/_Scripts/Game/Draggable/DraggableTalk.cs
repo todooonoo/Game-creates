@@ -22,7 +22,7 @@ public class DraggableTalk : Draggable
             GameManager.Instance.transitionUnlocked = true;
         }
 
-        GameManager.Instance.dialogueWindow.SetDialogue(lines);
+        TransitionScreen.Instance.dialogueWindow.SetDialogue(lines);
 
         DialogueChanger changer = GetComponent<DialogueChanger>();
         if(changer)

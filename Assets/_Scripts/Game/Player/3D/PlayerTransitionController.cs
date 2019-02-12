@@ -18,7 +18,7 @@ public class PlayerTransitionController : PlayerComponent {
         
         if (transitionInput.GetAxisDown)
         {
-            GameManager.Instance.transitionScreen.SetVisible(true);
+            TransitionScreen.Instance.SetVisible(true);
             player.playerState = PlayerState.Transition;
         } else if(transitionInput.GetAxisUp)
         {
@@ -33,7 +33,7 @@ public class PlayerTransitionController : PlayerComponent {
 
     public void ResetState(Player3D player)
     {
-        GameManager.Instance.transitionScreen.SetVisible(false);
+        TransitionScreen.Instance.SetVisible(false);
         GameManager.Instance.LockCursor(true);
         player.playerState = PlayerState.Idle;
     }

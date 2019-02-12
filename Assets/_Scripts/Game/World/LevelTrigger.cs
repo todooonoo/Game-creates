@@ -95,7 +95,7 @@ public class LevelTrigger : MonoBehaviour
 
         if (player && !col.isTrigger)
         {
-            GameManager.Instance.dialogueWindow.SetDialogue(lines, reloadScene);
+            TransitionScreen.Instance.dialogueWindow.SetDialogue(lines, reloadScene);
         }
     }
 }

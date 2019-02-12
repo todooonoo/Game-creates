@@ -8,8 +8,6 @@ public class LevelTrigger2D : MonoBehaviour
     private string targetScene;
     [SerializeField]
     private int targetId;
-    [SerializeField]
-    private WorldType worldType = WorldType.WorldRight2D;
 
     private void OnTriggerStay2D(Collider2D col)
     {

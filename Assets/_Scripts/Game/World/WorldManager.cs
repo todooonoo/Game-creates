@@ -19,6 +19,13 @@ public class WorldManager : MonoBehaviour {
 
     private void Start()
     {
+        // Check spawn
+        LevelTrigger[] triggers = FindObjectsOfType<LevelTrigger>();
+        for (int i = 0; i < triggers.Length; i++)
+        {
+            triggers[i].CheckSpawn();
+        }
+
         // Load worlds
         worlds = FindObjectsOfType<World>();
         for (int i = 0; i < worlds.Length; i++)
@@ -34,6 +41,8 @@ public class WorldManager : MonoBehaviour {
                 {
                     worldObjects[j].InitClone();
                 }
+                var gameManager = worlds[i].GetComponentInChildren<GameManager>();
+                gameManager.SetInstance();
             }
             worlds[i].gameObject.SetActive(worlds[i].worldType == currentWorldType);
             worlds[i].InitWorld();
@@ -44,6 +53,7 @@ public class WorldManager : MonoBehaviour {
         transitionInputRight = InputHandler.Instance.GetInput(InputAction.TransitionRight);
         transitionInputUp = InputHandler.Instance.GetInput(InputAction.TransitionUp);
         transitionInputFront = InputHandler.Instance.GetInput(InputAction.TransitionFront);
+        
     }
 
     private void Update()
@@ -109,7 +119,8 @@ public class WorldManager : MonoBehaviour {
 
         if (transition)
         {
-            GameManager.Instance.state = GameState.Event;
+            if(GameManager.Instance)
+                GameManager.Instance.state = GameState.Event;
             currentWorld.GameCamera.onTransitionComplete.AddListener(SwitchWorld);
             currentWorld.GameCamera.TransitionIn();
         }

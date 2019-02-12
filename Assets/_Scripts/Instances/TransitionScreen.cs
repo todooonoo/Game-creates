@@ -7,6 +7,17 @@ public class TransitionScreen : Singleton<TransitionScreen>
     public GameObject screenObject, upTransitionButton, frontTransitionButton;
     private const string transitionSFXName = "Transition";
 
+    public InteractIcon interactIcon;
+    public DialogueWindow dialogueWindow;
+
+    protected override void Init()
+    {
+        base.Init();
+
+        if (dialogueWindow)
+            dialogueWindow.InitUI();
+    }
+
     public void SetVisible(bool visible)
     {
         screenObject.SetActive(visible);
