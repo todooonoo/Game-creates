@@ -97,7 +97,7 @@ public abstract class GameCamera : PivotBasedCameraRig {
         Animating = false;
     }
 
-    public virtual void SetLook(Quaternion lookRot, Vector3 pivotEulers)
+    public virtual void SetLook(Quaternion lookRot, Vector3 pivotEulers, bool applyTilt = false)
     {
         // Nothing in base
     }

@@ -339,7 +339,7 @@ MonoBehaviour:
   m_MoveSpeed: 5
   m_TurnSpeed: 2
   m_TurnSmoothing: 0
-  m_TiltMax: 30
+  m_TiltMax: 45
   m_TiltMin: 45
   m_LockCursor: 1
   m_VerticalAutoReturn: 0
@@ -763,7 +763,8 @@ PrefabInstance:
       propertyPath: transitionSFX
       value: 
       objectReference: {fileID: 76444733608459801}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6883253641070511684, guid: f4068d7327b4c6545bef055611890c30, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f4068d7327b4c6545bef055611890c30, type: 3}
 --- !u!224 &761514112600372705 stripped
 RectTransform:

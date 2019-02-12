@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6030519816710708841}
   - component: {fileID: 3026849471075655328}
   - component: {fileID: 5675439701721719921}
+  - component: {fileID: 2729409064085999541}
   m_Layer: 0
   m_Name: TransitionUpButton
   m_TagString: Untagged
@@ -128,6 +129,21 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &2729409064085999541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 149188190265041356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd3a739c5b115ff4ebe25bc83e853ad5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetRot: {x: 0, y: 0, z: 0}
+  targetPivotRot: {x: 45, y: 0, z: 0}
+  transitionTime: 0.2
 --- !u!1 &202944170048899024
 GameObject:
   m_ObjectHideFlags: 0
@@ -140,6 +156,7 @@ GameObject:
   - component: {fileID: 4394900924359523731}
   - component: {fileID: 1237338913919282033}
   - component: {fileID: 7843672668672391697}
+  - component: {fileID: 7753839990021596739}
   m_Layer: 0
   m_Name: TransitionFrontButton
   m_TagString: Untagged
@@ -256,6 +273,21 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &7753839990021596739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 202944170048899024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd3a739c5b115ff4ebe25bc83e853ad5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetRot: {x: 0, y: 0, z: 0}
+  targetPivotRot: {x: 0, y: 0, z: 0}
+  transitionTime: 0.2
 --- !u!1 &996340935023276084
 GameObject:
   m_ObjectHideFlags: 0
@@ -515,6 +547,7 @@ GameObject:
   - component: {fileID: 4860631602539236581}
   - component: {fileID: 1889693428773834864}
   - component: {fileID: 7492976813802389}
+  - component: {fileID: 6883253641070511684}
   m_Layer: 0
   m_Name: TransitionSideButton
   m_TagString: Untagged
@@ -631,6 +664,21 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &6883253641070511684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4007901429045260663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd3a739c5b115ff4ebe25bc83e853ad5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetRot: {x: 0, y: -90, z: 0}
+  targetPivotRot: {x: 0, y: 0, z: 0}
+  transitionTime: 0.2
 --- !u!1 &4763932942523353425
 GameObject:
   m_ObjectHideFlags: 0

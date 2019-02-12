@@ -114,7 +114,8 @@ public abstract class Player : MonoBehaviour
         }
         else
         {
-            GameManager.Instance.HideInteractIcon();
+            if(GameManager.Instance)
+                GameManager.Instance.HideInteractIcon();
         }
     }
 

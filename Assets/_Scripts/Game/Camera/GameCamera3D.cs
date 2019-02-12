@@ -133,11 +133,14 @@ public class GameCamera3D : GameCamera {
         }
     }
 
-    public override void SetLook(Quaternion lookRot, Vector3 pivotEulers)
+    public override void SetLook(Quaternion lookRot, Vector3 pivotEulers, bool applyTilt = false)
     {
         var euler = lookRot.eulerAngles;
         m_LookAngle = euler.y;
         m_PivotEulers = pivotEulers;
+
+        if(applyTilt)
+            m_TiltAngle = pivotEulers.x;
     }
 
     public override void StartAnimate(Quaternion lookRot, Vector3 pivotEulers, float time)
@@ -152,13 +155,13 @@ public class GameCamera3D : GameCamera {
 
         Quaternion startRot = transform.localRotation;
         Vector3 startEulers = m_PivotEulers;
-
+        
         while(t < time)
         {
             t += Time.deltaTime;
 
             float ratio = t / time;
-            SetLook(Quaternion.Lerp(startRot, lookRot, ratio), Vector3.Lerp(startEulers, pivotEulers, ratio));
+            SetLook(Quaternion.Lerp(startRot, lookRot, ratio), Vector3.Lerp(startEulers, pivotEulers, ratio), true);
             yield return null;
         }
     }

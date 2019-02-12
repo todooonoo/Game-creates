@@ -69,6 +69,14 @@ public class Player2D : Player
         if (movement == Movement2D.Free)
         {
             rBody.velocity = moveDelta * TargetSpeed;
+
+            if(moveDelta.x != 0 || moveDelta.y != 0)
+            {
+                AnimationController.SetState(PlayerAnimationState.Move);
+            } else
+            {
+                AnimationController.SetState(PlayerAnimationState.Idle);
+            }
         }
         else if (movement == Movement2D.Horizontal)
         {
