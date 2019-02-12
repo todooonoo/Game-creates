@@ -24,6 +24,7 @@ public abstract class Player : MonoBehaviour
     [SerializeField]
     protected Vector3[] directions = new Vector3[] { Vector3.left, Vector3.right, Vector3.forward, -Vector3.forward };
     public bool Pushing { get; protected set; }
+    public bool Pulling { get; protected set; }
 
     protected virtual void Start()
     {

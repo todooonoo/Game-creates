@@ -48,7 +48,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		}
 
 
-        public void Move(Vector3 move, bool crouch, bool jump, bool ignoreTurn = false)
+        public void Move(Vector3 move, bool crouch, bool jump, bool ignoreTurn = false, bool pulling = false)
 		{
             float mag = move.magnitude;
 			if (mag > 1f) move.Normalize();
