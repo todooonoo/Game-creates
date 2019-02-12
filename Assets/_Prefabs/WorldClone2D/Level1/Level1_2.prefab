@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7631390313591419861}
   - component: {fileID: 1003266702817567356}
   - component: {fileID: 2791346203821116599}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: TestCube2DSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,7 +130,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7707411383704458883}
   - component: {fileID: 1235152131192216463}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: TestCube2DSprite (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -210,7 +210,7 @@ GameObject:
   - component: {fileID: 7586514710824075794}
   - component: {fileID: 6592450994005197280}
   - component: {fileID: 5903319643280897221}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Level1_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -269,7 +269,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4117744248291721390}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: BaseObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -135,9 +135,9 @@ public class Player2D : Player
         return Physics2D.Raycast(new Vector2(col.bounds.center.x, col.bounds.min.y), Vector2.down, contactDist, groundLayer);
     }
 
-    public override bool CheckCollision()
+    public override Collider2D CheckCollision()
     {
-        return Physics2D.BoxCast(col.bounds.center, col.bounds.size, 0, Vector2.zero, 0.01f, contactLayer);
+        return Physics2D.OverlapBox(col.bounds.center, col.bounds.size, 0, contactLayer);
     }
     
     public override void SetCollision(bool active)

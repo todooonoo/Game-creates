@@ -49,9 +49,6 @@ MonoBehaviour:
   player: {fileID: 114530852415139376}
   gameCamera: {fileID: 114865951508072230}
   state: 0
-  interactIcon: {fileID: 0}
-  dialogueWindow: {fileID: 0}
-  transitionScreen: {fileID: 0}
   transitionUnlocked: 0
   upTransitionUnlocked: 0
 --- !u!114 &114856253853237994
@@ -392,7 +389,7 @@ MonoBehaviour:
   jumpForce: 5
   groundLayer:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 8193
   contactDist: 0.05
   contactLayer:
     serializedVersion: 2

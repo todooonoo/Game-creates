@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4203079859105142}
   - component: {fileID: 114737389400247542}
   - component: {fileID: 114791321653134176}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GameManagerRight2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,9 +49,6 @@ MonoBehaviour:
   player: {fileID: 114460460000338850}
   gameCamera: {fileID: 114019718563867092}
   state: 0
-  interactIcon: {fileID: 0}
-  dialogueWindow: {fileID: 0}
-  transitionScreen: {fileID: 0}
   transitionUnlocked: 0
   upTransitionUnlocked: 0
 --- !u!114 &114791321653134176
@@ -147,7 +144,7 @@ MonoBehaviour:
   jumpForce: 5
   groundLayer:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 8193
   contactDist: 0.05
   contactLayer:
     serializedVersion: 2
@@ -192,7 +189,7 @@ GameObject:
   - component: {fileID: 81783252740489578}
   - component: {fileID: 114232111362081780}
   - component: {fileID: 114019718563867092}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Camera2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -325,7 +322,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1635916286493580}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.5, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 5, y: 4.7619047, z: 1}
   m_Children: []
   m_Father: {fileID: 4694273043043626}

@@ -38,15 +38,20 @@ public abstract class Player : MonoBehaviour
         controller = GetComponent<ThirdPersonCharacter>();
     }
 
+    protected virtual void OnDisable()
+    {
+        ClearLastDraggable(lastDraggable);
+    }
+
     public void SetVisible(bool visible)
     {
         targetAlpha = visible ? 1.0f : 0.0f;
     }
 
-    public virtual bool CheckCollision()
+    public virtual Collider2D CheckCollision()
     {
         // Do nothing in base 3D
-        return false;
+        return null;
     }
 
     public float TargetSpeed
@@ -88,25 +93,25 @@ public abstract class Player : MonoBehaviour
             if (!controller.IsGrounded)
                 return;
 
-            if (reverseInput.GetAxisDown)
+            if (!Pushing && reverseInput.GetAxis)
             {
                 SetDragDirection(lastDraggable);
-                Pulling = lastDraggable.OnDrag(transform);
+                Pulling = lastDraggable.OnDrag(transform, true);
                 return;
             }
-            else if (reverseInput.GetAxisUp)
+            else if (Pulling && reverseInput.GetAxisUp)
             {
                 lastDraggable.OnRelease(transform);
                 Pulling = false;
             }
 
-            if (interactInput.GetAxisDown)
+            if (!Pulling && interactInput.GetAxis)
             {
                 SetDragDirection(lastDraggable);
                 Pushing = lastDraggable.OnDrag(transform);
                 return;
             }
-            else if (interactInput.GetAxisUp)
+            else if (Pushing && interactInput.GetAxisUp)
             {
                 lastDraggable.OnRelease(transform);
                 Pushing = false;

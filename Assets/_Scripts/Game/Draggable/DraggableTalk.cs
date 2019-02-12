@@ -15,8 +15,11 @@ public class DraggableTalk : Draggable
     public string[] lines;
     public TalkClearType clearType;
 
-    public override bool OnDrag(Transform parent)
+    public override bool OnDrag(Transform parent, bool reverse)
     {
+        if (reverse)
+            return false;
+
         if(clearType == TalkClearType.UnlockSide)
         {
             GameManager.Instance.transitionUnlocked = true;

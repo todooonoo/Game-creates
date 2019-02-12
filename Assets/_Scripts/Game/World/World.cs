@@ -14,7 +14,10 @@ public class World : MonoBehaviour {
     private Player player;
     private GameCamera gameCamera;
     private WorldObjectClone[] clones;
+    private Combinable[] combinables;
     protected Checkpoint[] checkpoints;
+
+    private static readonly string combineSfxName = "Combine";
 
     public virtual void InitWorld()
     {
@@ -60,13 +63,26 @@ public class World : MonoBehaviour {
         {
             clones[i].SetOriginPosition(this);
         }
+        TransitionScreen.Instance.interactIcon.SetActive(false);
     }
 
     public void CheckPlayerCollision()
     {
-        if (Player.CheckCollision())
+        if(worldType != WorldType.World3D)
         {
-            Player.transform.position = ClosestCheckpoint(Player.transform.position);
+            var col = Player.CheckCollision();
+
+            if(col)
+            {
+                var combinable = col.GetComponentInParent<Combinable>();
+
+                if(combinable)
+                {
+                    AudioManager.Instance.PlaySFX(combineSfxName);
+                    Player.transform.position = combinable.transform.position;
+                    combinable.transform.SetParent(Player.transform);
+                }
+            }
         }
     }
 
