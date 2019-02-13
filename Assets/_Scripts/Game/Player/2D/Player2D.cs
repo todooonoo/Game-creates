@@ -80,10 +80,14 @@ public class Player2D : Player
 
     public void SetCombinable(Combinable combinable)
     {
+        if (this.combinable)
+            this.combinable.ResetParent();
+        
         this.combinable = combinable;
 
         if (combinable)
         {
+            combinable.CheckParent();
             transform.position = combinable.transform.position;
             combinable.transform.SetParent(transform);
         }

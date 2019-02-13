@@ -67,9 +67,10 @@ public class World : MonoBehaviour {
 
     public void CheckPlayerCollision()
     {
-        if(worldType != WorldType.World3D)
+        var p2 = Player.GetComponent<Player2D>();
+        if (worldType != WorldType.World3D)
         {
-            var col = Player.CheckCollision();
+            var col = p2.CheckCollision();
 
             if(col)
             {
@@ -78,9 +79,11 @@ public class World : MonoBehaviour {
                 if(combinable)
                 {
                     AudioManager.Instance.PlaySFX(combineSfxName);
-                    var p2 = Player.GetComponent<Player2D>();
                     p2.SetCombinable(combinable);
                 }
+            } else
+            {
+                p2.SetCombinable(null);
             }
         }
     }

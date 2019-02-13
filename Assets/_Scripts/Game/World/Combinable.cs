@@ -6,8 +6,20 @@ public class Combinable : MonoBehaviour
 {
     public string[] linesMove = new string[] { "Unable to move.\n (Combined with an immovable object).",
     "Press TAB to revert dimensions." };
+    private Transform originalParent;
 
     private static readonly string bumpSfxName = "Bump";
+
+    public void CheckParent()
+    {
+        if (!originalParent)
+            originalParent = transform.parent;
+    }
+
+    public void ResetParent()
+    {
+        transform.parent = originalParent;
+    }
 
     public virtual void HandleUpdate(Player2D player)
     {
