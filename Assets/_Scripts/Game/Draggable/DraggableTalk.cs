@@ -22,7 +22,7 @@ public class DraggableTalk : Draggable
 
         if(clearType == TalkClearType.UnlockSide)
         {
-            GameManager.Instance.transitionUnlocked = true;
+            ProgressManager.Instance.transitionUnlocked = true;
         }
 
         TransitionScreen.Instance.dialogueWindow.SetDialogue(lines);

@@ -21,10 +21,6 @@ public class GameManager : MonoBehaviour {
     public GameState state = GameState.Idle;
     public bool IsIdle { get { return state == GameState.Idle; } }
     
-    [Header("Save States")]
-    public bool transitionUnlocked;
-    public bool upTransitionUnlocked;
-    
     private void OnEnable()
     {
         if (!Instance)

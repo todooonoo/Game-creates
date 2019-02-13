@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/3_LabEntrance.unity
     guid: e7916e4528f1898468e4e95150d612e6
+  - enabled: 1
+    path: Assets/_Scenes/4_MotherRoom.unity
+    guid: 170924da4aeabde4e9847e275fc061e0
   m_configObjects: {}
