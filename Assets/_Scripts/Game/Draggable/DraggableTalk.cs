@@ -23,8 +23,13 @@ public class DraggableTalk : Draggable
         if(clearType == TalkClearType.UnlockSide)
         {
             ProgressManager.Instance.transitionUnlocked = true;
+        } else if(clearType == TalkClearType.UnlockFront)
+        {
+            ProgressManager.Instance.transitionFrontUnlocked = true;
+        } else if(clearType == TalkClearType.UnlockUp)
+        {
+            ProgressManager.Instance.transitionUpUnlocked = true;
         }
-
         TransitionScreen.Instance.dialogueWindow.SetDialogue(lines);
 
         DialogueChanger changer = GetComponent<DialogueChanger>();

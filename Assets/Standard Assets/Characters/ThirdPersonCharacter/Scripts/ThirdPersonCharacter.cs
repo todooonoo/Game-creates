@@ -52,9 +52,10 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		{
             float mag = move.magnitude;
 			if (mag > 1f) move.Normalize();
-            else if(mag <= 0.1f)
+            else if(mag <= 0.01f)
             {
                 m_Rigidbody.velocity = new Vector3(0, m_Rigidbody.velocity.y, 0);
+                m_ForwardAmount = 0;
             }
             Vector3 dir = move;
             moveVector = new Vector3(move.x, move.y, move.z);
@@ -65,7 +66,11 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
             if(!ignoreTurn)
 			    m_TurnAmount = Mathf.Atan2(move.x, move.z);
-			m_ForwardAmount = move.z;
+
+            if (mag >= 0.01f)
+                m_ForwardAmount = move.z;
+            else
+                m_ForwardAmount = 0;
             if (reverse)
                 m_ForwardAmount *= -1;
 
@@ -226,7 +231,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                     newV = newV.normalized * maxJumpVelocity;
                 }
 
-                m_Rigidbody.velocity = new Vector3(newV.x, oldV.y, newV.z);
+                m_Rigidbody.velocity = new Vector3(newV.x * m_ForwardAmount, oldV.y, newV.z * m_ForwardAmount);
             }
         }
 
