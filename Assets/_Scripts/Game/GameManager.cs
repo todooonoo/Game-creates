@@ -11,6 +11,7 @@ public enum GameState
 public class GameManager : MonoBehaviour {
 
     public static GameManager Instance { get; private set; }
+    private static List<GameManager> instances = new List<GameManager>();
 
     public Player player;
     
@@ -31,6 +32,7 @@ public class GameManager : MonoBehaviour {
             SetInstance();
         }
         LockCursor(true);
+        instances.Add(this);
     }
 
     public void SetInstance()
@@ -40,8 +42,11 @@ public class GameManager : MonoBehaviour {
 
     private void OnDisable()
     {
-        if(Instance == this)
-            Instance = null;
+        instances.Remove(this);
+        if (Instance == this)
+        {
+            Instance = instances.Count > 0 ? instances[instances.Count - 1] : null;
+        }
     }
 
     private void Update()

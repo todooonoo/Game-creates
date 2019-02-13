@@ -21,8 +21,6 @@ public class LevelTrigger : MonoBehaviour
 
     private void Start()
 	{
-		// CheckSpawn
-
         if(lines.Length > 0)
         {
             GetComponent<Collider>().isTrigger = false;
