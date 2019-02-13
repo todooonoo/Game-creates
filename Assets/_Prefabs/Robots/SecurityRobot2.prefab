@@ -41,6 +41,29 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.003297165
   m_Center: {x: 3.4924597e-10, y: 0.00055372086, z: -6.9849193e-10}
+--- !u!114 &1138030620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2465128838039221022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7ed6d744b6de794fbebaaa4e28510c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sourceIsParent: 1
+  lookAtTarget: 1
+  interactType: 2
+  interactTransform: {fileID: 0}
+  lines:
+  - Hey! You there!
+  - You want to go to the lab right?
+  - 'I''ll tell you two ways to get there quickly:'
+  - 1) Use "Side" dimension to combine with me!
+  - 2) Use "Front" dimension and get in contact with my big brother on the other side!
+  clearType: 3
 --- !u!1 &7186024813511294262
 GameObject:
   m_ObjectHideFlags: 0
@@ -103,12 +126,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pairs:
-  - worldType: 1
-    prefab: {fileID: 0}
-  - worldType: 2
-    prefab: {fileID: 0}
   - worldType: 3
-    prefab: {fileID: 0}
+    prefab: {fileID: 2842977613562311511, guid: ec5365be0d084db469b955fb177768be,
+      type: 3}
+  - worldType: 1
+    prefab: {fileID: 2842977613562311511, guid: ec5365be0d084db469b955fb177768be,
+      type: 3}
 --- !u!1001 &2465128838039319996
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -8,7 +8,7 @@ public class PlayerFollow2D : MonoBehaviour
     public bool xAxisOnly = true;
     private Vector3 oldPosition;
 
-    private void Start()
+    private void OnEnable()
     {
         oldPosition = GameManager.Instance.player.transform.position;
     }

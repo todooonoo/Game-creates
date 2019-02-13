@@ -51,7 +51,7 @@ public class Player2D : Player
         base.HandleUpdate();
     }
 
-    public void Locomotion()
+    public void Locomotion(float multiplier = 1.0f, bool canJump = true)
     {
         bool grounded = IsGrounded();
 
@@ -59,9 +59,9 @@ public class Player2D : Player
         {
             return;
         }
-        Move();
+        Move(multiplier);
 
-        if (jumpInput.GetAxisDown && grounded)
+        if (canJump && jumpInput.GetAxisDown && grounded)
         {
             Jump();
         }
@@ -98,9 +98,9 @@ public class Player2D : Player
         CheckContact();
     }
 
-    private void Move()
+    private void Move(float multiplier)
     {
-        var moveDelta = new Vector2(Input.GetAxis(Static.horizontalAxis), Input.GetAxis(Static.verticalAxis));
+        var moveDelta = new Vector2(Input.GetAxis(Static.horizontalAxis), Input.GetAxis(Static.verticalAxis)) * multiplier;
 
         if (movement == Movement2D.Free)
         {

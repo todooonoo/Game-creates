@@ -14,6 +14,8 @@ public class Player3D : Player {
 
     [SerializeField] protected float fadeTime = 0.5f;
 
+    public static Player3D Instance;
+
     protected override void Start()
     {
         base.Start();
@@ -21,6 +23,7 @@ public class Player3D : Player {
         components = GetComponentsInChildren<PlayerComponent>();
         renderers = GetComponentsInChildren<Renderer>();
         rBody = GetComponent<Rigidbody>();
+        Instance = this;
     }
 
     public override void HandleUpdate()

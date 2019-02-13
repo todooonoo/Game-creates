@@ -136,6 +136,7 @@ public class WorldManager : MonoBehaviour {
         currentWorld.SetPlayerCollision(false);
         currentWorld.GameCamera.onTransitionComplete.AddListener(CheckPlayerCollision);
         currentWorld.GameCamera.TransitionOut();
+
     }
 
     private void CheckPlayerCollision()
