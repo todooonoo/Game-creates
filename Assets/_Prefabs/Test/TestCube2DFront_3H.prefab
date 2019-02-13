@@ -9,7 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4909589208153462}
-  - component: {fileID: 1581436437942647874}
+  - component: {fileID: 114018550296345752}
+  - component: {fileID: 3980387585660879199}
   m_Layer: 0
   m_Name: TestCube2DFront_3H
   m_TagString: Untagged
@@ -32,7 +33,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1581436437942647874
+--- !u!114 &114018550296345752
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -46,6 +47,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   origin: {fileID: 0}
   isManager: 0
+--- !u!114 &3980387585660879199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1127811211994506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d3f7e31dfdbf2642b70f1f50436b047, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  linesMove:
+  - "Unable to move.\n (Combined with an immovable object)."
+  - Press TAB to revert dimensions.
 --- !u!1 &1831085984403882
 GameObject:
   m_ObjectHideFlags: 0

@@ -61,7 +61,7 @@ public class WorldManager : MonoBehaviour {
         if (currentWorld.GameCamera.Animating)
             return;
 
-        // CheckTransition();
+        CheckTransition();
     }
 
     private void CheckTransition()
