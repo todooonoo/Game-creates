@@ -243,7 +243,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  speed: 5
+  speed: 50
   offset: {x: 0, y: 0, z: -10}
 --- !u!1 &1660332070248746
 GameObject:
