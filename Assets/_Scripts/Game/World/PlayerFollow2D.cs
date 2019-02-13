@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerFollow2D : MonoBehaviour
 {
     public float multiplier = 1.0f;
+    public bool xAxisOnly = true;
     private Vector3 oldPosition;
 
     private void Start()
@@ -16,7 +17,7 @@ public class PlayerFollow2D : MonoBehaviour
     {
         Vector3 newPosition = GameManager.Instance.player.transform.position;
         Vector3 delta = newPosition - oldPosition;
-        transform.position += delta * multiplier;
+        transform.position += new Vector3(delta.x, xAxisOnly ? 0 : delta.y) * multiplier;
         oldPosition = newPosition;
     }
 }
