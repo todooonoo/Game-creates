@@ -128,7 +128,7 @@ public abstract class Player : MonoBehaviour
     {
         if(lastDraggable.lookAtTarget)
         {
-            transform.LookAt(lastDraggable.transform);
+            transform.LookAt(lastDraggable.sourceIsParent ? lastDraggable.transform.parent : lastDraggable.transform);
             return;
         }
 

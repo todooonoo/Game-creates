@@ -5,7 +5,7 @@ using UnityEngine;
 // TODO: Rename to interactable
 public class Draggable : MonoBehaviour {
 
-    [SerializeField] protected bool sourceIsParent;
+    public bool sourceIsParent;
     protected Transform originalParent, source;
 
     public bool lookAtTarget;
