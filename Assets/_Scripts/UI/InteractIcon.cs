@@ -8,6 +8,7 @@ public enum InteractType
     Push = 0,
     Move = 1,
     Talk = 2,
+    Open = 3,
 }
 
 [System.Serializable]

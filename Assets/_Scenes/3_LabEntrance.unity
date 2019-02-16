@@ -183,6 +183,36 @@ LightProbeGroup:
   - {x: -15, y: -15, z: 15}
   - {x: -15, y: -15, z: -15}
   m_Dering: 0
+--- !u!1 &129869332
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 129869333}
+  m_Layer: 0
+  m_Name: InteractTransform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &129869333
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 129869332}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 458369824}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &177307309 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100014, guid: 6b9486449e09e744abc5b389a44f25ff,
@@ -292,6 +322,49 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300008, guid: 6b9486449e09e744abc5b389a44f25ff, type: 3}
+--- !u!1 &458369823 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1400475033481994, guid: 085f741163727d5409d1d6694c7f3b16,
+    type: 3}
+  m_PrefabInstance: {fileID: 1667748823}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &458369824 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4689530805202348, guid: 085f741163727d5409d1d6694c7f3b16,
+    type: 3}
+  m_PrefabInstance: {fileID: 1667748823}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &458369825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 458369823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4db594ea9ed0cc47893174ff3ecaf9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &458369828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 458369823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7ed6d744b6de794fbebaaa4e28510c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sourceIsParent: 0
+  lookAtTarget: 0
+  interactType: 3
+  interactTransform: {fileID: 129869333}
+  lines:
+  - The door is locked...
+  clearType: 0
 --- !u!1 &674185620 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100006, guid: 6b9486449e09e744abc5b389a44f25ff,
@@ -706,12 +779,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1777377971, guid: fbfee1e6407f5434db2f7bb6814cae1b, type: 3}
+    - target: {fileID: 6207508215711445193, guid: fbfee1e6407f5434db2f7bb6814cae1b,
+        type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6207508215711445193, guid: fbfee1e6407f5434db2f7bb6814cae1b,
-        type: 3}
+    - target: {fileID: 1777377971, guid: fbfee1e6407f5434db2f7bb6814cae1b, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
@@ -972,10 +1045,20 @@ PrefabInstance:
       propertyPath: targetId
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114102246545803794, guid: 085f741163727d5409d1d6694c7f3b16,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 65354157624462384, guid: 085f741163727d5409d1d6694c7f3b16,
         type: 3}
       propertyPath: m_Size.x
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 65354157624462384, guid: 085f741163727d5409d1d6694c7f3b16,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 085f741163727d5409d1d6694c7f3b16, type: 3}
@@ -1009,6 +1092,10 @@ PrefabInstance:
     - target: {fileID: 100008, guid: 6b9486449e09e744abc5b389a44f25ff, type: 3}
       propertyPath: m_Name
       value: MainRoomv2
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: 6b9486449e09e744abc5b389a44f25ff, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: 6b9486449e09e744abc5b389a44f25ff, type: 3}
       propertyPath: m_LocalPosition.x

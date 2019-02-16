@@ -1118,6 +1118,37 @@ PrefabInstance:
       propertyPath: dialogueWindow
       value: 
       objectReference: {fileID: 5403227537109767123}
+    - target: {fileID: 9003519429713024983, guid: f4068d7327b4c6545bef055611890c30,
+        type: 3}
+      propertyPath: structs.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9003519429713024983, guid: f4068d7327b4c6545bef055611890c30,
+        type: 3}
+      propertyPath: structs.Array.data[3].interactType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9003519429713024983, guid: f4068d7327b4c6545bef055611890c30,
+        type: 3}
+      propertyPath: structs.Array.data[3].iconSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3bcf1fc09c83087419a5a4f9bdaf21c7,
+        type: 3}
+    - target: {fileID: 9003519429713024983, guid: f4068d7327b4c6545bef055611890c30,
+        type: 3}
+      propertyPath: structs.Array.data[3].size.x
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 9003519429713024983, guid: f4068d7327b4c6545bef055611890c30,
+        type: 3}
+      propertyPath: structs.Array.data[3].size.y
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 9003519429713024983, guid: f4068d7327b4c6545bef055611890c30,
+        type: 3}
+      propertyPath: structs.Array.data[3].text
+      value: Open
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4068d7327b4c6545bef055611890c30, type: 3}
 --- !u!224 &4037547193209302565 stripped
