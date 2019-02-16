@@ -31,7 +31,7 @@ public class DraggableTalk : Draggable
             ProgressManager.Instance.transitionUpUnlocked = true;
         }
         TransitionScreen.Instance.dialogueWindow.SetDialogue(lines);
-
+        
         DialogueChanger changer = GetComponent<DialogueChanger>();
         if(changer)
         {

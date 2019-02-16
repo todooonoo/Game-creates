@@ -56,7 +56,12 @@ ModelImporter:
     4300014: door
     4300016: hall
     4300018: gate
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert1
+    second: {fileID: 2100000, guid: ffeae744e42fff24e8ab2cb4421a608e, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

@@ -48,9 +48,7 @@ public class PlayerAnimationController : MonoBehaviour {
     public PlayerAnimationState currentState;
 
     public bool IsJumping { get; private set; }
-
-
-
+    
 	// Use this for initialization
 	void Start ()
     {

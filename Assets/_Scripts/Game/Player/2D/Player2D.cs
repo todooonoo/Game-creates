@@ -85,11 +85,18 @@ public class Player2D : Player
         
         this.combinable = combinable;
 
+        SpriteRenderer sprite = GetComponentInChildren<SpriteRenderer>();
         if (combinable)
         {
             combinable.CheckParent();
-            transform.position = combinable.transform.position;
+
+            Vector3 targetCenter = combinable.GetComponentInChildren<Collider2D>().bounds.center;
+            transform.position = targetCenter;
             combinable.transform.SetParent(transform);
+            sprite.color = new Color(0, 255, 255, 0.75f);
+        } else
+        {
+            sprite.color = Color.white;
         }
     }
 

@@ -24,6 +24,8 @@ public class TutorialManager : Singleton<TutorialManager> {
 
     public void BeginTutorial(GameObject tutorialObject)
     {
+        if (!tutorialObject)
+            return;
         Timing.RunCoroutine(_ShowTutorial(tutorialObject));
     }
 

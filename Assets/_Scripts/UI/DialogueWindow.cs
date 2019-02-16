@@ -41,6 +41,8 @@ public class DialogueWindow : MonoBehaviour
 
     private IEnumerator PlayDialogue(string[] lines, bool reloadScene)
     {
+        Debug.Log("Play dialogue");
+
         GameManager.Instance.state = GameState.Event;
         GameManager.Instance.player.Stop();
         yield return ShowWindow();

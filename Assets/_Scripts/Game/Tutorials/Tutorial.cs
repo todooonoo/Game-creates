@@ -21,6 +21,7 @@ public class Tutorial : MonoBehaviour {
         }
 
         currentTutorial = this;
+
         TutorialManager.Instance.BeginTutorial(tutorialObject);
         SaveManager.AddEventClear(tutorialName);
     }
