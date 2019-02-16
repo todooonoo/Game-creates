@@ -2229,7 +2229,7 @@ GameObject:
   - component: {fileID: 7498356845818810378}
   - component: {fileID: 8316803707275360575}
   - component: {fileID: 4127335559206882510}
-  m_Layer: 13
+  m_Layer: 15
   m_Name: TestCube2DSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
