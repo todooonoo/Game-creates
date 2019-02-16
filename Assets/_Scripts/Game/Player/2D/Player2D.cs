@@ -93,7 +93,7 @@ public class Player2D : Player
             Vector3 targetCenter = combinable.GetComponentInChildren<Collider2D>().bounds.center;
             transform.position = targetCenter;
             combinable.transform.SetParent(transform);
-            sprite.color = new Color(0, 255, 255, 0.75f);
+            sprite.color = new Color(0, 255, 255, 0.6f);
         } else
         {
             sprite.color = Color.white;

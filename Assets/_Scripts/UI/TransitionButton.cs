@@ -13,6 +13,6 @@ public class TransitionButton : MonoBehaviour, IPointerEnterHandler
     public void OnPointerEnter(PointerEventData eventData)
     {
         GameCamera camera = GameManager.Instance.gameCamera;
-        camera.StartAnimate(Quaternion.Euler(targetRot), targetPivotRot, transitionTime);
+        camera.StartAnimate(Quaternion.Euler(targetRot), Quaternion.Euler(targetPivotRot), transitionTime);
     }
 }

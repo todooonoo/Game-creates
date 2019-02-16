@@ -133,35 +133,35 @@ public class GameCamera3D : GameCamera {
         }
     }
 
-    public override void SetLook(Quaternion lookRot, Vector3 pivotEulers, bool applyTilt = false)
+    public override void SetLook(Quaternion lookRot, Quaternion pivotEulers, bool applyTilt = false)
     {
         var euler = lookRot.eulerAngles;
         m_LookAngle = euler.y;
-        m_PivotEulers = pivotEulers;
+        m_PivotEulers = pivotEulers.eulerAngles;
 
         if(applyTilt)
-            m_TiltAngle = pivotEulers.x;
+            m_TiltAngle = m_PivotEulers.x;
     }
 
-    public override void StartAnimate(Quaternion lookRot, Vector3 pivotEulers, float time)
+    public override void StartAnimate(Quaternion lookRot, Quaternion pivotEulers, float time)
     {
         StopAllCoroutines();
         StartCoroutine(AnimateTransitionPreview(lookRot, pivotEulers, time));
     }
 
-    private IEnumerator AnimateTransitionPreview(Quaternion lookRot, Vector3 pivotEulers, float time)
+    private IEnumerator AnimateTransitionPreview(Quaternion lookRot, Quaternion pivotEulers, float time)
     {
         float t = 0.0f;
 
         Quaternion startRot = transform.localRotation;
-        Vector3 startEulers = m_PivotEulers;
+        Quaternion startEulers = Quaternion.Euler(m_PivotEulers);
         
         while(t < time)
         {
             t += Time.deltaTime;
 
             float ratio = t / time;
-            SetLook(Quaternion.Lerp(startRot, lookRot, ratio), Vector3.Lerp(startEulers, pivotEulers, ratio), true);
+            SetLook(Quaternion.Lerp(startRot, lookRot, ratio), Quaternion.Lerp(startEulers, pivotEulers, ratio), true);
             yield return null;
         }
     }

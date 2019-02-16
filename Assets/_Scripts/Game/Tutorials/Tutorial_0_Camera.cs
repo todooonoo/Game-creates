@@ -107,7 +107,7 @@ public class Tutorial_0_Camera : Tutorial {
             // Camera look
             var newRot = Quaternion.Lerp(currentLook, Quaternion.Euler(targetLookRot), ratio);
             var newPivotRot = Quaternion.Lerp(currentPivot, Quaternion.Euler(targetPivotAngles), ratio);
-            gameCamera.SetLook(newRot, newPivotRot.eulerAngles);
+            gameCamera.SetLook(newRot, newPivotRot);
             gameCamera.ApplyRotation();
 
             // Camera pos

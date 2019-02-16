@@ -5227,6 +5227,19 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1138030620, guid: c8f5235d2925da142a97dd7a5c8d36ab, type: 3}
+      propertyPath: lines.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1138030620, guid: c8f5235d2925da142a97dd7a5c8d36ab, type: 3}
+      propertyPath: lines.Array.data[4]
+      value: 2) Or use "Front" dimension and get in contact with my big brother on
+        the other side!
+      objectReference: {fileID: 0}
+    - target: {fileID: 1138030620, guid: c8f5235d2925da142a97dd7a5c8d36ab, type: 3}
+      propertyPath: lines.Array.data[3]
+      value: 1) Press TAB and use "Side" dimension to combine with me!
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8f5235d2925da142a97dd7a5c8d36ab, type: 3}
 --- !u!114 &555787759 stripped
@@ -5235,7 +5248,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 555787758}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1387715441}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b7ed6d744b6de794fbebaaa4e28510c3, type: 3}
@@ -5709,6 +5722,30 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1159766222}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1387715441 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2465128838039221022, guid: c8f5235d2925da142a97dd7a5c8d36ab,
+    type: 3}
+  m_PrefabInstance: {fileID: 555787758}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1387715442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1387715441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fd911512848c3f48ba19adcaa8ffb97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newLines:
+  - You want to go to the lab right?
+  - 'I''ll tell you two ways to get there quickly:'
+  - 1) Walk next to me, press TAB and use "Side" dimension to combine with me!
+  - 2) Or use "Front" dimension and get in contact with my big brother on the other
+    side!
 --- !u!1 &1453082778
 GameObject:
   m_ObjectHideFlags: 0
@@ -6096,9 +6133,10 @@ MonoBehaviour:
   tutorialName: Tutorial_Perspective
   tutorialObject: {fileID: 0}
   nextTutorial: {fileID: 0}
-  lookTarget: {fileID: 0}
   animationTime: 1
   talkEvent: {fileID: 555787759}
+  targetLookRot: {x: -15, y: 0, z: 0}
+  targetPivotAngles: {x: 0, y: -55, z: 0}
 --- !u!4 &1697312844
 Transform:
   m_ObjectHideFlags: 0

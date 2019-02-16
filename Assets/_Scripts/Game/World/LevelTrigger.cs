@@ -47,7 +47,7 @@ public class LevelTrigger : MonoBehaviour
                 // Set camera pos & rot
                 var gameCamera = GameManager.Instance.gameCamera;
                 gameCamera.transform.position = playerPos;
-                gameCamera.SetLook(gameCamera.GetLookRot(), player.transform.rotation.eulerAngles);
+                gameCamera.SetLook(gameCamera.GetLookRot(), player.transform.rotation);
             }
         }
     }

@@ -10,6 +10,6 @@ public class CameraStartLookSet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameCamera.SetLook(Quaternion.Euler(rot), pivotRot);
+        gameCamera.SetLook(Quaternion.Euler(rot), Quaternion.Euler(pivotRot));
     }
 }
