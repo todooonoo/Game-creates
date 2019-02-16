@@ -8,11 +8,13 @@ public class WorldManager : MonoBehaviour {
 
     private static WorldType currentWorldType = WorldType.World3D;
     private World[] worlds;
-    private World currentWorld;
     private WorldObject[] worldObjects;
     private InputPair transitionInput3D, transitionInputRight, transitionInputUp, transitionInputFront;
 
-	void Awake ()
+    [HideInInspector]
+    public World currentWorld;
+
+    void Awake ()
     {
         Instance = this;
     }

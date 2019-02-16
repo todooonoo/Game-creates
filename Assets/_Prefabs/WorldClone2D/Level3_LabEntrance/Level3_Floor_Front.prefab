@@ -236,7 +236,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7629168950073476774}
   - component: {fileID: 175839548181254491}
-  - component: {fileID: 4990368371395199855}
   m_Layer: 13
   m_Name: TestCube2DSprite (3)
   m_TagString: Untagged
@@ -306,19 +305,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4990368371395199855
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 515291286193778577}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a9d5e07ba89ee741abd6ab27d6b0183, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  axis: 2
 --- !u!1 &849803403343319692
 GameObject:
   m_ObjectHideFlags: 0
@@ -329,7 +315,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3367106831167061594}
   - component: {fileID: 1424654157080487342}
-  - component: {fileID: 2033499078675742544}
   m_Layer: 13
   m_Name: TestCube2DSprite (11)
   m_TagString: Untagged
@@ -348,8 +333,8 @@ Transform:
   m_LocalPosition: {x: -6.5, y: -0.5, z: 0}
   m_LocalScale: {x: 3.333335, y: 3.333335, z: 1}
   m_Children: []
-  m_Father: {fileID: 2747961825091110520}
-  m_RootOrder: 13
+  m_Father: {fileID: 4583001750046375150}
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1424654157080487342
 SpriteRenderer:
@@ -399,19 +384,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2033499078675742544
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 849803403343319692}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a9d5e07ba89ee741abd6ab27d6b0183, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  axis: 2
 --- !u!1 &1041539855813229630
 GameObject:
   m_ObjectHideFlags: 0
@@ -422,7 +394,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4386134115847546122}
   - component: {fileID: 8421484367063712896}
-  - component: {fileID: 9055723941817611960}
   m_Layer: 13
   m_Name: TestCube2DSprite (1)
   m_TagString: Untagged
@@ -492,19 +463,85 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &9055723941817611960
-MonoBehaviour:
+--- !u!1 &1138280899130562371
+GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1041539855813229630}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5742461883403606028}
+  - component: {fileID: 2884083995929323857}
+  m_Layer: 0
+  m_Name: sprite
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5742461883403606028
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1138280899130562371}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6227516372390562055}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &2884083995929323857
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1138280899130562371}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a9d5e07ba89ee741abd6ab27d6b0183, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  axis: 2
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: -10
+  m_Sprite: {fileID: 21300000, guid: 3349d8b46da00be48a58d82e6983bcec, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 4.8, y: 1.92}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &1166314159053332099
 GameObject:
   m_ObjectHideFlags: 0
@@ -515,7 +552,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7793371451408727063}
   - component: {fileID: 3423944165908909478}
-  - component: {fileID: 3153226808646369784}
   m_Layer: 13
   m_Name: TestCube2DSprite (1)
   m_TagString: Untagged
@@ -534,8 +570,8 @@ Transform:
   m_LocalPosition: {x: 4.5, y: -0.5, z: 0}
   m_LocalScale: {x: 3.333335, y: 3.333335, z: 1}
   m_Children: []
-  m_Father: {fileID: 2747961825091110520}
-  m_RootOrder: 3
+  m_Father: {fileID: 4583001750046375150}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3423944165908909478
 SpriteRenderer:
@@ -585,19 +621,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3153226808646369784
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1166314159053332099}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a9d5e07ba89ee741abd6ab27d6b0183, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  axis: 2
 --- !u!1 &1222991013634238952
 GameObject:
   m_ObjectHideFlags: 0
@@ -608,7 +631,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4315929418413524881}
   - component: {fileID: 2586157866119932893}
-  - component: {fileID: 2182568011651795101}
   m_Layer: 13
   m_Name: TestCube2DSprite (13)
   m_TagString: Untagged
@@ -627,8 +649,8 @@ Transform:
   m_LocalPosition: {x: -7.5, y: -0.5, z: 0}
   m_LocalScale: {x: 3.333335, y: 3.333335, z: 1}
   m_Children: []
-  m_Father: {fileID: 2747961825091110520}
-  m_RootOrder: 15
+  m_Father: {fileID: 4583001750046375150}
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2586157866119932893
 SpriteRenderer:
@@ -678,19 +700,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2182568011651795101
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1222991013634238952}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a9d5e07ba89ee741abd6ab27d6b0183, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  axis: 2
 --- !u!1 &1584109737288615631
 GameObject:
   m_ObjectHideFlags: 0
@@ -701,7 +710,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8483062475148017914}
   - component: {fileID: 8362776504088779164}
-  - component: {fileID: 1482144826952127398}
   m_Layer: 13
   m_Name: TestCube2DSprite (1)
   m_TagString: Untagged
@@ -771,19 +779,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1482144826952127398
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1584109737288615631}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a9d5e07ba89ee741abd6ab27d6b0183, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  axis: 2
 --- !u!1 &1699384238950162780
 GameObject:
   m_ObjectHideFlags: 0
@@ -794,7 +789,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5312304755778997300}
   - component: {fileID: 3358964335120792458}
-  - component: {fileID: 3018800084044129610}
   m_Layer: 13
   m_Name: TestCube2DSprite (2)
   m_TagString: Untagged
@@ -864,19 +858,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3018800084044129610
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1699384238950162780}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a9d5e07ba89ee741abd6ab27d6b0183, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  axis: 2
 --- !u!1 &1712180897996169568
 GameObject:
   m_ObjectHideFlags: 0
@@ -1007,7 +988,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8934911049149362220}
   - component: {fileID: 3314953619965766857}
-  - component: {fileID: 467212364341431320}
   m_Layer: 13
   m_Name: TestCube2DSprite (3)
   m_TagString: Untagged
@@ -1026,8 +1006,8 @@ Transform:
   m_LocalPosition: {x: -4.5, y: -0.5, z: 0}
   m_LocalScale: {x: 3.333335, y: 3.333335, z: 1}
   m_Children: []
-  m_Father: {fileID: 2747961825091110520}
-  m_RootOrder: 9
+  m_Father: {fileID: 4583001750046375150}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3314953619965766857
 SpriteRenderer:
@@ -1077,19 +1057,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &467212364341431320
-MonoBehaviour:
+--- !u!1 &2704528020069758640
+GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1991922745428468474}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a9d5e07ba89ee741abd6ab27d6b0183, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  axis: 2
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6227516372390562055}
+  m_Layer: 13
+  m_Name: BG
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6227516372390562055
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2704528020069758640}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_Children:
+  - {fileID: 5742461883403606028}
+  m_Father: {fileID: 2747961825091110520}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3058075646406620619
 GameObject:
   m_ObjectHideFlags: 0
@@ -1100,7 +1098,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3952832138047097980}
   - component: {fileID: 6696538166041095936}
-  - component: {fileID: 2283627111399818532}
   m_Layer: 13
   m_Name: TestCube2DSprite (8)
   m_TagString: Untagged
@@ -1119,8 +1116,8 @@ Transform:
   m_LocalPosition: {x: 6.5, y: -1.5, z: 0}
   m_LocalScale: {x: 3.333335, y: 3.333335, z: 1}
   m_Children: []
-  m_Father: {fileID: 2747961825091110520}
-  m_RootOrder: 8
+  m_Father: {fileID: 4583001750046375150}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6696538166041095936
 SpriteRenderer:
@@ -1170,19 +1167,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2283627111399818532
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3058075646406620619}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a9d5e07ba89ee741abd6ab27d6b0183, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  axis: 2
 --- !u!1 &3207089610436588078
 GameObject:
   m_ObjectHideFlags: 0
@@ -1193,7 +1177,6 @@ GameObject:
   m_Component:
   - component: {fileID: 605924796974761436}
   - component: {fileID: 6814998025517178662}
-  - component: {fileID: 738037495905946447}
   m_Layer: 13
   m_Name: TestCube2DSprite (5)
   m_TagString: Untagged
@@ -1212,8 +1195,8 @@ Transform:
   m_LocalPosition: {x: 5.5, y: -0.5, z: 0}
   m_LocalScale: {x: 3.333335, y: 3.333335, z: 1}
   m_Children: []
-  m_Father: {fileID: 2747961825091110520}
-  m_RootOrder: 5
+  m_Father: {fileID: 4583001750046375150}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6814998025517178662
 SpriteRenderer:
@@ -1263,19 +1246,52 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &738037495905946447
-MonoBehaviour:
+--- !u!1 &3516755724061421954
+GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3207089610436588078}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a9d5e07ba89ee741abd6ab27d6b0183, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  axis: 2
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4583001750046375150}
+  m_Layer: 13
+  m_Name: Fill
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4583001750046375150
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3516755724061421954}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 7793371451408727063}
+  - {fileID: 4072891172716808951}
+  - {fileID: 605924796974761436}
+  - {fileID: 3398471796350431160}
+  - {fileID: 4263840101361062392}
+  - {fileID: 3952832138047097980}
+  - {fileID: 8934911049149362220}
+  - {fileID: 8188927730131060523}
+  - {fileID: 5309232919575580783}
+  - {fileID: 2305879189371279096}
+  - {fileID: 3367106831167061594}
+  - {fileID: 6056179475544539157}
+  - {fileID: 4315929418413524881}
+  - {fileID: 5521201013154377791}
+  - {fileID: 935024558383432971}
+  - {fileID: 1101097733951001493}
+  m_Father: {fileID: 2747961825091110520}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4082401640732917654
 GameObject:
   m_ObjectHideFlags: 0
@@ -1352,7 +1368,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5521201013154377791}
   - component: {fileID: 3486799311164474324}
-  - component: {fileID: 6691168528370818047}
   m_Layer: 13
   m_Name: TestCube2DSprite (14)
   m_TagString: Untagged
@@ -1371,8 +1386,8 @@ Transform:
   m_LocalPosition: {x: -7.5, y: -1.5, z: 0}
   m_LocalScale: {x: 3.333335, y: 3.333335, z: 1}
   m_Children: []
-  m_Father: {fileID: 2747961825091110520}
-  m_RootOrder: 16
+  m_Father: {fileID: 4583001750046375150}
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3486799311164474324
 SpriteRenderer:
@@ -1422,19 +1437,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6691168528370818047
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4934488927148670744}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a9d5e07ba89ee741abd6ab27d6b0183, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  axis: 2
 --- !u!1 &5519124199907199513
 GameObject:
   m_ObjectHideFlags: 0
@@ -1445,7 +1447,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3398471796350431160}
   - component: {fileID: 4229644200957675632}
-  - component: {fileID: 6735030542016777697}
   m_Layer: 13
   m_Name: TestCube2DSprite (6)
   m_TagString: Untagged
@@ -1464,8 +1465,8 @@ Transform:
   m_LocalPosition: {x: 5.5, y: -1.5, z: 0}
   m_LocalScale: {x: 3.333335, y: 3.333335, z: 1}
   m_Children: []
-  m_Father: {fileID: 2747961825091110520}
-  m_RootOrder: 6
+  m_Father: {fileID: 4583001750046375150}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4229644200957675632
 SpriteRenderer:
@@ -1515,19 +1516,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6735030542016777697
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5519124199907199513}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a9d5e07ba89ee741abd6ab27d6b0183, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  axis: 2
 --- !u!1 &5541700512939882785
 GameObject:
   m_ObjectHideFlags: 0
@@ -1538,7 +1526,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4072891172716808951}
   - component: {fileID: 5395993492891270066}
-  - component: {fileID: 904698337220053644}
   m_Layer: 13
   m_Name: TestCube2DSprite (2)
   m_TagString: Untagged
@@ -1557,8 +1544,8 @@ Transform:
   m_LocalPosition: {x: 4.5, y: -1.5, z: 0}
   m_LocalScale: {x: 3.333335, y: 3.333335, z: 1}
   m_Children: []
-  m_Father: {fileID: 2747961825091110520}
-  m_RootOrder: 4
+  m_Father: {fileID: 4583001750046375150}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5395993492891270066
 SpriteRenderer:
@@ -1608,19 +1595,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &904698337220053644
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5541700512939882785}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a9d5e07ba89ee741abd6ab27d6b0183, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  axis: 2
 --- !u!1 &6036028650335660399
 GameObject:
   m_ObjectHideFlags: 0
@@ -1631,7 +1605,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4263840101361062392}
   - component: {fileID: 5567648351126505339}
-  - component: {fileID: 7045345119054920479}
   m_Layer: 13
   m_Name: TestCube2DSprite (7)
   m_TagString: Untagged
@@ -1650,8 +1623,8 @@ Transform:
   m_LocalPosition: {x: 6.5, y: -0.5, z: 0}
   m_LocalScale: {x: 3.333335, y: 3.333335, z: 1}
   m_Children: []
-  m_Father: {fileID: 2747961825091110520}
-  m_RootOrder: 7
+  m_Father: {fileID: 4583001750046375150}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5567648351126505339
 SpriteRenderer:
@@ -1701,19 +1674,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7045345119054920479
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6036028650335660399}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a9d5e07ba89ee741abd6ab27d6b0183, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  axis: 2
 --- !u!1 &6077180950291915408
 GameObject:
   m_ObjectHideFlags: 0
@@ -1724,7 +1684,6 @@ GameObject:
   m_Component:
   - component: {fileID: 935024558383432971}
   - component: {fileID: 2727193209015580367}
-  - component: {fileID: 8899078632955391207}
   m_Layer: 13
   m_Name: TestCube2DSprite (15)
   m_TagString: Untagged
@@ -1743,8 +1702,8 @@ Transform:
   m_LocalPosition: {x: 7.5, y: -0.5, z: 0}
   m_LocalScale: {x: 3.333335, y: 3.333335, z: 1}
   m_Children: []
-  m_Father: {fileID: 2747961825091110520}
-  m_RootOrder: 17
+  m_Father: {fileID: 4583001750046375150}
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2727193209015580367
 SpriteRenderer:
@@ -1794,19 +1753,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8899078632955391207
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6077180950291915408}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a9d5e07ba89ee741abd6ab27d6b0183, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  axis: 2
 --- !u!1 &6508757015117142619
 GameObject:
   m_ObjectHideFlags: 0
@@ -1817,7 +1763,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8188927730131060523}
   - component: {fileID: 8744155940443625293}
-  - component: {fileID: 351985065298684069}
   m_Layer: 13
   m_Name: TestCube2DSprite (4)
   m_TagString: Untagged
@@ -1836,8 +1781,8 @@ Transform:
   m_LocalPosition: {x: -4.5, y: -1.5, z: 0}
   m_LocalScale: {x: 3.333335, y: 3.333335, z: 1}
   m_Children: []
-  m_Father: {fileID: 2747961825091110520}
-  m_RootOrder: 10
+  m_Father: {fileID: 4583001750046375150}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8744155940443625293
 SpriteRenderer:
@@ -1887,19 +1832,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &351985065298684069
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6508757015117142619}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a9d5e07ba89ee741abd6ab27d6b0183, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  axis: 2
 --- !u!1 &6580647948077951988
 GameObject:
   m_ObjectHideFlags: 0
@@ -1910,7 +1842,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6056179475544539157}
   - component: {fileID: 2092690857258756641}
-  - component: {fileID: 5324846304086642177}
   m_Layer: 13
   m_Name: TestCube2DSprite (12)
   m_TagString: Untagged
@@ -1929,8 +1860,8 @@ Transform:
   m_LocalPosition: {x: -6.5, y: -1.5, z: 0}
   m_LocalScale: {x: 3.333335, y: 3.333335, z: 1}
   m_Children: []
-  m_Father: {fileID: 2747961825091110520}
-  m_RootOrder: 14
+  m_Father: {fileID: 4583001750046375150}
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2092690857258756641
 SpriteRenderer:
@@ -1980,19 +1911,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5324846304086642177
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6580647948077951988}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a9d5e07ba89ee741abd6ab27d6b0183, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  axis: 2
 --- !u!1 &6761572112341735100
 GameObject:
   m_ObjectHideFlags: 0
@@ -2003,7 +1921,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1006381988485829332}
   - component: {fileID: 6258813401799122225}
-  - component: {fileID: 8064252319706079193}
   m_Layer: 13
   m_Name: TestCube2DSprite (3)
   m_TagString: Untagged
@@ -2073,19 +1990,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8064252319706079193
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6761572112341735100}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a9d5e07ba89ee741abd6ab27d6b0183, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  axis: 2
 --- !u!1 &7111467884628355300
 GameObject:
   m_ObjectHideFlags: 0
@@ -2133,6 +2037,7 @@ GameObject:
   - component: {fileID: 3917765118890893867}
   - component: {fileID: 4895434445858461099}
   - component: {fileID: 6591065298372703594}
+  - component: {fileID: 4006317657959201733}
   m_Layer: 13
   m_Name: Level3_Floor_Front
   m_TagString: Untagged
@@ -2154,22 +2059,8 @@ Transform:
   - {fileID: 3302534452407579453}
   - {fileID: 3199338858873692541}
   - {fileID: 721233480503766395}
-  - {fileID: 7793371451408727063}
-  - {fileID: 4072891172716808951}
-  - {fileID: 605924796974761436}
-  - {fileID: 3398471796350431160}
-  - {fileID: 4263840101361062392}
-  - {fileID: 3952832138047097980}
-  - {fileID: 8934911049149362220}
-  - {fileID: 8188927730131060523}
-  - {fileID: 5309232919575580783}
-  - {fileID: 2305879189371279096}
-  - {fileID: 3367106831167061594}
-  - {fileID: 6056179475544539157}
-  - {fileID: 4315929418413524881}
-  - {fileID: 5521201013154377791}
-  - {fileID: 935024558383432971}
-  - {fileID: 1101097733951001493}
+  - {fileID: 4583001750046375150}
+  - {fileID: 6227516372390562055}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2229,6 +2120,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d809df70325425b48bbab2c52f16eb25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseObject: {fileID: 2704528020069758640}
+  count: 4
+  multiplier: 2
+--- !u!114 &4006317657959201733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7191230065859038932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d809df70325425b48bbab2c52f16eb25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   baseObject: {fileID: 7111467884628355300}
   count: 8
   multiplier: 1
@@ -2242,7 +2148,6 @@ GameObject:
   m_Component:
   - component: {fileID: 9057678128276732013}
   - component: {fileID: 120086564787451386}
-  - component: {fileID: 5446408060251311945}
   m_Layer: 13
   m_Name: TestCube2DSprite (2)
   m_TagString: Untagged
@@ -2312,19 +2217,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5446408060251311945
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7322639074499171300}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a9d5e07ba89ee741abd6ab27d6b0183, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  axis: 2
 --- !u!1 &7400840234543951188
 GameObject:
   m_ObjectHideFlags: 0
@@ -2455,7 +2347,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1101097733951001493}
   - component: {fileID: 5621430809223726412}
-  - component: {fileID: 2437668363765044834}
   m_Layer: 13
   m_Name: TestCube2DSprite (16)
   m_TagString: Untagged
@@ -2474,8 +2365,8 @@ Transform:
   m_LocalPosition: {x: 7.5, y: -1.5, z: 0}
   m_LocalScale: {x: 3.333335, y: 3.333335, z: 1}
   m_Children: []
-  m_Father: {fileID: 2747961825091110520}
-  m_RootOrder: 18
+  m_Father: {fileID: 4583001750046375150}
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5621430809223726412
 SpriteRenderer:
@@ -2525,19 +2416,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2437668363765044834
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7770772917397916215}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a9d5e07ba89ee741abd6ab27d6b0183, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  axis: 2
 --- !u!1 &8675553776497206033
 GameObject:
   m_ObjectHideFlags: 0
@@ -2548,7 +2426,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2305879189371279096}
   - component: {fileID: 1104212783201041405}
-  - component: {fileID: 3063192558182752728}
   m_Layer: 13
   m_Name: TestCube2DSprite (10)
   m_TagString: Untagged
@@ -2567,8 +2444,8 @@ Transform:
   m_LocalPosition: {x: -5.5, y: -1.5, z: 0}
   m_LocalScale: {x: 3.333335, y: 3.333335, z: 1}
   m_Children: []
-  m_Father: {fileID: 2747961825091110520}
-  m_RootOrder: 12
+  m_Father: {fileID: 4583001750046375150}
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1104212783201041405
 SpriteRenderer:
@@ -2618,19 +2495,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3063192558182752728
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8675553776497206033}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a9d5e07ba89ee741abd6ab27d6b0183, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  axis: 2
 --- !u!1 &9158583681592115861
 GameObject:
   m_ObjectHideFlags: 0
@@ -2641,7 +2505,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5309232919575580783}
   - component: {fileID: 5237184313479048328}
-  - component: {fileID: 2073319112712768736}
   m_Layer: 13
   m_Name: TestCube2DSprite (9)
   m_TagString: Untagged
@@ -2660,8 +2523,8 @@ Transform:
   m_LocalPosition: {x: -5.5, y: -0.5, z: 0}
   m_LocalScale: {x: 3.333335, y: 3.333335, z: 1}
   m_Children: []
-  m_Father: {fileID: 2747961825091110520}
-  m_RootOrder: 11
+  m_Father: {fileID: 4583001750046375150}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5237184313479048328
 SpriteRenderer:
@@ -2711,16 +2574,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2073319112712768736
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9158583681592115861}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a9d5e07ba89ee741abd6ab27d6b0183, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  axis: 2

@@ -1238,7 +1238,7 @@ MonoBehaviour:
     prefab: {fileID: 8656562254391164415, guid: 80b7a8741bb878d47b5ae2ce7281ecb7,
       type: 3}
   - worldType: 3
-    prefab: {fileID: 8656562254391164415, guid: 80b7a8741bb878d47b5ae2ce7281ecb7,
+    prefab: {fileID: 8656562254391164415, guid: 20f9fd88f03f7a44f9ba30ddc1d5d6af,
       type: 3}
 --- !u!1 &1871176685 stripped
 GameObject:

@@ -11,6 +11,6 @@ public class WorldFront2D : World {
 
     public override Vector3 GetOriginWorldPos(Vector3 currentPos, Vector3 originPos)
     {
-        return originPos;
+        return new Vector3(currentPos.x, originPos.y, originPos.z);
     }
 }

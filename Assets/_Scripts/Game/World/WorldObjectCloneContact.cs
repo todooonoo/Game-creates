@@ -26,13 +26,14 @@ public class WorldObjectCloneContact : MonoBehaviour {
 
         if(managerClone)
         {
+            managerClone.SetOriginPosition(WorldManager.Instance.currentWorld);
+
             var managerOrigin = managerClone.origin;
             var playerOrigin = managerOrigin.GetComponentInChildren<Player>();
 
             if(playerOrigin)
             {
                 var pos = playerOrigin.transform.position;
-
                 switch(axis)
                 {
                     case WorldAxis.X:
