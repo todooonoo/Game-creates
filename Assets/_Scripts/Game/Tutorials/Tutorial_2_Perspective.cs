@@ -44,6 +44,7 @@ public class Tutorial_2_Perspective : Tutorial
         if(eventIndex == 1)
         {
             eventIndex = 2;
+            GameManager.Instance.state = GameState.Event;
             Timing.RunCoroutine(_CameraLookAtTarget());
         } else if(eventIndex == 3) {
             Destroy(this);

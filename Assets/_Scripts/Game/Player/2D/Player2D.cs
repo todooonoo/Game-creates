@@ -22,6 +22,7 @@ public class Player2D : Player
     [Header("Contact Check")]
     [SerializeField] private float contactDist = 0.05f;
     [SerializeField] private LayerMask contactLayer;
+    [SerializeField] private bool ignoreJump;
 
     private Rigidbody2D rBody;
     private Collider2D col;
@@ -55,7 +56,7 @@ public class Player2D : Player
     {
         bool grounded = IsGrounded();
 
-        if (CheckTransition(grounded))
+        if (CheckTransition(grounded || ignoreJump))
         {
             return;
         }
