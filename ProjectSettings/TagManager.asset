@@ -20,7 +20,7 @@ TagManager:
   - Draggable
   - Ground2D
   - IgnoreCamera
-  - 
+  - Ground2DContact
   - 
   - 
   - 

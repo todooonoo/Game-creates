@@ -5,7 +5,8 @@ using UnityEngine;
 public class BaseMultiplierSide : MonoBehaviour
 {
     public GameObject baseObject;
-    public int count, multiplier = 1;
+    public int count;
+    public float multiplier = 1;
 
     // Start is called before the first frame update
     void Start()

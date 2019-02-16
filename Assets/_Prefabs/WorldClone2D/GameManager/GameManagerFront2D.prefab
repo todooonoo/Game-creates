@@ -379,11 +379,11 @@ MonoBehaviour:
   jumpForce: 5
   groundLayer:
     serializedVersion: 2
-    m_Bits: 8193
+    m_Bits: 40961
   contactDist: 0.05
   contactLayer:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 32769
   ignoreJump: 0
 --- !u!114 &3958457423877654316
 MonoBehaviour:
