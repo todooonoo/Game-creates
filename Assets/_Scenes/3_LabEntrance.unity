@@ -219,6 +219,31 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1765794203}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &177307310 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400014, guid: 6b9486449e09e744abc5b389a44f25ff,
+    type: 3}
+  m_PrefabInstance: {fileID: 1765794203}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &177307311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 177307309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7ed6d744b6de794fbebaaa4e28510c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sourceIsParent: 0
+  lookAtTarget: 0
+  interactType: 2
+  interactTransform: {fileID: 177307310}
+  lines:
+  - '...'
+  clearType: 0
 --- !u!64 &177307313
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -322,6 +347,25 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300008, guid: 6b9486449e09e744abc5b389a44f25ff, type: 3}
+--- !u!114 &453710181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 453710176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7ed6d744b6de794fbebaaa4e28510c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sourceIsParent: 0
+  lookAtTarget: 0
+  interactType: 2
+  interactTransform: {fileID: 177307310}
+  lines:
+  - '...'
+  clearType: 0
 --- !u!1 &458369823 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1400475033481994, guid: 085f741163727d5409d1d6694c7f3b16,
@@ -1096,6 +1140,22 @@ PrefabInstance:
     - target: {fileID: 100006, guid: 6b9486449e09e744abc5b389a44f25ff, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100014, guid: 6b9486449e09e744abc5b389a44f25ff, type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 100016, guid: 6b9486449e09e744abc5b389a44f25ff, type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 100018, guid: 6b9486449e09e744abc5b389a44f25ff, type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 100020, guid: 6b9486449e09e744abc5b389a44f25ff, type: 3}
+      propertyPath: m_Layer
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: 6b9486449e09e744abc5b389a44f25ff, type: 3}
       propertyPath: m_LocalPosition.x

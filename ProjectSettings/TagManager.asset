@@ -19,7 +19,7 @@ TagManager:
   - PlayerDragCollider
   - Draggable
   - Ground2D
-  - 
+  - IgnoreCamera
   - 
   - 
   - 

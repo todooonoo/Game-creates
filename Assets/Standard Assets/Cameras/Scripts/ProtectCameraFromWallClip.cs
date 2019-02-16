@@ -13,6 +13,7 @@ namespace UnityStandardAssets.Cameras
         public float closestDistance = 0.5f;            // the closest distance the camera can be from the target
         public bool protecting { get; private set; }    // used for determining if there is an object between the target and the camera
         public string dontClipTag = "Player";           // don't clip against objects with this tag (useful for not clipping against the targeted object)
+        public LayerMask castLayer;
 
         private Transform m_Cam;                  // the transform of the camera
         private Transform m_Pivot;                // the point at which the camera pivots around
@@ -50,7 +51,7 @@ namespace UnityStandardAssets.Cameras
             m_Ray.direction = -m_Pivot.forward;
 
             // initial check to see if start of spherecast intersects anything
-            var cols = Physics.OverlapSphere(m_Ray.origin, sphereCastRadius);
+            var cols = Physics.OverlapSphere(m_Ray.origin, sphereCastRadius, castLayer);
 
             bool initialIntersect = false;
             bool hitSomething = false;
@@ -73,12 +74,12 @@ namespace UnityStandardAssets.Cameras
                 m_Ray.origin += m_Pivot.forward*sphereCastRadius;
 
                 // do a raycast and gather all the intersections
-                m_Hits = Physics.RaycastAll(m_Ray, m_OriginalDist - sphereCastRadius);
+                m_Hits = Physics.RaycastAll(m_Ray, m_OriginalDist - sphereCastRadius, castLayer);
             }
             else
             {
                 // if there was no collision do a sphere cast to see if there were any other collisions
-                m_Hits = Physics.SphereCastAll(m_Ray, sphereCastRadius, m_OriginalDist + sphereCastRadius);
+                m_Hits = Physics.SphereCastAll(m_Ray, sphereCastRadius, m_OriginalDist + sphereCastRadius, castLayer);
             }
 
             // sort the collisions by distance
