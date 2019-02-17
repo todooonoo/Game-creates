@@ -31,7 +31,7 @@ public class InteractIcon : MonoBehaviour
 
     private void Start()
     {
-        target = mainIcon.gameObject;
+        target = mainIcon.transform.parent.gameObject;
     }
 
     public void SetIcon(InteractType type)
@@ -46,7 +46,7 @@ public class InteractIcon : MonoBehaviour
         {
             if(structs[i].interactType == type)
             {
-                target = mainIcon.gameObject;
+                target = mainIcon.transform.parent.gameObject;
                 mainIcon.sprite = structs[i].iconSprite;
                 mainIcon.rectTransform.sizeDelta = structs[i].size;
                 mainText.text = structs[i].text;

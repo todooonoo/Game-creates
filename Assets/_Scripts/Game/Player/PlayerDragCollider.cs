@@ -18,6 +18,7 @@ public class PlayerDragCollider : MonoBehaviour {
 
         if (draggable)
         {
+            Debug.Log(draggable.name);
             player.SetLastDraggable(draggable);
         }
     }
