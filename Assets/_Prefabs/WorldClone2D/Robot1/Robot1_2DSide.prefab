@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4568439473615583513}
   - component: {fileID: 3836846209030641992}
   - component: {fileID: 5003365550993133193}
-  - component: {fileID: 2441501681480162676}
+  - component: {fileID: 3723773899920842262}
   m_Layer: 0
   m_Name: Robot1_2DSprite
   m_TagString: Untagged
@@ -27,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2690417654169803313}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.355, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalScale: {x: 4.6875, y: 4.6875, z: 1}
   m_Children: []
   m_Father: {fileID: 2941496912929753089}
   m_RootOrder: 0
@@ -70,7 +70,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: b75f2e2b7e3441a4cbd81db9692f5cff, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 296738107e484654c913925f7019cb7b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   axis: 0
---- !u!61 &2441501681480162676
+--- !u!61 &3723773899920842262
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -107,18 +107,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.02}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.5, y: 1.07}
+    oldSize: {x: 0.32, y: 0.32}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.5, y: 1.07}
+  m_Size: {x: 0.32, y: 0.24}
   m_EdgeRadius: 0
 --- !u!1 &4192594872256897168
 GameObject:
@@ -179,6 +179,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d3f7e31dfdbf2642b70f1f50436b047, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lines:
+  linesMove:
   - "Unable to move.\n (Combined with an immovable object)."
   - Press TAB to revert dimensions.

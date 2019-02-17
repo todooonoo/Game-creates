@@ -54,6 +54,12 @@ public class Tutorial_2_Perspective : Tutorial
 
     private IEnumerator<float> _CameraLookAtTarget()
     {
+        if (WorldManager.Instance.currentWorld.worldType != WorldType.World3D)
+        {
+            Debug.Log("Break camera");
+            yield break;
+        }
+
         // Show player
         var playerTransform = GameManager.Instance.player.transform;
         playerTransform.gameObject.SetActive(true);

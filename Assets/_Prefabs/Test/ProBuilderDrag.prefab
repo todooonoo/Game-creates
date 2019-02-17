@@ -47,10 +47,6 @@ MonoBehaviour:
   pairs:
   - worldType: 1
     prefab: {fileID: 114038972901152788, guid: 2aadbb196129f7545b552260171cdcc7, type: 3}
-  - worldType: 2
-    prefab: {fileID: 114270372444466176, guid: 629151a59797c0c48a799daaabfe2b5c, type: 3}
-  - worldType: 3
-    prefab: {fileID: 114308897313182808, guid: 1221167b1db5c054b8b25d252a5aa353, type: 3}
 --- !u!1 &1799979938413802
 GameObject:
   m_ObjectHideFlags: 0
