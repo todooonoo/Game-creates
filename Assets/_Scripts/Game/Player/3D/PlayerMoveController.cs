@@ -47,6 +47,7 @@ public class PlayerMoveController : PlayerComponent
 
         var lookDir = WorldManager.Instance.GameCamera.LookDirection;
         lookDir.y = 0;
+        lookDir.Normalize();
         var angle = Vector2.SignedAngle(Vector2.up, moveDelta);
         var dir = Quaternion.Euler(0, -angle, 0) * lookDir;
 
