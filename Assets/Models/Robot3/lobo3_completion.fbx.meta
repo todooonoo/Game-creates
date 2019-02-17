@@ -9,7 +9,27 @@ ModelImporter:
     2300000: //RootNode
     3300000: //RootNode
     4300000: Sphererobot
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mat_sphererobot
+    second: {fileID: 2100000, guid: 153c7782384e07b46be4c2a72562dce2, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: lobo3_tex
+    second: {fileID: 2800000, guid: 0de0970d0b30b0c43a00794b7b0fc9c3, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: lobo3_tex1_MetallicSmoothness
+    second: {fileID: 2800000, guid: 8ab5bba1d7672644cb54c6e9cfabe6ed, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: lobo3_tex_Normal
+    second: {fileID: 2800000, guid: c8105e3906f2a2342bb506a5b7b7587c, type: 3}
   materials:
     importMaterials: 1
     materialName: 0
