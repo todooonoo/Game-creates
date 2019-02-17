@@ -14,7 +14,34 @@ public class Player3D : Player {
 
     [SerializeField] protected float fadeTime = 0.5f;
 
+
+    // Sounds
+    public AudioSource walkSoftSFX, walkHardSFX, pushPullSFX;
+    [HideInInspector] public AudioSource CurrentSFX
+    {
+        get { return currentSFX; }
+        set
+        {
+            if (currentSFX == value)
+                return;
+            if (currentSFX)
+                currentSFX.Stop();
+            currentSFX = value;
+
+            if(currentSFX)
+                currentSFX.Play();
+        }
+    }
+    public bool walkHard = true;
+    private AudioSource currentSFX;
+
+    // Custom instancing
     public static Player3D Instance;
+
+    protected void Awake()
+    {
+        Instance = this;
+    }
 
     protected override void Start()
     {
@@ -23,7 +50,6 @@ public class Player3D : Player {
         components = GetComponentsInChildren<PlayerComponent>();
         renderers = GetComponentsInChildren<Renderer>();
         rBody = GetComponent<Rigidbody>();
-        Instance = this;
     }
 
     public override void HandleUpdate()

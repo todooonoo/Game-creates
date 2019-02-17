@@ -40,6 +40,7 @@ public class PlayerMoveController : PlayerComponent
         if (player.playerState == PlayerState.Action)
         {
             Stop(player);
+            player.CurrentSFX = null;
             return;
         }
         if (player.AnimationController.IsJumping)
@@ -57,6 +58,7 @@ public class PlayerMoveController : PlayerComponent
             controller.Move(-player.dragDirection, false, false, true, player.Pulling);
             player.AnimationController.SetState(PlayerAnimationState.Push);
             rBody.constraints = pullConstraints;
+            player.CurrentSFX = player.pushPullSFX;
             return;
         }
         rBody.constraints = defaultConstraints;
@@ -73,11 +75,12 @@ public class PlayerMoveController : PlayerComponent
             if (grounded && !controller.IsGrounded)
             {
                 player.AnimationController.SetState(PlayerAnimationState.Jump);
+                player.CurrentSFX = null;
             } else
             {
                 player.AnimationController.SetState(PlayerAnimationState.Move);
+                player.CurrentSFX = player.walkHard ? player.walkHardSFX : player.walkSoftSFX;
             }
-
             Moving = true;
         }
         else
@@ -90,10 +93,12 @@ public class PlayerMoveController : PlayerComponent
                 if (controller.IsGrounded && (player.Pushing || player.Pulling))
                 {
                     player.AnimationController.SetState(PlayerAnimationState.PushStart);
+                    player.CurrentSFX = player.pushPullSFX;
                 }
                 else
                 {
                     player.AnimationController.SetState(PlayerAnimationState.Idle);
+                    player.CurrentSFX = null;
                 }
             }
             Stop(player);
@@ -148,6 +153,6 @@ public class PlayerMoveController : PlayerComponent
         {
             player.AnimationController.SetState(PlayerAnimationState.Idle);
         }
-
+        player.CurrentSFX = null;
     }
 }
