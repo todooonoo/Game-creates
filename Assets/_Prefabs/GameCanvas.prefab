@@ -1558,6 +1558,7 @@ MonoBehaviour:
   screenObject: {fileID: 1506013887308567131}
   upTransitionButton: {fileID: 149188190265041356}
   frontTransitionButton: {fileID: 202944170048899024}
+  sideTransitionButton: {fileID: 4007901429045260663}
   interactIcon: {fileID: 0}
   dialogueWindow: {fileID: 0}
 --- !u!1 &9003519429386138327

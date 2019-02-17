@@ -28,6 +28,7 @@ public class Player2D : Player
     private Collider2D col;
     private int direction = 1;
     private Combinable combinable;
+    private bool moveUp;
 
     // Use this for initialization
     protected override void Start ()
@@ -95,6 +96,8 @@ public class Player2D : Player
             transform.position = targetCenter;
             combinable.transform.SetParent(transform);
             sprite.color = new Color(0, 255, 255, 0.6f);
+
+            CombineEffectManager.Instance.PlayEffect(transform.position);
         } else
         {
             sprite.color = Color.white;
@@ -116,10 +119,11 @@ public class Player2D : Player
 
             if(moveDelta.x != 0 || moveDelta.y != 0)
             {
-                AnimationController.SetState(PlayerAnimationState.Move);
+                moveUp = (moveDelta.y == 0 ? moveUp : (moveDelta.y > 0 ? true : false));
+                AnimationController.SetState(moveUp ? PlayerAnimationState.MoveUp2D : PlayerAnimationState.MoveDown2D);
             } else
             {
-                AnimationController.SetState(PlayerAnimationState.Idle);
+                AnimationController.SetState(moveUp ? PlayerAnimationState.IdleUp2D : PlayerAnimationState.IdleDown2D);
             }
         }
         else if (movement == Movement2D.Horizontal)

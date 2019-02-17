@@ -415,4 +415,16 @@ MonoBehaviour:
   - state: 1
     stateName: Move
     transitionTime: 0
+  - state: 104
+    stateName: IdleUp
+    transitionTime: 0
+  - state: 105
+    stateName: IdleDown
+    transitionTime: 0
+  - state: 106
+    stateName: MoveUp
+    transitionTime: 0
+  - state: 107
+    stateName: MoveDown
+    transitionTime: 0
   currentState: 0

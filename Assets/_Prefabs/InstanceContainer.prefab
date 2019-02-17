@@ -727,6 +727,7 @@ GameObject:
   - component: {fileID: 3732619583793833936}
   - component: {fileID: 114915379983023886}
   - component: {fileID: 114498856415191964}
+  - component: {fileID: 1519638773}
   m_Layer: 0
   m_Name: InstanceContainer
   m_TagString: Untagged
@@ -807,6 +808,7 @@ MonoBehaviour:
   transitionUnlocked: 0
   transitionUpUnlocked: 0
   transitionFrontUnlocked: 0
+  doorsLocked: 0
 --- !u!114 &114915379983023886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -864,6 +866,20 @@ MonoBehaviour:
     keyCode: 9
   - action: 5
     keyCode: 113
+--- !u!114 &1519638773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1681777912709772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6192017ec0e5ff843b7b92272ed1b8fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectObject: {fileID: 2865702238792689462, guid: 774b683c557c68c418fd0860445da92d,
+    type: 3}
 --- !u!1 &2752714459064666425
 GameObject:
   m_ObjectHideFlags: 0
@@ -905,7 +921,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 1c40f1fbd5fcbe74e94e8188ee92d858, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 9f269db318a1d45489bf6af2652966ef, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.2
   m_Pitch: 1

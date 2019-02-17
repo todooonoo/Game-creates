@@ -16,7 +16,11 @@ public enum PlayerAnimationState
     MoveLeft2D = 100,
     MoveRight2D = 101,
     IdleLeft2D = 102,
-    IdleRight2D = 103
+    IdleRight2D = 103,
+    IdleUp2D = 104,
+    IdleDown2D = 105,
+    MoveUp2D = 106,
+    MoveDown2D = 107
 }
 
 [System.Serializable]
