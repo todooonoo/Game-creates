@@ -25,6 +25,7 @@ public class Player2D : Player
     [SerializeField] private bool ignoreJump;
 
     private Rigidbody2D rBody;
+    private bool useGravity;
     private Collider2D col;
     private int direction = 1;
 
@@ -41,6 +42,7 @@ public class Player2D : Player
         AnimationController = GetComponent<PlayerAnimationController2D>();
         jumpInput = InputHandler.Instance.GetInput(InputAction.Jump);
         transitionInput = InputHandler.Instance.GetInput(InputAction.TransitionMain);
+        useGravity = rBody.gravityScale > 0;
     }
 
     public override void HandleUpdate()
@@ -111,6 +113,10 @@ public class Player2D : Player
             if(combinable.forceTransition)
             {
                 SetTrigger(true);
+
+                // Force contact
+                var contact = combinable.GetComponentInChildren<WorldObjectCloneContact>();
+                contact.SetContactPos(this);
             }
         } else
         {
@@ -125,7 +131,7 @@ public class Player2D : Player
         {
             colliders[i].isTrigger = active;
         }
-        rBody.gravityScale = active ? 0 : 1;
+        rBody.gravityScale = (active || !useGravity) ? 0 : 1;
     }
 
     public void SetPosCombinableCenter(bool ignoreYAxis = false)

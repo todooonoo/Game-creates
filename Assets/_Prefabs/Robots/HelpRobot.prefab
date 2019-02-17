@@ -49,6 +49,12 @@ MonoBehaviour:
   - worldType: 1
     prefab: {fileID: 4689024427138200640, guid: 6051ec367d7d3054ca3e685fde5be963,
       type: 3}
+  - worldType: 2
+    prefab: {fileID: 4689024427138200640, guid: ab584ff16a05b714f95f0b5e499d7e52,
+      type: 3}
+  - worldType: 3
+    prefab: {fileID: 4689024427138200640, guid: 49c594e97002814499acbe0d37b972f4,
+      type: 3}
 --- !u!114 &8504080669447299055
 MonoBehaviour:
   m_ObjectHideFlags: 0
