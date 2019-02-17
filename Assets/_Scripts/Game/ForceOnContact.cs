@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Laser beam force back
 public class ForceOnContact : MonoBehaviour
 {
     public Vector3 force;
     private static string bumpSFXName = "Bump";
-
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -14,7 +14,11 @@ public class ForceOnContact : MonoBehaviour
 
         if(rBody)
         {
-            rBody.AddForce(force, ForceMode.VelocityChange);
+            // Brute force laser check
+            if (rBody.transform.position.z < transform.position.z)
+                rBody.AddForce(force, ForceMode.VelocityChange);
+            else
+                rBody.AddForce(-force, ForceMode.VelocityChange);
             AudioManager.Instance.PlaySFX(bumpSFXName);
         }
     }
