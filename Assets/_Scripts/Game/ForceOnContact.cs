@@ -23,4 +23,21 @@ public class ForceOnContact : MonoBehaviour
             DeathScreen.Instance.Show();
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Rigidbody2D rBody = collision.collider.attachedRigidbody;
+
+        if (rBody)
+        {
+            /*
+            // Brute force laser check
+            if (rBody.transform.position.z < transform.position.z)
+                rBody.AddForce(force, ForceMode.VelocityChange);
+            else
+                rBody.AddForce(-force, ForceMode.VelocityChange);
+                */
+            DeathScreen.Instance.Show();
+        }
+    }
 }

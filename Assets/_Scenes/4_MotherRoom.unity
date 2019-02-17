@@ -585,6 +585,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300002, guid: 392e817e5a481184b8e6039b33c2056f, type: 3}
+--- !u!114 &1270400416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1270400411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d6938e6d6a4e1f4985ca18eaa80bbe9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pairs:
+  - worldType: 2
+    prefab: {fileID: 7961250455405335707, guid: 15d7c91810a96184bb7ab4bceda88f6c,
+      type: 3}
 --- !u!1001 &1312835536
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -720,6 +736,9 @@ MonoBehaviour:
   pairs:
   - worldType: 3
     prefab: {fileID: 3921484926475929056, guid: ded9d4fa65812784fb84848b35d7977b,
+      type: 3}
+  - worldType: 1
+    prefab: {fileID: 3921484926475929056, guid: 442b3367b1dbbef4c90f2f0f761b4e06,
       type: 3}
 --- !u!1 &1479917114
 GameObject:
@@ -1128,7 +1147,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4689530805202348, guid: 085f741163727d5409d1d6694c7f3b16, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -20
+      value: -20.6
       objectReference: {fileID: 0}
     - target: {fileID: 4689530805202348, guid: 085f741163727d5409d1d6694c7f3b16, type: 3}
       propertyPath: m_LocalRotation.x
@@ -1180,8 +1199,24 @@ PrefabInstance:
     - target: {fileID: 65354157624462384, guid: 085f741163727d5409d1d6694c7f3b16,
         type: 3}
       propertyPath: m_Size.x
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 4478172515104942302, guid: 085f741163727d5409d1d6694c7f3b16,
+        type: 3}
+      propertyPath: pairs.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4478172515104942302, guid: 085f741163727d5409d1d6694c7f3b16,
+        type: 3}
+      propertyPath: pairs.Array.data[0].worldType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4478172515104942302, guid: 085f741163727d5409d1d6694c7f3b16,
+        type: 3}
+      propertyPath: pairs.Array.data[0].prefab
+      value: 
+      objectReference: {fileID: 3976185378995978595, guid: 1aed44d7c6f4c514b8033d75614f92fc,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 085f741163727d5409d1d6694c7f3b16, type: 3}
 --- !u!1001 &1693046427

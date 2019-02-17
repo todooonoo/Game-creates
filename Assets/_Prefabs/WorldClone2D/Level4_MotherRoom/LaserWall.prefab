@@ -28,6 +28,7 @@ GameObject:
   - component: {fileID: 7749882375339367629}
   - component: {fileID: 7749882375339367628}
   - component: {fileID: 7749882375339367627}
+  - component: {fileID: 1622563655497471696}
   m_Layer: 0
   m_Name: LaserWall
   m_TagString: Untagged
@@ -177,6 +178,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1622563655497471696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7749882375339367631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d6938e6d6a4e1f4985ca18eaa80bbe9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pairs:
+  - worldType: 2
+    prefab: {fileID: 619730458903078424, guid: 8264da1e2109ad840994b9b6b53a1992, type: 3}
 --- !u!114 &6431752054850828333
 MonoBehaviour:
   m_ObjectHideFlags: 0
