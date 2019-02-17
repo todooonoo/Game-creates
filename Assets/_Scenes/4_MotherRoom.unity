@@ -719,7 +719,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pairs:
   - worldType: 3
-    prefab: {fileID: 0}
+    prefab: {fileID: 3921484926475929056, guid: ded9d4fa65812784fb84848b35d7977b,
+      type: 3}
 --- !u!1 &1479917114
 GameObject:
   m_ObjectHideFlags: 0
@@ -745,7 +746,7 @@ Transform:
   m_GameObject: {fileID: 1479917114}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 36, y: 1, z: 40}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1921204750}
   m_Father: {fileID: 0}
@@ -1494,8 +1495,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1921204749}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 15.07}
+  m_LocalScale: {x: 10, y: 1, z: 10}
   m_Children: []
   m_Father: {fileID: 1479917115}
   m_RootOrder: 0
