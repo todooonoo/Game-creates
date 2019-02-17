@@ -58,6 +58,9 @@ public class LoadingScreen : Singleton<LoadingScreen> {
 
         Time.timeScale = 1f;
 
+        //
+        TransitionScreen.Instance.interactIcon.SetActive(false);
+
         // Animate fade-out
         yield return AnimateBackgroundFade(0.0f);
 		IsLoading = false;
