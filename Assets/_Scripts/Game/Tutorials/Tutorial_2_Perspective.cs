@@ -54,34 +54,31 @@ public class Tutorial_2_Perspective : Tutorial
 
     private IEnumerator<float> _CameraLookAtTarget()
     {
-        if (WorldManager.Instance.currentWorld.worldType != WorldType.World3D)
-        {
-            Debug.Log("Break camera");
-            yield break;
-        }
-
-        // Show player
         var playerTransform = GameManager.Instance.player.transform;
-        playerTransform.gameObject.SetActive(true);
-
-        // Animate
-        var t = 0.0f;
-        var lookDirection = mainCamera.transform.forward;
-        var currentLook = gameCamera.GetLookRot();
-        var currentPivot = gameCamera.GetPivotRot();
-
-        while (t < animationTime)
+        if (WorldManager.Instance.currentWorld.worldType == WorldType.World3D)
         {
-            t += Time.deltaTime;
-            var ratio = t / animationTime;
-            
-            // Camera look
-            var newRot = Quaternion.Lerp(currentLook, Quaternion.Euler(targetLookRot), ratio);
-            var newPivotRot = Quaternion.Lerp(currentPivot, Quaternion.Euler(targetPivotAngles), ratio);
-            gameCamera.SetLook(newRot, newPivotRot);
-            gameCamera.ApplyRotation();
-            playerTransform.LookAt(mainCamera.transform.forward);
-            yield return 0;
+            // Show player
+            playerTransform.gameObject.SetActive(true);
+
+            // Animate
+            var t = 0.0f;
+            var lookDirection = mainCamera.transform.forward;
+            var currentLook = gameCamera.GetLookRot();
+            var currentPivot = gameCamera.GetPivotRot();
+
+            while (t < animationTime)
+            {
+                t += Time.deltaTime;
+                var ratio = t / animationTime;
+
+                // Camera look
+                var newRot = Quaternion.Lerp(currentLook, Quaternion.Euler(targetLookRot), ratio);
+                var newPivotRot = Quaternion.Lerp(currentPivot, Quaternion.Euler(targetPivotAngles), ratio);
+                gameCamera.SetLook(newRot, newPivotRot);
+                gameCamera.ApplyRotation();
+                playerTransform.LookAt(mainCamera.transform.forward);
+                yield return 0;
+            }
         }
         talkEvent.OnDrag(playerTransform, false);
         eventIndex = 3;
