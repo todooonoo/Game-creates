@@ -58,17 +58,18 @@ public class AudioManager : Singleton<AudioManager>
 
     private IEnumerator SetBGMEnum(AudioSource bgmObject, bool instant = false)
     {
+        // Check same bgm
+        if (currentSource && bgmObject && currentSource.name == bgmObject.name)
+        {
+            Destroy(bgmObject);
+            Debug.Log("BGM: Same name, ignoring...");
+            yield break;
+        }
+
         bgmObject.transform.SetParent(transform);
 
         while (settingBGM)
             yield return null;
-
-        // Check same bgm
-        if (currentSource && bgmObject && currentSource.name == bgmObject.name)
-        {
-            Debug.Log("BGM: Same name, ignoring...");
-            yield break;
-        }
 
         settingBGM = true;
         yield return StopCurrentBGM(instant);

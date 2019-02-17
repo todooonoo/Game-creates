@@ -14,11 +14,14 @@ public class ForceOnContact : MonoBehaviour
 
         if(rBody)
         {
+            /*
             // Brute force laser check
             if (rBody.transform.position.z < transform.position.z)
                 rBody.AddForce(force, ForceMode.VelocityChange);
             else
                 rBody.AddForce(-force, ForceMode.VelocityChange);
+                */
+            DeathScreen.Instance.Show();
             AudioManager.Instance.PlaySFX(bumpSFXName);
         }
     }

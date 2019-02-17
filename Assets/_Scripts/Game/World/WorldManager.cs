@@ -6,7 +6,7 @@ public class WorldManager : MonoBehaviour {
 
     public static WorldManager Instance { get; private set; }
 
-    private static WorldType currentWorldType = WorldType.World3D;
+    public static WorldType currentWorldType = WorldType.World3D;
     private World[] worlds;
     private WorldObject[] worldObjects;
     private InputPair transitionInput3D, transitionInputRight, transitionInputUp, transitionInputFront;
