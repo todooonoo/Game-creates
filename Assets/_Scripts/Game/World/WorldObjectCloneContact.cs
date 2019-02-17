@@ -50,6 +50,7 @@ public class WorldObjectCloneContact : MonoBehaviour {
                         pos.z = clone.origin.transform.position.z;
                         break;
                 }
+                Debug.Log(transform.parent.name);
                 playerOrigin.transform.position = pos;
             }
         }
