@@ -10,7 +10,7 @@ public class DialogueWindow : MonoBehaviour
     public InputAction[] skipActions;
     private List<InputPair> skipInputPairs;
 
-    private Vector3 delta;
+    private Vector3 delta, start, end;
     private bool initComplete;
 
     public void InitUI()
@@ -30,6 +30,8 @@ public class DialogueWindow : MonoBehaviour
 
         delta = Vector3.up * GetComponent<RectTransform>().sizeDelta.y;
         transform.localPosition -= delta;
+        start = transform.localPosition;
+        end = start + delta;
         gameObject.SetActive(false);
     }
 
@@ -52,17 +54,23 @@ public class DialogueWindow : MonoBehaviour
         }
 
         yield return HideWindow();
-        GameManager.Instance.state = GameState.Idle;
-        GameManager.Instance.player.playerState = PlayerState.Idle;
-        gameObject.SetActive(false);
+        ForceHide();
 
         if (reloadScene)
             LoadingScreen.Instance.ReloadScene();
     }
 
+    public void ForceHide()
+    {
+        GameManager.Instance.state = GameState.Idle;
+        GameManager.Instance.player.playerState = PlayerState.Idle;
+        gameObject.SetActive(false);
+    }
+
     private IEnumerator ShowWindow()
     {
         text.text = string.Empty;
+        transform.localPosition = start;
 
         // Animate
         float t = 0f;

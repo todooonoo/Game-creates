@@ -31,8 +31,10 @@ public class TutorialManager : Singleton<TutorialManager> {
 
     public void HideTutorial()
     {
-        if(background.gameObject.activeSelf)
+        if (background.gameObject.activeSelf)
+        {
             Timing.RunCoroutine(_HideTutorial());
+        }
     }
 
     private void SetNewTutorial(GameObject tutorialObject)

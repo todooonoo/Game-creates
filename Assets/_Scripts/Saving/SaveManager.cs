@@ -78,7 +78,7 @@ public class SaveManager : Singleton<SaveManager> {
     
     public void RestartSave()
     {
-        GameSave = defaultSave;
+        GameSave = new GameSave();
     }
 
     public static void AddEventClear(string eventName)
