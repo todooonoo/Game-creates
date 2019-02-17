@@ -5,6 +5,7 @@ using UnityEngine;
 public class WorldUp2D : World {
 
     public float raycastHeight = -1;
+    public LayerMask layerMask;
 
     public override Vector3 GetCurrentWorldPos(Vector3 pos)
     {
@@ -21,7 +22,7 @@ public class WorldUp2D : World {
 
             RaycastHit hit;
             Vector3 raycastPos = new Vector3(currentPos.x, raycastHeight, currentPos.y);
-            if(Physics.Raycast(raycastPos, Vector3.down, out hit, raycastHeight))
+            if(Physics.Raycast(raycastPos, Vector3.down, out hit, raycastHeight, layerMask))
             {
                 pos.y = hit.point.y;
             }
