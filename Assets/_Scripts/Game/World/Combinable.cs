@@ -27,10 +27,15 @@ public class Combinable : MonoBehaviour
     {
         return true;
     }
+    
+    public bool HasLines()
+    {
+        return linesMove.Length > 0;
+    }
 
     public virtual void HandleUpdate(Player2D player)
     {
-        if(linesMove.Length > 0)
+        if(HasLines())
         {
             var moveDelta = new Vector2(Input.GetAxis(Static.horizontalAxis), Input.GetAxis(Static.verticalAxis));
 

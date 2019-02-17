@@ -110,13 +110,15 @@ public class Player2D : Player
 
             CombineEffectManager.Instance.PlayEffect(transform.position);
 
-            if(combinable.forceTransition)
+            if(combinable.forceTransition || combinable.HasLines())
             {
                 SetTrigger(true);
 
                 // Force contact
                 var contact = combinable.GetComponentInChildren<WorldObjectCloneContact>();
-                contact.SetContactPos(this);
+
+                if(contact)
+                    contact.SetContactPos(this);
             }
         } else
         {
@@ -138,7 +140,7 @@ public class Player2D : Player
     {
         Vector3 targetCenter = combinable.GetComponentInChildren<Collider2D>().bounds.center;
 
-        if (ignoreYAxis)
+        if (ignoreYAxis ||  combinable.HasLines())
             transform.position = new Vector3(targetCenter.x, transform.position.y);
         else
             transform.position = targetCenter;
