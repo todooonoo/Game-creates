@@ -19,6 +19,16 @@ ModelImporter:
     4300002: terminal
   externalObjects:
   - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mat_terminal
+    second: {fileID: 2100000, guid: a05c95e87992ba1448a05caa0c9e240c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mat_terminalholo
+    second: {fileID: 2100000, guid: f63593209e521c44dac26cd1d0942d18, type: 2}
+  - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: terminal_tex

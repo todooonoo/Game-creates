@@ -18,6 +18,11 @@ ModelImporter:
     4300002: gate
   externalObjects:
   - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: motherroom
+    second: {fileID: 2100000, guid: dea54c7da3af67b41a29efba970fe854, type: 2}
+  - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: MotherRoom_tex
