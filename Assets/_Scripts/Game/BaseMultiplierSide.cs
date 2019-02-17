@@ -9,7 +9,7 @@ public class BaseMultiplierSide : MonoBehaviour
     public float multiplier = 1;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         for(int i = -count / 2; i <= count / 2; i++)
         {
