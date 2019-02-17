@@ -7,7 +7,8 @@ public enum WorldAxis
     X,
     Y,
     Z,
-    XZ
+    XZ,
+    XYZ
 }
 
 public class WorldObjectCloneContact : MonoBehaviour {
@@ -48,6 +49,9 @@ public class WorldObjectCloneContact : MonoBehaviour {
                     case WorldAxis.XZ:
                         pos.x = clone.origin.transform.position.x;
                         pos.z = clone.origin.transform.position.z;
+                        break;
+                    case WorldAxis.XYZ:
+                        pos = clone.origin.transform.position;
                         break;
                 }
                 playerOrigin.transform.position = pos;

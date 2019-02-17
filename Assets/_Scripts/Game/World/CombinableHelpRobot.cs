@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CombinableHelpRobot : Combinable
 {
+    public bool ignoreYAxis = true;
     private HelpRobot2D robotScript;
     private InputPair transitionInput;
     private const string transitionSFXName = "Transition";
@@ -18,7 +19,7 @@ public class CombinableHelpRobot : Combinable
     public override void HandleUpdate(Player2D player)
     {
         robotScript.HandleUpdate();
-        player.SetPosCombinableCenter(true);
+        player.SetPosCombinableCenter(ignoreYAxis);
 
         if(transitionInput.GetAxisDown)
         {

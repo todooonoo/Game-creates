@@ -133,9 +133,9 @@ public class WorldManager : MonoBehaviour {
         currentWorld.gameObject.SetActive(false);
         currentWorld.TransitionOut();
         currentWorld = GetWorld(currentWorldType);
+        currentWorld.SetPlayerCollision(false);
         currentWorld.gameObject.SetActive(true);
         currentWorld.TransitionIn();
-        currentWorld.SetPlayerCollision(false);
         currentWorld.GameCamera.onTransitionComplete.AddListener(CheckPlayerCollision);
         currentWorld.GameCamera.TransitionOut();
 

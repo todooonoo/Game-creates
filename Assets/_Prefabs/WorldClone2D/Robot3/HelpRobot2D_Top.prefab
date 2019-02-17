@@ -109,7 +109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a9d5e07ba89ee741abd6ab27d6b0183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  axis: 3
+  axis: 4
 --- !u!1 &8820346847890076854
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,3 +184,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   linesMove: []
   forceTransition: 0
+  ignoreYAxis: 0

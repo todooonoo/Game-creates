@@ -6,6 +6,19 @@ using UnityEngine;
 public class ForceOnContact : MonoBehaviour
 {
     public Vector3 force;
+    private float time;
+    private static float waitTime = 0.1f;
+
+    private void OnEnable()
+    {
+        time = 0;
+    }
+    
+    private void Update()
+    {
+        if(time < waitTime)
+            time += Time.deltaTime;
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -24,8 +37,11 @@ public class ForceOnContact : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
+        if (time < waitTime)
+            return;
+        
         Rigidbody2D rBody = collision.collider.attachedRigidbody;
 
         if (rBody)
