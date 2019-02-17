@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1199842697828848907}
   - component: {fileID: 283378206527223798}
+  - component: {fileID: 545313091278424201}
+  - component: {fileID: 2328608541644645296}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -79,6 +81,45 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &545313091278424201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4018248058246858729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e46fa44c9a706e4badee0134725a728, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  force: {x: 0, y: 0, z: 0}
+--- !u!61 &2328608541644645296
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4018248058246858729}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &5581769571417108660
 GameObject:
   m_ObjectHideFlags: 0
@@ -89,6 +130,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7064538308124793014}
   - component: {fileID: 5789342830057911864}
+  - component: {fileID: 6879258017623211992}
   m_Layer: 0
   m_Name: LaserBeam2D_Front
   m_TagString: Untagged
@@ -125,3 +167,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   origin: {fileID: 0}
   isManager: 0
+--- !u!114 &6879258017623211992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5581769571417108660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0fbbef24bb52c645b1303dfbc66dcc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  linesMove: []
