@@ -21,6 +21,11 @@ public class Combinable : MonoBehaviour
         transform.parent = originalParent;
     }
 
+    public virtual bool SetPos()
+    {
+        return true;
+    }
+
     public virtual void HandleUpdate(Player2D player)
     {
         if(linesMove.Length > 0)

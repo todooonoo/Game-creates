@@ -8,6 +8,7 @@ public class DeathScreen : Singleton<DeathScreen>
     public Image background;
     public float animationTime = 0.1f, frameTime = 0.02f, waitTime = 0.5f, targetAlpha = 0.7f;
     private bool animating;
+    private const string bumpSFXName = "Bump";
 
     // Start is called before the first frame update
     protected override void Awake()
@@ -23,6 +24,7 @@ public class DeathScreen : Singleton<DeathScreen>
         
         Time.timeScale = 0;
         animating = true;
+        AudioManager.Instance.PlaySFX(bumpSFXName);
         StartCoroutine(_Animate());
     }
 

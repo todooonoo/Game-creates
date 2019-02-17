@@ -88,7 +88,7 @@ public class Player2D : Player
         this.combinable = combinable;
 
         SpriteRenderer sprite = GetComponentInChildren<SpriteRenderer>();
-        if (combinable)
+        if (combinable && combinable.SetPos())
         {
             combinable.CheckParent();
 

@@ -6,7 +6,6 @@ using UnityEngine;
 public class ForceOnContact : MonoBehaviour
 {
     public Vector3 force;
-    private static string bumpSFXName = "Bump";
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -22,7 +21,6 @@ public class ForceOnContact : MonoBehaviour
                 rBody.AddForce(-force, ForceMode.VelocityChange);
                 */
             DeathScreen.Instance.Show();
-            AudioManager.Instance.PlaySFX(bumpSFXName);
         }
     }
 }
