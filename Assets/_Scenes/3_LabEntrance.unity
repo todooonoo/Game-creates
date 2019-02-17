@@ -685,6 +685,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114200239603089140, guid: f9e0dbfc18c98bb4b8cfa1b271a69cdd,
+        type: 3}
+      propertyPath: raycastPos
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114200239603089140, guid: f9e0dbfc18c98bb4b8cfa1b271a69cdd,
+        type: 3}
+      propertyPath: raycastHeight
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9e0dbfc18c98bb4b8cfa1b271a69cdd, type: 3}
 --- !u!1001 &1408158018
@@ -1244,6 +1254,9 @@ MonoBehaviour:
       type: 3}
   - worldType: 3
     prefab: {fileID: 8656562254391164415, guid: 20f9fd88f03f7a44f9ba30ddc1d5d6af,
+      type: 3}
+  - worldType: 2
+    prefab: {fileID: 8656562254391164415, guid: 52c42c46bfc555347b4d5c9613becbf3,
       type: 3}
 --- !u!1 &1871176685 stripped
 GameObject:
