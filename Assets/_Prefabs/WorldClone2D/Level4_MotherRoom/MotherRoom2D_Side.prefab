@@ -2606,7 +2606,7 @@ GameObject:
   - component: {fileID: 4006317657959201733}
   - component: {fileID: 6591065298372703594}
   m_Layer: 13
-  m_Name: MotherRoom2D_Front
+  m_Name: MotherRoom2D_Side
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2796,7 +2796,7 @@ GameObject:
   - component: {fileID: 7609707787374001471}
   - component: {fileID: 7498356845818810378}
   - component: {fileID: 4127335559206882510}
-  m_Layer: 15
+  m_Layer: 13
   m_Name: TestCube2DSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

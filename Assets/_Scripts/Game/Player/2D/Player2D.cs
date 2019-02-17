@@ -27,7 +27,9 @@ public class Player2D : Player
     private Rigidbody2D rBody;
     private Collider2D col;
     private int direction = 1;
-    private Combinable combinable;
+
+    [HideInInspector]
+    public Combinable combinable;
     private bool moveUp;
 
     // Use this for initialization
@@ -71,11 +73,14 @@ public class Player2D : Player
 
     public bool CheckTransition(bool grounded)
     {
-        if (grounded && transitionInput.GetAxisDown)
+        if (transitionInput.GetAxisDown)
         {
-            WorldManager.Instance.Transition(WorldType.World3D);
-            AudioManager.Instance.PlaySFX(transitionSFXName);
-            return true;
+            if ((grounded || (combinable && combinable.forceTransition)))
+            {
+                WorldManager.Instance.Transition(WorldType.World3D);
+                AudioManager.Instance.PlaySFX(transitionSFXName);
+                return true;
+            }
         }
         return false;
     }
@@ -83,7 +88,13 @@ public class Player2D : Player
     public void SetCombinable(Combinable combinable)
     {
         if (this.combinable)
+        {
+            if(this.combinable.forceTransition)
+            {
+                SetTrigger(false);
+            }
             this.combinable.ResetParent();
+        }
         
         this.combinable = combinable;
 
@@ -91,17 +102,40 @@ public class Player2D : Player
         if (combinable && combinable.SetPos())
         {
             combinable.CheckParent();
-
-            Vector3 targetCenter = combinable.GetComponentInChildren<Collider2D>().bounds.center;
-            transform.position = targetCenter;
+            SetPosCombinableCenter();
             combinable.transform.SetParent(transform);
             sprite.color = new Color(0, 255, 255, 0.6f);
 
             CombineEffectManager.Instance.PlayEffect(transform.position);
+
+            if(combinable.forceTransition)
+            {
+                SetTrigger(true);
+            }
         } else
         {
             sprite.color = Color.white;
         }
+    }
+
+    private void SetTrigger(bool active)
+    {
+        var colliders = GetComponentsInChildren<Collider2D>();
+        for (int i = 0; i < colliders.Length; i++)
+        {
+            colliders[i].isTrigger = active;
+        }
+        rBody.gravityScale = active ? 0 : 1;
+    }
+
+    public void SetPosCombinableCenter(bool ignoreYAxis = false)
+    {
+        Vector3 targetCenter = combinable.GetComponentInChildren<Collider2D>().bounds.center;
+
+        if (ignoreYAxis)
+            transform.position = new Vector3(targetCenter.x, transform.position.y);
+        else
+            transform.position = targetCenter;
     }
 
     public override void HandleFixedUpdate()

@@ -6,6 +6,8 @@ public class Combinable : MonoBehaviour
 {
     public string[] linesMove = new string[] { "Unable to move.\n (Combined with an immovable object).",
     "Press TAB to revert dimensions." };
+    [HideInInspector]
+    public bool forceTransition;
     private Transform originalParent;
 
     private static readonly string bumpSfxName = "Bump";

@@ -45,7 +45,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d6938e6d6a4e1f4985ca18eaa80bbe9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pairs: []
+  pairs:
+  - worldType: 1
+    prefab: {fileID: 4689024427138200640, guid: 6051ec367d7d3054ca3e685fde5be963,
+      type: 3}
 --- !u!114 &8504080669447299055
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59,8 +62,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   localDelta: {x: 0, y: 0, z: 2}
-  waitTime: 1
-  speed: 2
+  waitTime: 2
+  speed: 1.5
 --- !u!135 &3936115931810708420
 SphereCollider:
   m_ObjectHideFlags: 0
