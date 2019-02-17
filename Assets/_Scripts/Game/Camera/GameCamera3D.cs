@@ -139,8 +139,13 @@ public class GameCamera3D : GameCamera {
         m_LookAngle = euler.y;
         m_PivotEulers = pivotEulers.eulerAngles;
 
-        if(applyTilt)
+        if (applyTilt)
+        {
             m_TiltAngle = m_PivotEulers.x;
+
+            while (m_TiltAngle > 90)
+                m_TiltAngle -= 180;
+        }
     }
 
     public override void StartAnimate(Quaternion lookRot, Quaternion pivotEulers, float time)

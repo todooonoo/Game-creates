@@ -2036,8 +2036,8 @@ GameObject:
   - component: {fileID: 8656562254391164415}
   - component: {fileID: 3917765118890893867}
   - component: {fileID: 4895434445858461099}
-  - component: {fileID: 6591065298372703594}
   - component: {fileID: 4006317657959201733}
+  - component: {fileID: 6591065298372703594}
   m_Layer: 13
   m_Name: Level3_Floor_Front
   m_TagString: Untagged
@@ -2106,7 +2106,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseObject: {fileID: 4082401640732917654}
-  count: 8
+  count: 20
+  multiplier: 1
+--- !u!114 &4006317657959201733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7191230065859038932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d809df70325425b48bbab2c52f16eb25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseObject: {fileID: 7111467884628355300}
+  count: 20
   multiplier: 1
 --- !u!114 &6591065298372703594
 MonoBehaviour:
@@ -2121,23 +2136,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseObject: {fileID: 2704528020069758640}
-  count: 4
+  count: 10
   multiplier: 2
---- !u!114 &4006317657959201733
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7191230065859038932}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d809df70325425b48bbab2c52f16eb25, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  baseObject: {fileID: 7111467884628355300}
-  count: 8
-  multiplier: 1
 --- !u!1 &7322639074499171300
 GameObject:
   m_ObjectHideFlags: 0

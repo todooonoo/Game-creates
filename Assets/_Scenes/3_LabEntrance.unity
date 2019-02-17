@@ -395,7 +395,21 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1765794203}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &453710177
+--- !u!64 &453710180
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 453710176}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300008, guid: 6b9486449e09e744abc5b389a44f25ff, type: 3}
+--- !u!114 &453710181
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -415,20 +429,6 @@ MonoBehaviour:
   - '...'
   - Press TAB and use "TOP" perspective...
   clearType: 2
---- !u!64 &453710180
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 453710176}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300008, guid: 6b9486449e09e744abc5b389a44f25ff, type: 3}
 --- !u!1 &458369823 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1400475033481994, guid: 085f741163727d5409d1d6694c7f3b16,
@@ -1199,6 +1199,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1449244883034432, guid: fbfee1e6407f5434db2f7bb6814cae1b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 114291456882327596, guid: fbfee1e6407f5434db2f7bb6814cae1b,
         type: 3}
       propertyPath: m_TiltMin
@@ -1746,6 +1750,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InstanceContainer
       objectReference: {fileID: 0}
+    - target: {fileID: 1681777912709772, guid: f102f5d1442c5774eafc8b0fdcd5e3e2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4706467685981880, guid: f102f5d1442c5774eafc8b0fdcd5e3e2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1823,6 +1831,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BGM_Lab
+      objectReference: {fileID: 0}
+    - target: {fileID: 2335530514629917903, guid: 9feb9d82ae6af0a4481c5d4905d02236,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2120889552274114929, guid: 9feb9d82ae6af0a4481c5d4905d02236,
         type: 3}
@@ -1920,6 +1933,7 @@ GameObject:
   - component: {fileID: 4378523242142429274}
   - component: {fileID: 4340104345685283270}
   - component: {fileID: 4384240026299231997}
+  - component: {fileID: 4384240026299231998}
   m_Layer: 0
   m_Name: DoorCollider
   m_TagString: Untagged
@@ -1946,3 +1960,19 @@ MonoBehaviour:
   lines:
   - The door is locked...
   clearType: 0
+--- !u!114 &4384240026299231998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4384240026299231996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d6938e6d6a4e1f4985ca18eaa80bbe9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pairs:
+  - worldType: 3
+    prefab: {fileID: 7032406141214281697, guid: 415f0ae7f45069041855fbc2a21fc494,
+      type: 3}
